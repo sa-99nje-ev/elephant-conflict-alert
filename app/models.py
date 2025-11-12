@@ -1,63 +1,52 @@
-from sqlalchemy import Column, Integer, String, Float, DateTime, Text, Boolean
-from sqlalchemy.sql import func
-from app.database import Base
+from sqlalchemy import Column, Integer, String, Float, DateTime, Boolean, Date, func
+from .database import Base
 
 class ConflictIncident(Base):
     __tablename__ = "conflict_incidents"
     
     id = Column(Integer, primary_key=True, index=True)
-    timestamp = Column(DateTime, nullable=False)
-    latitude = Column(Float, nullable=False)
-    longitude = Column(Float, nullable=False)
-    incident_type = Column(String(100), nullable=False)
-    elephant_count = Column(Integer)
-    crop_damage_hectares = Column(Float)
-    village_name = Column(String(200))
-    district = Column(String(100))
-    province = Column(String(100))
-    reported_by = Column(String(200))
-    description = Column(Text)
-    created_at = Column(DateTime(timezone=True), server_default=func.now())
+    timestamp = Column(DateTime(timezone=True), server_default=func.now())
+    # --- SIMPLIFIED ---
+    # We will use 'location' as the main join key, matching EnvironmentalData
+    location = Column(String, index=True, nullable=False)
+    incident_type = Column(String, index=True)
+    description = Column(String, nullable=True)
 
 class EnvironmentalData(Base):
     __tablename__ = "environmental_data"
     
     id = Column(Integer, primary_key=True, index=True)
-    date = Column(DateTime, nullable=False)
-    latitude = Column(Float, nullable=False)
-    longitude = Column(Float, nullable=False)
-    rainfall_mm = Column(Float)
-    temperature_c = Column(Float)
-    ndvi_vegetation_index = Column(Float)
-    soil_moisture = Column(Float)
-    drought_index = Column(Float)
-    created_at = Column(DateTime(timezone=True), server_default=func.now())
+    date = Column(Date, nullable=False, index=True)
+    
+    # --- THIS IS THE CRITICAL FIX ---
+    location = Column(String, index=True, nullable=False)
+    
+    rainfall_mm = Column(Float, nullable=False)
+    vegetation_index = Column(Float, nullable=False) # Simplified from 'ndvi'
 
 class RiskForecast(Base):
     __tablename__ = "risk_forecasts"
     
     id = Column(Integer, primary_key=True, index=True)
-    forecast_date = Column(DateTime, nullable=False)
-    latitude = Column(Float, nullable=False)
-    longitude = Column(Float, nullable=False)
-    risk_score = Column(Float, nullable=False)
-    risk_level = Column(String(20), nullable=False)
-    confidence = Column(Float)
-    factors = Column(Text)
-    district = Column(String(100))
-    created_at = Column(DateTime(timezone=True), server_default=func.now())
+    forecasted_at = Column(DateTime(timezone=True), server_default=func.now())
+    location = Column(String, index=True)
+    risk_level = Column(String)
 
 class Alert(Base):
     __tablename__ = "alerts"
     
     id = Column(Integer, primary_key=True, index=True)
-    alert_date = Column(DateTime, nullable=False)
-    latitude = Column(Float, nullable=False)
-    longitude = Column(Float, nullable=False)
-    alert_type = Column(String(50), nullable=False)
-    message = Column(Text, nullable=False)
-    district = Column(String(100))
-    village_name = Column(String(200))
-    is_sent = Column(Boolean, default=False)
-    sent_via = Column(String(50))
-    created_at = Column(DateTime(timezone=True), server_default=func.now())
+    sent_at = Column(DateTime(timezone=True), server_default=func.now())
+    location = Column(String, index=True)
+    risk_level = Column(String)
+    message = Column(String)
+
+class FarmerReport(Base):
+    __tablename__ = "farmer_reports"
+    
+    id = Column(Integer, primary_key=True, index=True)
+    reported_at = Column(DateTime(timezone=True), server_default=func.now())
+    location = Column(String, index=True, nullable=False)
+    elephant_count = Column(Integer, default=1)
+    description = Column(String, nullable=True)
+    is_verified = Column(Boolean, default=False)

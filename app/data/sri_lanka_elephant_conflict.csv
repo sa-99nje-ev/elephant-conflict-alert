@@ -1,0 +1,821 @@
+timestamp,latitude,longitude,incident_type,elephant_count,crop_damage_hectares,village_name,district,province,reported_by,description
+2022-01-01 23:00:00,8.4939,80.5402,crop_raid,4,3.27,Kebithigollewa,Anuradhapura,North Central,Farmer_70,Crop Raid reported in Kebithigollewa
+2022-01-02 17:00:00,8.1748,80.9344,property_damage,2,0.0,Welikanda,Polonnaruwa,North Central,Farmer_2,Property Damage reported in Welikanda
+2022-01-02 09:00:00,7.4339,81.7971,crop_raid,7,3.55,Padiyatalawa,Ampara,Eastern,Farmer_22,Crop Raid reported in Padiyatalawa
+2022-01-02 13:00:00,7.4664,81.7986,crop_raid,6,0.91,Mahaoya,Ampara,Eastern,Farmer_16,Crop Raid reported in Mahaoya
+2022-01-03 08:00:00,7.9752,81.0926,crop_raid,4,3.06,Hingurakgoda,Polonnaruwa,North Central,Farmer_86,Crop Raid reported in Hingurakgoda
+2022-01-03 23:00:00,7.4623,81.758,crop_raid,2,3.66,Mahaoya,Ampara,Eastern,Farmer_46,Crop Raid reported in Mahaoya
+2022-01-03 17:00:00,7.2287,81.6493,elephant_death,2,0.0,Uhana,Ampara,Eastern,Farmer_64,Elephant Death reported in Uhana
+2022-01-05 01:00:00,7.9867,81.142,crop_raid,4,1.49,Dimbulagala,Polonnaruwa,North Central,Farmer_3,Crop Raid reported in Dimbulagala
+2022-01-06 06:00:00,8.4001,80.339,human_injury,2,0.0,Kebithigollewa,Anuradhapura,North Central,Farmer_62,Human Injury reported in Kebithigollewa
+2022-01-07 23:00:00,7.2229,81.7085,crop_raid,2,3.36,Uhana,Ampara,Eastern,Farmer_70,Crop Raid reported in Uhana
+2022-01-08 23:00:00,7.8532,80.9211,human_injury,3,0.0,Hingurakgoda,Polonnaruwa,North Central,Farmer_76,Human Injury reported in Hingurakgoda
+2022-01-08 11:00:00,7.1131,81.5801,crop_raid,6,3.81,Padiyatalawa,Ampara,Eastern,Farmer_27,Crop Raid reported in Padiyatalawa
+2022-01-11 00:00:00,8.27,80.6959,property_damage,1,0.0,Kebithigollewa,Anuradhapura,North Central,Farmer_41,Property Damage reported in Kebithigollewa
+2022-01-13 14:00:00,8.0702,81.1563,crop_raid,1,3.0,Hingurakgoda,Polonnaruwa,North Central,Farmer_10,Crop Raid reported in Hingurakgoda
+2022-01-14 22:00:00,8.4142,80.586,crop_raid,6,3.85,Horowpothana,Anuradhapura,North Central,Farmer_44,Crop Raid reported in Horowpothana
+2022-01-14 12:00:00,8.1975,80.5248,property_damage,2,0.0,Mihintale,Anuradhapura,North Central,Farmer_70,Property Damage reported in Mihintale
+2022-01-14 09:00:00,7.1089,81.7511,crop_raid,3,2.73,Padiyatalawa,Ampara,Eastern,Farmer_65,Crop Raid reported in Padiyatalawa
+2022-01-15 10:00:00,8.1369,80.6041,property_damage,2,0.0,Kebithigollewa,Anuradhapura,North Central,Farmer_57,Property Damage reported in Kebithigollewa
+2022-01-16 04:00:00,7.4815,81.5961,property_damage,2,0.0,Mahaoya,Ampara,Eastern,Farmer_64,Property Damage reported in Mahaoya
+2022-01-18 13:00:00,8.5071,80.5236,human_injury,1,0.0,Nochchiyagama,Anuradhapura,North Central,Farmer_84,Human Injury reported in Nochchiyagama
+2022-01-21 18:00:00,6.6889,81.1502,crop_raid,7,0.44,Buttala,Monaragala,Uva,Farmer_4,Crop Raid reported in Buttala
+2022-01-21 22:00:00,7.0203,81.6519,crop_raid,6,4.51,Damana,Ampara,Eastern,Farmer_16,Crop Raid reported in Damana
+2022-01-22 15:00:00,8.0891,80.8111,elephant_death,1,0.0,Dimbulagala,Polonnaruwa,North Central,Farmer_30,Elephant Death reported in Dimbulagala
+2022-01-23 00:00:00,7.0578,81.5271,property_damage,1,0.0,Damana,Ampara,Eastern,Farmer_15,Property Damage reported in Damana
+2022-01-23 20:00:00,6.0326,81.0674,crop_raid,5,0.93,Weerawila,Hambantota,Southern,Farmer_79,Crop Raid reported in Weerawila
+2022-01-23 02:00:00,6.1893,81.387,property_damage,2,0.0,Weerawila,Hambantota,Southern,Farmer_73,Property Damage reported in Weerawila
+2022-01-24 07:00:00,7.9829,80.9108,crop_raid,6,4.33,Welikanda,Polonnaruwa,North Central,Farmer_47,Crop Raid reported in Welikanda
+2022-01-24 06:00:00,6.3019,81.3208,crop_raid,4,4.1,Tissamaharama,Hambantota,Southern,Farmer_40,Crop Raid reported in Tissamaharama
+2022-01-25 04:00:00,6.3135,81.1386,crop_raid,1,4.09,Weerawila,Hambantota,Southern,Farmer_88,Crop Raid reported in Weerawila
+2022-01-26 11:00:00,8.1716,80.62,crop_raid,4,3.41,Kebithigollewa,Anuradhapura,North Central,Farmer_61,Crop Raid reported in Kebithigollewa
+2022-01-27 12:00:00,8.508,80.6629,crop_raid,3,1.84,Mihintale,Anuradhapura,North Central,Farmer_77,Crop Raid reported in Mihintale
+2022-01-27 18:00:00,8.1866,80.8695,crop_raid,3,0.21,Dimbulagala,Polonnaruwa,North Central,Farmer_38,Crop Raid reported in Dimbulagala
+2022-01-28 06:00:00,8.3007,80.4881,crop_raid,2,1.96,Horowpothana,Anuradhapura,North Central,Farmer_96,Crop Raid reported in Horowpothana
+2022-01-28 07:00:00,6.6985,81.2434,property_damage,3,0.0,Katharagama,Monaragala,Uva,Farmer_61,Property Damage reported in Katharagama
+2022-01-29 14:00:00,6.1813,81.202,crop_raid,7,2.88,Thanamalwila,Hambantota,Southern,Farmer_81,Crop Raid reported in Thanamalwila
+2022-01-30 21:00:00,6.5661,81.1207,property_damage,1,0.0,Medagana,Monaragala,Uva,Farmer_52,Property Damage reported in Medagana
+2022-02-02 04:00:00,6.6337,81.1091,property_damage,1,0.0,Wellawaya,Monaragala,Uva,Farmer_14,Property Damage reported in Wellawaya
+2022-02-02 08:00:00,8.0208,81.1814,crop_raid,7,4.82,Dimbulagala,Polonnaruwa,North Central,Farmer_38,Crop Raid reported in Dimbulagala
+2022-02-04 21:00:00,6.3884,81.1309,crop_raid,7,2.9,Weerawila,Hambantota,Southern,Farmer_86,Crop Raid reported in Weerawila
+2022-02-06 11:00:00,6.0884,81.2124,crop_raid,6,2.38,Thanamalwila,Hambantota,Southern,Farmer_95,Crop Raid reported in Thanamalwila
+2022-02-07 00:00:00,6.9996,81.0439,crop_raid,3,1.66,Katharagama,Monaragala,Uva,Farmer_2,Crop Raid reported in Katharagama
+2022-02-09 22:00:00,6.0743,81.1875,crop_raid,7,0.37,Thanamalwila,Hambantota,Southern,Farmer_24,Crop Raid reported in Thanamalwila
+2022-02-10 12:00:00,8.2627,80.5561,human_injury,3,0.0,Mihintale,Anuradhapura,North Central,Farmer_51,Human Injury reported in Mihintale
+2022-02-11 13:00:00,8.1858,81.0223,crop_raid,7,4.36,Welikanda,Polonnaruwa,North Central,Farmer_34,Crop Raid reported in Welikanda
+2022-02-11 04:00:00,8.4969,80.5096,human_injury,2,0.0,Kebithigollewa,Anuradhapura,North Central,Farmer_75,Human Injury reported in Kebithigollewa
+2022-02-12 06:00:00,8.0042,80.9949,crop_raid,3,2.0,Medirigiriya,Polonnaruwa,North Central,Farmer_17,Crop Raid reported in Medirigiriya
+2022-02-12 12:00:00,8.1854,81.0181,crop_raid,4,4.29,Medirigiriya,Polonnaruwa,North Central,Farmer_60,Crop Raid reported in Medirigiriya
+2022-02-12 11:00:00,7.3272,81.7067,crop_raid,2,1.67,Mahaoya,Ampara,Eastern,Farmer_13,Crop Raid reported in Mahaoya
+2022-02-13 14:00:00,7.8273,81.1469,crop_raid,6,4.9,Welikanda,Polonnaruwa,North Central,Farmer_58,Crop Raid reported in Welikanda
+2022-02-13 14:00:00,6.0582,81.0854,crop_raid,5,2.75,Weerawila,Hambantota,Southern,Farmer_83,Crop Raid reported in Weerawila
+2022-02-14 03:00:00,7.819,80.8797,crop_raid,3,3.92,Medirigiriya,Polonnaruwa,North Central,Farmer_27,Crop Raid reported in Medirigiriya
+2022-02-14 16:00:00,6.8418,81.2517,crop_raid,5,0.87,Katharagama,Monaragala,Uva,Farmer_89,Crop Raid reported in Katharagama
+2022-02-15 12:00:00,8.1534,80.5733,property_damage,3,0.0,Kebithigollewa,Anuradhapura,North Central,Farmer_70,Property Damage reported in Kebithigollewa
+2022-02-15 10:00:00,7.3772,81.6108,crop_raid,5,0.91,Uhana,Ampara,Eastern,Farmer_28,Crop Raid reported in Uhana
+2022-02-15 05:00:00,7.3159,81.4567,property_damage,1,0.0,Uhana,Ampara,Eastern,Farmer_80,Property Damage reported in Uhana
+2022-02-16 06:00:00,7.432,81.3816,property_damage,3,0.0,Padiyatalawa,Ampara,Eastern,Farmer_82,Property Damage reported in Padiyatalawa
+2022-02-17 12:00:00,6.3456,81.1627,crop_raid,7,3.09,Thanamalwila,Hambantota,Southern,Farmer_81,Crop Raid reported in Thanamalwila
+2022-02-17 15:00:00,6.2941,81.3153,crop_raid,4,2.74,Tissamaharama,Hambantota,Southern,Farmer_28,Crop Raid reported in Tissamaharama
+2022-02-18 10:00:00,6.1234,81.4994,human_injury,2,0.0,Thanamalwila,Hambantota,Southern,Farmer_25,Human Injury reported in Thanamalwila
+2022-02-19 00:00:00,6.0796,81.2461,elephant_death,1,0.0,Thanamalwila,Hambantota,Southern,Farmer_3,Elephant Death reported in Thanamalwila
+2022-02-19 13:00:00,6.7692,81.1181,human_injury,1,0.0,Wellawaya,Monaragala,Uva,Farmer_94,Human Injury reported in Wellawaya
+2022-02-19 05:00:00,6.1668,81.2353,human_injury,3,0.0,Weerawila,Hambantota,Southern,Farmer_37,Human Injury reported in Weerawila
+2022-02-19 00:00:00,7.3538,81.4999,crop_raid,7,1.42,Padiyatalawa,Ampara,Eastern,Farmer_49,Crop Raid reported in Padiyatalawa
+2022-02-20 17:00:00,7.809,81.0465,property_damage,1,0.0,Medirigiriya,Polonnaruwa,North Central,Farmer_2,Property Damage reported in Medirigiriya
+2022-02-22 03:00:00,6.2986,81.4077,property_damage,3,0.0,Deberawewa,Hambantota,Southern,Farmer_90,Property Damage reported in Deberawewa
+2022-02-22 07:00:00,8.1705,80.6065,crop_raid,6,4.98,Horowpothana,Anuradhapura,North Central,Farmer_91,Crop Raid reported in Horowpothana
+2022-02-22 07:00:00,6.3735,81.4321,elephant_death,2,0.0,Weerawila,Hambantota,Southern,Farmer_27,Elephant Death reported in Weerawila
+2022-02-23 23:00:00,7.2972,81.6291,crop_raid,6,1.82,Mahaoya,Ampara,Eastern,Farmer_94,Crop Raid reported in Mahaoya
+2022-02-24 19:00:00,7.3635,81.3724,crop_raid,5,1.94,Mahaoya,Ampara,Eastern,Farmer_50,Crop Raid reported in Mahaoya
+2022-02-24 05:00:00,8.1628,80.4526,crop_raid,3,4.4,Horowpothana,Anuradhapura,North Central,Farmer_17,Crop Raid reported in Horowpothana
+2022-02-26 00:00:00,6.2425,81.2928,crop_raid,2,3.97,Weerawila,Hambantota,Southern,Farmer_48,Crop Raid reported in Weerawila
+2022-02-26 08:00:00,7.0494,81.7799,property_damage,3,0.0,Damana,Ampara,Eastern,Farmer_64,Property Damage reported in Damana
+2022-02-26 04:00:00,6.8335,81.174,property_damage,3,0.0,Wellawaya,Monaragala,Uva,Farmer_55,Property Damage reported in Wellawaya
+2022-02-26 02:00:00,7.133,81.4511,crop_raid,5,3.06,Mahaoya,Ampara,Eastern,Farmer_67,Crop Raid reported in Mahaoya
+2022-02-26 10:00:00,7.9999,80.9036,property_damage,2,0.0,Hingurakgoda,Polonnaruwa,North Central,Farmer_22,Property Damage reported in Hingurakgoda
+2022-02-26 18:00:00,6.2581,81.0319,crop_raid,4,0.58,Tissamaharama,Hambantota,Southern,Farmer_23,Crop Raid reported in Tissamaharama
+2022-02-27 15:00:00,8.1065,80.9638,human_injury,2,0.0,Dimbulagala,Polonnaruwa,North Central,Farmer_82,Human Injury reported in Dimbulagala
+2022-02-27 22:00:00,6.1982,81.3176,crop_raid,3,4.75,Thanamalwila,Hambantota,Southern,Farmer_25,Crop Raid reported in Thanamalwila
+2022-02-27 12:00:00,8.1761,80.7094,property_damage,3,0.0,Kebithigollewa,Anuradhapura,North Central,Farmer_25,Property Damage reported in Kebithigollewa
+2022-02-28 18:00:00,7.4434,81.5372,crop_raid,5,2.93,Padiyatalawa,Ampara,Eastern,Farmer_20,Crop Raid reported in Padiyatalawa
+2022-02-28 22:00:00,8.3073,80.3652,crop_raid,4,3.91,Mihintale,Anuradhapura,North Central,Farmer_8,Crop Raid reported in Mihintale
+2022-03-01 12:00:00,7.9266,81.0403,crop_raid,4,1.3,Medirigiriya,Polonnaruwa,North Central,Farmer_37,Crop Raid reported in Medirigiriya
+2022-03-01 05:00:00,8.1347,80.3538,crop_raid,5,3.56,Nochchiyagama,Anuradhapura,North Central,Farmer_62,Crop Raid reported in Nochchiyagama
+2022-03-02 16:00:00,6.3723,81.0521,crop_raid,6,1.78,Deberawewa,Hambantota,Southern,Farmer_19,Crop Raid reported in Deberawewa
+2022-03-02 15:00:00,7.9428,80.8818,human_injury,3,0.0,Medirigiriya,Polonnaruwa,North Central,Farmer_22,Human Injury reported in Medirigiriya
+2022-03-03 03:00:00,8.0736,80.8549,property_damage,2,0.0,Hingurakgoda,Polonnaruwa,North Central,Farmer_38,Property Damage reported in Hingurakgoda
+2022-03-03 19:00:00,8.5131,80.6719,property_damage,1,0.0,Kebithigollewa,Anuradhapura,North Central,Farmer_90,Property Damage reported in Kebithigollewa
+2022-03-04 08:00:00,7.4441,81.4499,property_damage,1,0.0,Damana,Ampara,Eastern,Farmer_51,Property Damage reported in Damana
+2022-03-04 02:00:00,6.1745,81.3803,property_damage,2,0.0,Deberawewa,Hambantota,Southern,Farmer_31,Property Damage reported in Deberawewa
+2022-03-05 18:00:00,6.5972,81.2435,human_injury,1,0.0,Wellawaya,Monaragala,Uva,Farmer_83,Human Injury reported in Wellawaya
+2022-03-05 04:00:00,6.0056,81.2055,crop_raid,4,2.68,Deberawewa,Hambantota,Southern,Farmer_8,Crop Raid reported in Deberawewa
+2022-03-05 17:00:00,7.4074,81.6124,crop_raid,5,2.56,Padiyatalawa,Ampara,Eastern,Farmer_6,Crop Raid reported in Padiyatalawa
+2022-03-07 07:00:00,6.7689,81.0328,property_damage,2,0.0,Medagana,Monaragala,Uva,Farmer_31,Property Damage reported in Medagana
+2022-03-07 18:00:00,8.5931,80.5543,human_injury,1,0.0,Kebithigollewa,Anuradhapura,North Central,Farmer_80,Human Injury reported in Kebithigollewa
+2022-03-08 03:00:00,7.8601,80.8962,human_injury,1,0.0,Medirigiriya,Polonnaruwa,North Central,Farmer_9,Human Injury reported in Medirigiriya
+2022-03-08 06:00:00,6.815,81.2973,crop_raid,5,0.64,Katharagama,Monaragala,Uva,Farmer_14,Crop Raid reported in Katharagama
+2022-03-09 23:00:00,7.3829,81.6969,crop_raid,7,1.7,Padiyatalawa,Ampara,Eastern,Farmer_36,Crop Raid reported in Padiyatalawa
+2022-03-10 16:00:00,8.3001,80.7697,crop_raid,2,2.46,Nochchiyagama,Anuradhapura,North Central,Farmer_34,Crop Raid reported in Nochchiyagama
+2022-03-10 20:00:00,7.0515,81.3546,crop_raid,7,1.53,Uhana,Ampara,Eastern,Farmer_43,Crop Raid reported in Uhana
+2022-03-12 00:00:00,6.2888,81.3959,property_damage,3,0.0,Deberawewa,Hambantota,Southern,Farmer_32,Property Damage reported in Deberawewa
+2022-03-12 08:00:00,6.506,81.2102,crop_raid,7,1.11,Buttala,Monaragala,Uva,Farmer_14,Crop Raid reported in Buttala
+2022-03-12 13:00:00,6.6804,81.108,property_damage,3,0.0,Buttala,Monaragala,Uva,Farmer_62,Property Damage reported in Buttala
+2022-03-14 13:00:00,6.6561,81.2562,human_injury,1,0.0,Katharagama,Monaragala,Uva,Farmer_97,Human Injury reported in Katharagama
+2022-03-14 08:00:00,6.8599,81.211,property_damage,3,0.0,Buttala,Monaragala,Uva,Farmer_99,Property Damage reported in Buttala
+2022-03-15 08:00:00,6.6798,81.2633,property_damage,1,0.0,Wellawaya,Monaragala,Uva,Farmer_9,Property Damage reported in Wellawaya
+2022-03-16 01:00:00,7.9705,80.8704,human_injury,1,0.0,Medirigiriya,Polonnaruwa,North Central,Farmer_11,Human Injury reported in Medirigiriya
+2022-03-17 06:00:00,7.3383,81.5769,property_damage,1,0.0,Mahaoya,Ampara,Eastern,Farmer_77,Property Damage reported in Mahaoya
+2022-03-18 01:00:00,6.3528,81.4268,crop_raid,5,2.36,Thanamalwila,Hambantota,Southern,Farmer_58,Crop Raid reported in Thanamalwila
+2022-03-21 20:00:00,6.8526,81.1379,crop_raid,4,0.24,Buttala,Monaragala,Uva,Farmer_30,Crop Raid reported in Buttala
+2022-03-21 15:00:00,6.9771,81.217,crop_raid,2,4.47,Buttala,Monaragala,Uva,Farmer_28,Crop Raid reported in Buttala
+2022-03-22 00:00:00,6.5471,81.1323,crop_raid,7,2.05,Buttala,Monaragala,Uva,Farmer_98,Crop Raid reported in Buttala
+2022-03-23 12:00:00,6.5743,81.0264,crop_raid,6,1.13,Katharagama,Monaragala,Uva,Farmer_74,Crop Raid reported in Katharagama
+2022-03-24 13:00:00,8.0164,81.1306,human_injury,2,0.0,Hingurakgoda,Polonnaruwa,North Central,Farmer_65,Human Injury reported in Hingurakgoda
+2022-03-26 06:00:00,7.8025,80.9425,crop_raid,3,4.13,Hingurakgoda,Polonnaruwa,North Central,Farmer_96,Crop Raid reported in Hingurakgoda
+2022-03-27 02:00:00,6.9585,81.2984,crop_raid,7,4.48,Wellawaya,Monaragala,Uva,Farmer_76,Crop Raid reported in Wellawaya
+2022-03-27 23:00:00,6.21,81.4549,human_injury,2,0.0,Tissamaharama,Hambantota,Southern,Farmer_47,Human Injury reported in Tissamaharama
+2022-03-27 05:00:00,8.1092,80.6577,crop_raid,3,2.39,Nochchiyagama,Anuradhapura,North Central,Farmer_88,Crop Raid reported in Nochchiyagama
+2022-03-27 03:00:00,7.4011,81.3868,property_damage,1,0.0,Uhana,Ampara,Eastern,Farmer_64,Property Damage reported in Uhana
+2022-03-29 23:00:00,6.5221,81.2889,crop_raid,6,4.08,Buttala,Monaragala,Uva,Farmer_73,Crop Raid reported in Buttala
+2022-03-29 12:00:00,6.5154,81.139,human_injury,1,0.0,Katharagama,Monaragala,Uva,Farmer_40,Human Injury reported in Katharagama
+2022-03-29 05:00:00,6.1662,81.4257,crop_raid,2,2.13,Tissamaharama,Hambantota,Southern,Farmer_77,Crop Raid reported in Tissamaharama
+2022-03-29 06:00:00,8.4018,80.6684,crop_raid,2,2.97,Mihintale,Anuradhapura,North Central,Farmer_85,Crop Raid reported in Mihintale
+2022-03-29 14:00:00,6.1299,81.3414,crop_raid,7,3.4,Deberawewa,Hambantota,Southern,Farmer_7,Crop Raid reported in Deberawewa
+2022-03-30 12:00:00,8.1626,80.6321,crop_raid,5,3.16,Kebithigollewa,Anuradhapura,North Central,Farmer_94,Crop Raid reported in Kebithigollewa
+2022-03-30 05:00:00,6.2692,81.2011,crop_raid,7,3.09,Deberawewa,Hambantota,Southern,Farmer_31,Crop Raid reported in Deberawewa
+2022-03-31 08:00:00,8.0373,80.8701,crop_raid,7,2.47,Hingurakgoda,Polonnaruwa,North Central,Farmer_21,Crop Raid reported in Hingurakgoda
+2022-03-31 00:00:00,7.3079,81.7028,property_damage,2,0.0,Mahaoya,Ampara,Eastern,Farmer_31,Property Damage reported in Mahaoya
+2022-03-31 23:00:00,6.9395,81.1908,crop_raid,7,4.03,Buttala,Monaragala,Uva,Farmer_64,Crop Raid reported in Buttala
+2022-04-01 06:00:00,6.9349,81.0081,property_damage,3,0.0,Katharagama,Monaragala,Uva,Farmer_87,Property Damage reported in Katharagama
+2022-04-02 21:00:00,7.0332,81.327,property_damage,3,0.0,Damana,Ampara,Eastern,Farmer_2,Property Damage reported in Damana
+2022-04-02 21:00:00,8.3239,80.3362,human_injury,1,0.0,Horowpothana,Anuradhapura,North Central,Farmer_61,Human Injury reported in Horowpothana
+2022-04-03 15:00:00,8.4784,80.4471,crop_raid,5,1.3,Nochchiyagama,Anuradhapura,North Central,Farmer_47,Crop Raid reported in Nochchiyagama
+2022-04-03 19:00:00,6.7621,81.0529,human_injury,1,0.0,Buttala,Monaragala,Uva,Farmer_93,Human Injury reported in Buttala
+2022-04-03 07:00:00,7.8722,80.8058,crop_raid,3,3.66,Welikanda,Polonnaruwa,North Central,Farmer_74,Crop Raid reported in Welikanda
+2022-04-04 15:00:00,6.667,81.2201,property_damage,1,0.0,Katharagama,Monaragala,Uva,Farmer_65,Property Damage reported in Katharagama
+2022-04-05 05:00:00,8.4534,80.3468,crop_raid,7,4.12,Horowpothana,Anuradhapura,North Central,Farmer_95,Crop Raid reported in Horowpothana
+2022-04-05 11:00:00,8.1935,81.0287,crop_raid,4,4.58,Hingurakgoda,Polonnaruwa,North Central,Farmer_88,Crop Raid reported in Hingurakgoda
+2022-04-05 13:00:00,8.1855,80.6217,crop_raid,4,1.91,Kebithigollewa,Anuradhapura,North Central,Farmer_13,Crop Raid reported in Kebithigollewa
+2022-04-06 08:00:00,7.4675,81.5975,crop_raid,7,3.76,Mahaoya,Ampara,Eastern,Farmer_2,Crop Raid reported in Mahaoya
+2022-04-06 04:00:00,8.0092,80.8587,property_damage,3,0.0,Medirigiriya,Polonnaruwa,North Central,Farmer_90,Property Damage reported in Medirigiriya
+2022-04-07 03:00:00,8.0697,81.1244,crop_raid,3,3.13,Hingurakgoda,Polonnaruwa,North Central,Farmer_77,Crop Raid reported in Hingurakgoda
+2022-04-07 02:00:00,7.326,81.6783,crop_raid,3,3.63,Padiyatalawa,Ampara,Eastern,Farmer_32,Crop Raid reported in Padiyatalawa
+2022-04-07 17:00:00,7.9966,80.8525,crop_raid,3,4.66,Hingurakgoda,Polonnaruwa,North Central,Farmer_86,Crop Raid reported in Hingurakgoda
+2022-04-08 16:00:00,6.3341,81.3504,property_damage,1,0.0,Tissamaharama,Hambantota,Southern,Farmer_43,Property Damage reported in Tissamaharama
+2022-04-09 23:00:00,6.6089,81.0321,crop_raid,1,2.8,Wellawaya,Monaragala,Uva,Farmer_14,Crop Raid reported in Wellawaya
+2022-04-09 04:00:00,6.1905,81.0351,crop_raid,2,4.12,Tissamaharama,Hambantota,Southern,Farmer_50,Crop Raid reported in Tissamaharama
+2022-04-09 08:00:00,8.5864,80.3678,elephant_death,3,0.0,Mihintale,Anuradhapura,North Central,Farmer_64,Elephant Death reported in Mihintale
+2022-04-09 14:00:00,7.3191,81.7914,crop_raid,7,3.82,Padiyatalawa,Ampara,Eastern,Farmer_11,Crop Raid reported in Padiyatalawa
+2022-04-10 16:00:00,8.3873,80.6027,property_damage,3,0.0,Mihintale,Anuradhapura,North Central,Farmer_2,Property Damage reported in Mihintale
+2022-04-11 12:00:00,8.4867,80.7325,crop_raid,2,4.3,Kebithigollewa,Anuradhapura,North Central,Farmer_60,Crop Raid reported in Kebithigollewa
+2022-04-11 15:00:00,6.9879,81.1097,crop_raid,3,0.75,Medagana,Monaragala,Uva,Farmer_33,Crop Raid reported in Medagana
+2022-04-12 17:00:00,7.3862,81.5406,human_injury,2,0.0,Uhana,Ampara,Eastern,Farmer_82,Human Injury reported in Uhana
+2022-04-12 08:00:00,8.0606,80.8722,property_damage,2,0.0,Welikanda,Polonnaruwa,North Central,Farmer_87,Property Damage reported in Welikanda
+2022-04-12 00:00:00,7.9539,81.0586,crop_raid,5,2.59,Welikanda,Polonnaruwa,North Central,Farmer_82,Crop Raid reported in Welikanda
+2022-04-12 22:00:00,7.0266,81.4962,human_injury,3,0.0,Damana,Ampara,Eastern,Farmer_72,Human Injury reported in Damana
+2022-04-13 12:00:00,8.4129,80.6192,property_damage,2,0.0,Kebithigollewa,Anuradhapura,North Central,Farmer_36,Property Damage reported in Kebithigollewa
+2022-04-13 23:00:00,7.3434,81.6432,crop_raid,6,0.48,Mahaoya,Ampara,Eastern,Farmer_10,Crop Raid reported in Mahaoya
+2022-04-14 09:00:00,8.3212,80.5195,human_injury,2,0.0,Nochchiyagama,Anuradhapura,North Central,Farmer_42,Human Injury reported in Nochchiyagama
+2022-04-14 03:00:00,6.8498,81.1426,crop_raid,3,2.45,Wellawaya,Monaragala,Uva,Farmer_29,Crop Raid reported in Wellawaya
+2022-04-16 14:00:00,7.1839,81.7198,crop_raid,3,3.74,Padiyatalawa,Ampara,Eastern,Farmer_12,Crop Raid reported in Padiyatalawa
+2022-04-17 00:00:00,6.3825,81.1767,crop_raid,2,4.26,Weerawila,Hambantota,Southern,Farmer_23,Crop Raid reported in Weerawila
+2022-04-17 23:00:00,8.4539,80.4917,crop_raid,7,3.29,Nochchiyagama,Anuradhapura,North Central,Farmer_55,Crop Raid reported in Nochchiyagama
+2022-04-17 02:00:00,7.2879,81.3504,property_damage,1,0.0,Uhana,Ampara,Eastern,Farmer_9,Property Damage reported in Uhana
+2022-04-17 15:00:00,7.0171,81.4938,crop_raid,2,4.18,Padiyatalawa,Ampara,Eastern,Farmer_35,Crop Raid reported in Padiyatalawa
+2022-04-19 11:00:00,6.1132,81.3216,crop_raid,5,2.26,Weerawila,Hambantota,Southern,Farmer_73,Crop Raid reported in Weerawila
+2022-04-19 17:00:00,7.853,81.0809,crop_raid,6,0.43,Welikanda,Polonnaruwa,North Central,Farmer_42,Crop Raid reported in Welikanda
+2022-04-19 23:00:00,8.1752,80.4233,crop_raid,3,1.43,Kebithigollewa,Anuradhapura,North Central,Farmer_83,Crop Raid reported in Kebithigollewa
+2022-04-19 16:00:00,8.0206,80.8271,crop_raid,2,0.55,Medirigiriya,Polonnaruwa,North Central,Farmer_12,Crop Raid reported in Medirigiriya
+2022-04-19 23:00:00,7.2786,81.7009,property_damage,3,0.0,Uhana,Ampara,Eastern,Farmer_49,Property Damage reported in Uhana
+2022-04-20 19:00:00,8.5664,80.4096,crop_raid,2,0.45,Kebithigollewa,Anuradhapura,North Central,Farmer_11,Crop Raid reported in Kebithigollewa
+2022-04-21 10:00:00,8.519,80.342,human_injury,1,0.0,Horowpothana,Anuradhapura,North Central,Farmer_47,Human Injury reported in Horowpothana
+2022-04-21 01:00:00,7.0666,81.6409,human_injury,3,0.0,Padiyatalawa,Ampara,Eastern,Farmer_79,Human Injury reported in Padiyatalawa
+2022-04-23 22:00:00,7.4976,81.4153,human_injury,3,0.0,Damana,Ampara,Eastern,Farmer_19,Human Injury reported in Damana
+2022-04-24 00:00:00,8.2645,80.3985,crop_raid,6,2.41,Mihintale,Anuradhapura,North Central,Farmer_43,Crop Raid reported in Mihintale
+2022-04-24 11:00:00,6.9882,81.119,crop_raid,5,0.26,Buttala,Monaragala,Uva,Farmer_70,Crop Raid reported in Buttala
+2022-04-25 22:00:00,8.1553,81.1688,crop_raid,7,2.51,Welikanda,Polonnaruwa,North Central,Farmer_14,Crop Raid reported in Welikanda
+2022-04-25 01:00:00,8.5018,80.7459,property_damage,1,0.0,Nochchiyagama,Anuradhapura,North Central,Farmer_32,Property Damage reported in Nochchiyagama
+2022-04-25 18:00:00,7.3444,81.5062,crop_raid,4,3.11,Uhana,Ampara,Eastern,Farmer_42,Crop Raid reported in Uhana
+2022-04-28 02:00:00,8.5605,80.5055,property_damage,3,0.0,Mihintale,Anuradhapura,North Central,Farmer_55,Property Damage reported in Mihintale
+2022-04-28 05:00:00,8.1077,80.611,human_injury,3,0.0,Horowpothana,Anuradhapura,North Central,Farmer_42,Human Injury reported in Horowpothana
+2022-04-30 05:00:00,8.1333,80.5797,elephant_death,2,0.0,Horowpothana,Anuradhapura,North Central,Farmer_17,Elephant Death reported in Horowpothana
+2022-04-30 14:00:00,7.2889,81.5943,crop_raid,3,0.64,Mahaoya,Ampara,Eastern,Farmer_64,Crop Raid reported in Mahaoya
+2022-04-30 11:00:00,8.1235,80.8452,crop_raid,6,4.29,Hingurakgoda,Polonnaruwa,North Central,Farmer_22,Crop Raid reported in Hingurakgoda
+2022-05-01 19:00:00,7.9482,80.8644,crop_raid,5,4.85,Hingurakgoda,Polonnaruwa,North Central,Farmer_19,Crop Raid reported in Hingurakgoda
+2022-05-02 15:00:00,7.1441,81.5879,crop_raid,7,2.36,Damana,Ampara,Eastern,Farmer_96,Crop Raid reported in Damana
+2022-05-03 18:00:00,7.8322,80.977,property_damage,1,0.0,Hingurakgoda,Polonnaruwa,North Central,Farmer_20,Property Damage reported in Hingurakgoda
+2022-05-04 23:00:00,7.3568,81.7022,crop_raid,1,1.52,Mahaoya,Ampara,Eastern,Farmer_14,Crop Raid reported in Mahaoya
+2022-05-07 13:00:00,6.217,81.3529,property_damage,3,0.0,Deberawewa,Hambantota,Southern,Farmer_88,Property Damage reported in Deberawewa
+2022-05-08 20:00:00,6.1777,81.3077,property_damage,3,0.0,Thanamalwila,Hambantota,Southern,Farmer_76,Property Damage reported in Thanamalwila
+2022-05-09 22:00:00,6.0775,81.1323,property_damage,2,0.0,Weerawila,Hambantota,Southern,Farmer_61,Property Damage reported in Weerawila
+2022-05-15 08:00:00,6.5746,81.1771,elephant_death,1,0.0,Katharagama,Monaragala,Uva,Farmer_33,Elephant Death reported in Katharagama
+2022-05-15 11:00:00,7.9936,80.8741,elephant_death,1,0.0,Dimbulagala,Polonnaruwa,North Central,Farmer_3,Elephant Death reported in Dimbulagala
+2022-05-16 13:00:00,6.6778,81.2565,crop_raid,7,0.34,Katharagama,Monaragala,Uva,Farmer_12,Crop Raid reported in Katharagama
+2022-05-21 02:00:00,7.219,81.74,crop_raid,7,2.42,Mahaoya,Ampara,Eastern,Farmer_27,Crop Raid reported in Mahaoya
+2022-05-21 06:00:00,6.3038,81.3804,crop_raid,3,3.84,Deberawewa,Hambantota,Southern,Farmer_44,Crop Raid reported in Deberawewa
+2022-05-22 05:00:00,8.4434,80.6053,human_injury,2,0.0,Nochchiyagama,Anuradhapura,North Central,Farmer_21,Human Injury reported in Nochchiyagama
+2022-05-23 10:00:00,7.0045,81.4183,crop_raid,7,0.33,Uhana,Ampara,Eastern,Farmer_91,Crop Raid reported in Uhana
+2022-05-24 16:00:00,6.7095,81.2232,crop_raid,1,0.12,Katharagama,Monaragala,Uva,Farmer_6,Crop Raid reported in Katharagama
+2022-05-27 08:00:00,6.3633,81.2436,crop_raid,2,2.57,Weerawila,Hambantota,Southern,Farmer_3,Crop Raid reported in Weerawila
+2022-05-29 03:00:00,8.4066,80.3751,property_damage,1,0.0,Kebithigollewa,Anuradhapura,North Central,Farmer_70,Property Damage reported in Kebithigollewa
+2022-05-29 04:00:00,8.4132,80.3514,property_damage,3,0.0,Kebithigollewa,Anuradhapura,North Central,Farmer_10,Property Damage reported in Kebithigollewa
+2022-05-29 15:00:00,7.9223,81.0964,crop_raid,5,2.71,Dimbulagala,Polonnaruwa,North Central,Farmer_90,Crop Raid reported in Dimbulagala
+2022-05-31 14:00:00,7.8306,81.0056,crop_raid,2,1.25,Dimbulagala,Polonnaruwa,North Central,Farmer_50,Crop Raid reported in Dimbulagala
+2022-06-03 05:00:00,6.6202,81.141,crop_raid,6,4.63,Wellawaya,Monaragala,Uva,Farmer_69,Crop Raid reported in Wellawaya
+2022-06-05 16:00:00,6.6985,81.0669,property_damage,2,0.0,Medagana,Monaragala,Uva,Farmer_71,Property Damage reported in Medagana
+2022-06-09 06:00:00,7.8179,80.8384,human_injury,2,0.0,Dimbulagala,Polonnaruwa,North Central,Farmer_35,Human Injury reported in Dimbulagala
+2022-06-10 23:00:00,8.1468,81.1363,crop_raid,1,0.84,Dimbulagala,Polonnaruwa,North Central,Farmer_42,Crop Raid reported in Dimbulagala
+2022-06-11 22:00:00,7.3765,81.5696,crop_raid,1,1.14,Uhana,Ampara,Eastern,Farmer_24,Crop Raid reported in Uhana
+2022-06-13 15:00:00,7.8634,80.9046,crop_raid,4,1.36,Dimbulagala,Polonnaruwa,North Central,Farmer_73,Crop Raid reported in Dimbulagala
+2022-06-15 19:00:00,7.4251,81.4314,human_injury,1,0.0,Mahaoya,Ampara,Eastern,Farmer_40,Human Injury reported in Mahaoya
+2022-06-17 12:00:00,6.111,81.4659,crop_raid,4,0.71,Weerawila,Hambantota,Southern,Farmer_47,Crop Raid reported in Weerawila
+2022-06-17 15:00:00,7.2189,81.3596,crop_raid,6,1.98,Uhana,Ampara,Eastern,Farmer_3,Crop Raid reported in Uhana
+2022-06-20 11:00:00,8.4332,80.5406,crop_raid,7,4.5,Horowpothana,Anuradhapura,North Central,Farmer_74,Crop Raid reported in Horowpothana
+2022-06-20 01:00:00,7.0117,81.7148,crop_raid,2,2.43,Uhana,Ampara,Eastern,Farmer_87,Crop Raid reported in Uhana
+2022-06-22 08:00:00,8.1642,80.9663,property_damage,1,0.0,Hingurakgoda,Polonnaruwa,North Central,Farmer_32,Property Damage reported in Hingurakgoda
+2022-06-24 06:00:00,7.8035,81.1432,crop_raid,7,4.57,Welikanda,Polonnaruwa,North Central,Farmer_95,Crop Raid reported in Welikanda
+2022-06-27 16:00:00,6.2343,81.4254,crop_raid,1,3.27,Thanamalwila,Hambantota,Southern,Farmer_1,Crop Raid reported in Thanamalwila
+2022-07-01 08:00:00,8.4709,80.5613,property_damage,3,0.0,Kebithigollewa,Anuradhapura,North Central,Farmer_49,Property Damage reported in Kebithigollewa
+2022-07-01 14:00:00,7.0695,81.4774,property_damage,2,0.0,Padiyatalawa,Ampara,Eastern,Farmer_48,Property Damage reported in Padiyatalawa
+2022-07-02 06:00:00,7.4477,81.5348,property_damage,1,0.0,Padiyatalawa,Ampara,Eastern,Farmer_11,Property Damage reported in Padiyatalawa
+2022-07-03 20:00:00,6.1419,81.1541,human_injury,2,0.0,Deberawewa,Hambantota,Southern,Farmer_73,Human Injury reported in Deberawewa
+2022-07-05 05:00:00,8.4381,80.6269,property_damage,3,0.0,Mihintale,Anuradhapura,North Central,Farmer_87,Property Damage reported in Mihintale
+2022-07-05 18:00:00,7.1634,81.5341,crop_raid,1,5.0,Padiyatalawa,Ampara,Eastern,Farmer_52,Crop Raid reported in Padiyatalawa
+2022-07-06 06:00:00,6.3611,81.3085,elephant_death,2,0.0,Deberawewa,Hambantota,Southern,Farmer_14,Elephant Death reported in Deberawewa
+2022-07-06 02:00:00,6.0383,81.0021,crop_raid,1,1.08,Tissamaharama,Hambantota,Southern,Farmer_22,Crop Raid reported in Tissamaharama
+2022-07-07 06:00:00,7.9546,80.8485,crop_raid,4,0.61,Dimbulagala,Polonnaruwa,North Central,Farmer_7,Crop Raid reported in Dimbulagala
+2022-07-07 16:00:00,7.4379,81.3396,property_damage,1,0.0,Padiyatalawa,Ampara,Eastern,Farmer_2,Property Damage reported in Padiyatalawa
+2022-07-07 15:00:00,6.3717,81.2311,property_damage,3,0.0,Weerawila,Hambantota,Southern,Farmer_85,Property Damage reported in Weerawila
+2022-07-07 23:00:00,7.3613,81.6999,crop_raid,3,4.06,Uhana,Ampara,Eastern,Farmer_99,Crop Raid reported in Uhana
+2022-07-07 12:00:00,8.1045,80.338,property_damage,1,0.0,Kebithigollewa,Anuradhapura,North Central,Farmer_75,Property Damage reported in Kebithigollewa
+2022-07-07 09:00:00,7.4591,81.75,crop_raid,3,1.55,Uhana,Ampara,Eastern,Farmer_78,Crop Raid reported in Uhana
+2022-07-07 21:00:00,6.1921,81.1768,property_damage,2,0.0,Tissamaharama,Hambantota,Southern,Farmer_74,Property Damage reported in Tissamaharama
+2022-07-10 17:00:00,8.2161,80.5316,crop_raid,7,4.34,Mihintale,Anuradhapura,North Central,Farmer_15,Crop Raid reported in Mihintale
+2022-07-11 11:00:00,7.0146,81.6728,property_damage,1,0.0,Uhana,Ampara,Eastern,Farmer_56,Property Damage reported in Uhana
+2022-07-11 13:00:00,6.987,81.0554,crop_raid,1,0.55,Buttala,Monaragala,Uva,Farmer_60,Crop Raid reported in Buttala
+2022-07-12 03:00:00,6.7414,81.2416,crop_raid,7,0.29,Medagana,Monaragala,Uva,Farmer_78,Crop Raid reported in Medagana
+2022-07-13 13:00:00,8.1616,80.6884,elephant_death,2,0.0,Kebithigollewa,Anuradhapura,North Central,Farmer_7,Elephant Death reported in Kebithigollewa
+2022-07-15 16:00:00,6.6155,81.2222,crop_raid,7,3.26,Medagana,Monaragala,Uva,Farmer_70,Crop Raid reported in Medagana
+2022-07-15 06:00:00,8.2654,80.5162,property_damage,2,0.0,Kebithigollewa,Anuradhapura,North Central,Farmer_65,Property Damage reported in Kebithigollewa
+2022-07-15 04:00:00,8.0273,80.9342,crop_raid,1,1.45,Hingurakgoda,Polonnaruwa,North Central,Farmer_83,Crop Raid reported in Hingurakgoda
+2022-07-16 05:00:00,6.1222,81.1066,property_damage,2,0.0,Tissamaharama,Hambantota,Southern,Farmer_67,Property Damage reported in Tissamaharama
+2022-07-16 18:00:00,8.3117,80.5374,human_injury,1,0.0,Horowpothana,Anuradhapura,North Central,Farmer_99,Human Injury reported in Horowpothana
+2022-07-17 06:00:00,8.4444,80.7594,crop_raid,1,3.95,Horowpothana,Anuradhapura,North Central,Farmer_69,Crop Raid reported in Horowpothana
+2022-07-17 16:00:00,6.5009,81.1746,property_damage,3,0.0,Wellawaya,Monaragala,Uva,Farmer_19,Property Damage reported in Wellawaya
+2022-07-18 08:00:00,7.4281,81.511,property_damage,2,0.0,Damana,Ampara,Eastern,Farmer_29,Property Damage reported in Damana
+2022-07-18 12:00:00,7.1244,81.3843,property_damage,1,0.0,Uhana,Ampara,Eastern,Farmer_88,Property Damage reported in Uhana
+2022-07-19 16:00:00,7.0573,81.3763,crop_raid,7,3.99,Padiyatalawa,Ampara,Eastern,Farmer_18,Crop Raid reported in Padiyatalawa
+2022-07-20 17:00:00,6.8859,81.1608,property_damage,1,0.0,Katharagama,Monaragala,Uva,Farmer_69,Property Damage reported in Katharagama
+2022-07-22 21:00:00,7.8349,80.9158,property_damage,1,0.0,Hingurakgoda,Polonnaruwa,North Central,Farmer_96,Property Damage reported in Hingurakgoda
+2022-07-22 19:00:00,8.5568,80.5386,human_injury,2,0.0,Mihintale,Anuradhapura,North Central,Farmer_64,Human Injury reported in Mihintale
+2022-07-22 16:00:00,7.3694,81.4895,crop_raid,2,2.48,Padiyatalawa,Ampara,Eastern,Farmer_78,Crop Raid reported in Padiyatalawa
+2022-07-23 17:00:00,8.0437,81.0644,crop_raid,3,1.44,Hingurakgoda,Polonnaruwa,North Central,Farmer_91,Crop Raid reported in Hingurakgoda
+2022-07-23 20:00:00,7.8919,80.8054,elephant_death,3,0.0,Welikanda,Polonnaruwa,North Central,Farmer_75,Elephant Death reported in Welikanda
+2022-07-24 06:00:00,8.2942,80.702,crop_raid,6,3.89,Nochchiyagama,Anuradhapura,North Central,Farmer_39,Crop Raid reported in Nochchiyagama
+2022-07-24 05:00:00,7.0778,81.3209,crop_raid,6,0.56,Uhana,Ampara,Eastern,Farmer_83,Crop Raid reported in Uhana
+2022-07-24 19:00:00,7.35,81.752,crop_raid,2,0.22,Damana,Ampara,Eastern,Farmer_20,Crop Raid reported in Damana
+2022-07-26 01:00:00,6.1113,81.0987,crop_raid,4,2.45,Deberawewa,Hambantota,Southern,Farmer_4,Crop Raid reported in Deberawewa
+2022-07-28 07:00:00,8.2206,80.7682,elephant_death,2,0.0,Mihintale,Anuradhapura,North Central,Farmer_8,Elephant Death reported in Mihintale
+2022-07-28 10:00:00,8.2637,80.3114,crop_raid,1,1.8,Nochchiyagama,Anuradhapura,North Central,Farmer_50,Crop Raid reported in Nochchiyagama
+2022-07-29 23:00:00,8.1219,80.4359,crop_raid,7,0.66,Horowpothana,Anuradhapura,North Central,Farmer_11,Crop Raid reported in Horowpothana
+2022-07-29 17:00:00,6.253,81.151,crop_raid,5,4.03,Weerawila,Hambantota,Southern,Farmer_69,Crop Raid reported in Weerawila
+2022-07-30 10:00:00,7.8163,81.1184,property_damage,3,0.0,Welikanda,Polonnaruwa,North Central,Farmer_93,Property Damage reported in Welikanda
+2022-07-30 18:00:00,8.3463,80.6185,crop_raid,3,1.22,Nochchiyagama,Anuradhapura,North Central,Farmer_7,Crop Raid reported in Nochchiyagama
+2022-07-31 19:00:00,8.3575,80.6904,property_damage,3,0.0,Horowpothana,Anuradhapura,North Central,Farmer_44,Property Damage reported in Horowpothana
+2022-08-01 05:00:00,6.8846,81.0771,elephant_death,3,0.0,Buttala,Monaragala,Uva,Farmer_12,Elephant Death reported in Buttala
+2022-08-02 05:00:00,7.4929,81.6298,crop_raid,7,1.27,Padiyatalawa,Ampara,Eastern,Farmer_99,Crop Raid reported in Padiyatalawa
+2022-08-02 11:00:00,6.8585,81.241,crop_raid,6,4.27,Buttala,Monaragala,Uva,Farmer_65,Crop Raid reported in Buttala
+2022-08-03 03:00:00,6.2586,81.4626,property_damage,3,0.0,Weerawila,Hambantota,Southern,Farmer_55,Property Damage reported in Weerawila
+2022-08-03 03:00:00,7.3827,81.4124,crop_raid,6,2.44,Uhana,Ampara,Eastern,Farmer_77,Crop Raid reported in Uhana
+2022-08-04 10:00:00,8.26,80.4136,elephant_death,1,0.0,Mihintale,Anuradhapura,North Central,Farmer_70,Elephant Death reported in Mihintale
+2022-08-05 15:00:00,6.7167,81.0411,crop_raid,4,1.86,Katharagama,Monaragala,Uva,Farmer_18,Crop Raid reported in Katharagama
+2022-08-07 06:00:00,6.8931,81.2008,property_damage,1,0.0,Medagana,Monaragala,Uva,Farmer_30,Property Damage reported in Medagana
+2022-08-07 18:00:00,7.2099,81.4277,crop_raid,4,4.82,Padiyatalawa,Ampara,Eastern,Farmer_25,Crop Raid reported in Padiyatalawa
+2022-08-08 19:00:00,8.277,80.6351,property_damage,3,0.0,Horowpothana,Anuradhapura,North Central,Farmer_53,Property Damage reported in Horowpothana
+2022-08-09 01:00:00,8.1861,80.8908,crop_raid,1,0.76,Hingurakgoda,Polonnaruwa,North Central,Farmer_88,Crop Raid reported in Hingurakgoda
+2022-08-10 04:00:00,6.7646,81.0089,crop_raid,4,0.61,Katharagama,Monaragala,Uva,Farmer_39,Crop Raid reported in Katharagama
+2022-08-10 01:00:00,6.5709,81.0893,crop_raid,6,2.79,Wellawaya,Monaragala,Uva,Farmer_57,Crop Raid reported in Wellawaya
+2022-08-11 10:00:00,6.2207,81.1203,crop_raid,6,1.39,Thanamalwila,Hambantota,Southern,Farmer_76,Crop Raid reported in Thanamalwila
+2022-08-13 20:00:00,6.6961,81.1227,crop_raid,5,4.64,Medagana,Monaragala,Uva,Farmer_66,Crop Raid reported in Medagana
+2022-08-15 06:00:00,6.7209,81.2537,elephant_death,3,0.0,Katharagama,Monaragala,Uva,Farmer_15,Elephant Death reported in Katharagama
+2022-08-16 09:00:00,8.0807,80.9475,crop_raid,2,0.5,Hingurakgoda,Polonnaruwa,North Central,Farmer_13,Crop Raid reported in Hingurakgoda
+2022-08-17 00:00:00,8.1258,81.1059,crop_raid,2,4.6,Medirigiriya,Polonnaruwa,North Central,Farmer_97,Crop Raid reported in Medirigiriya
+2022-08-17 15:00:00,7.3725,81.3088,crop_raid,2,4.6,Padiyatalawa,Ampara,Eastern,Farmer_96,Crop Raid reported in Padiyatalawa
+2022-08-18 09:00:00,6.2809,81.2889,human_injury,1,0.0,Tissamaharama,Hambantota,Southern,Farmer_39,Human Injury reported in Tissamaharama
+2022-08-19 15:00:00,7.3604,81.6569,property_damage,3,0.0,Damana,Ampara,Eastern,Farmer_93,Property Damage reported in Damana
+2022-08-19 03:00:00,6.3776,81.3179,crop_raid,2,3.42,Tissamaharama,Hambantota,Southern,Farmer_77,Crop Raid reported in Tissamaharama
+2022-08-19 14:00:00,7.3796,81.6112,crop_raid,3,3.22,Uhana,Ampara,Eastern,Farmer_67,Crop Raid reported in Uhana
+2022-08-20 03:00:00,6.3729,81.4806,property_damage,2,0.0,Weerawila,Hambantota,Southern,Farmer_6,Property Damage reported in Weerawila
+2022-08-21 17:00:00,7.9525,81.0283,crop_raid,4,1.43,Dimbulagala,Polonnaruwa,North Central,Farmer_12,Crop Raid reported in Dimbulagala
+2022-08-22 15:00:00,7.3004,81.5773,crop_raid,6,1.19,Uhana,Ampara,Eastern,Farmer_38,Crop Raid reported in Uhana
+2022-08-23 10:00:00,8.1118,80.7497,human_injury,3,0.0,Kebithigollewa,Anuradhapura,North Central,Farmer_96,Human Injury reported in Kebithigollewa
+2022-08-23 07:00:00,7.3304,81.6316,elephant_death,3,0.0,Padiyatalawa,Ampara,Eastern,Farmer_21,Elephant Death reported in Padiyatalawa
+2022-08-26 20:00:00,6.9473,81.1953,property_damage,1,0.0,Wellawaya,Monaragala,Uva,Farmer_73,Property Damage reported in Wellawaya
+2022-08-27 20:00:00,6.7382,81.1632,crop_raid,7,0.2,Buttala,Monaragala,Uva,Farmer_66,Crop Raid reported in Buttala
+2022-08-28 19:00:00,6.1452,81.1487,property_damage,1,0.0,Tissamaharama,Hambantota,Southern,Farmer_17,Property Damage reported in Tissamaharama
+2022-08-28 13:00:00,6.9206,81.2796,crop_raid,1,2.93,Buttala,Monaragala,Uva,Farmer_43,Crop Raid reported in Buttala
+2022-08-30 17:00:00,6.7672,81.0787,crop_raid,7,3.1,Wellawaya,Monaragala,Uva,Farmer_6,Crop Raid reported in Wellawaya
+2022-08-30 03:00:00,8.4133,80.3859,crop_raid,5,2.78,Nochchiyagama,Anuradhapura,North Central,Farmer_97,Crop Raid reported in Nochchiyagama
+2022-08-31 01:00:00,6.9178,81.0754,crop_raid,1,1.35,Wellawaya,Monaragala,Uva,Farmer_91,Crop Raid reported in Wellawaya
+2022-08-31 06:00:00,8.1342,80.4485,property_damage,3,0.0,Nochchiyagama,Anuradhapura,North Central,Farmer_3,Property Damage reported in Nochchiyagama
+2022-08-31 10:00:00,6.1471,81.2464,property_damage,1,0.0,Thanamalwila,Hambantota,Southern,Farmer_78,Property Damage reported in Thanamalwila
+2022-08-31 09:00:00,8.5109,80.5428,crop_raid,4,0.32,Nochchiyagama,Anuradhapura,North Central,Farmer_94,Crop Raid reported in Nochchiyagama
+2022-09-02 19:00:00,8.0109,81.0651,crop_raid,1,4.92,Welikanda,Polonnaruwa,North Central,Farmer_98,Crop Raid reported in Welikanda
+2022-09-03 11:00:00,6.7237,81.222,crop_raid,3,0.4,Wellawaya,Monaragala,Uva,Farmer_19,Crop Raid reported in Wellawaya
+2022-09-04 23:00:00,8.5449,80.3386,crop_raid,1,3.04,Horowpothana,Anuradhapura,North Central,Farmer_90,Crop Raid reported in Horowpothana
+2022-09-05 06:00:00,8.1901,81.0909,crop_raid,1,0.57,Hingurakgoda,Polonnaruwa,North Central,Farmer_52,Crop Raid reported in Hingurakgoda
+2022-09-05 07:00:00,6.1899,81.0402,crop_raid,7,2.17,Weerawila,Hambantota,Southern,Farmer_49,Crop Raid reported in Weerawila
+2022-09-05 20:00:00,6.9406,81.2668,human_injury,3,0.0,Medagana,Monaragala,Uva,Farmer_39,Human Injury reported in Medagana
+2022-09-05 08:00:00,7.4394,81.3838,crop_raid,6,1.39,Damana,Ampara,Eastern,Farmer_23,Crop Raid reported in Damana
+2022-09-05 17:00:00,8.0604,81.0027,crop_raid,2,2.04,Hingurakgoda,Polonnaruwa,North Central,Farmer_91,Crop Raid reported in Hingurakgoda
+2022-09-06 11:00:00,6.3822,81.1685,crop_raid,4,1.86,Tissamaharama,Hambantota,Southern,Farmer_55,Crop Raid reported in Tissamaharama
+2022-09-09 11:00:00,7.2699,81.438,property_damage,2,0.0,Padiyatalawa,Ampara,Eastern,Farmer_20,Property Damage reported in Padiyatalawa
+2022-09-10 03:00:00,6.1377,81.2466,crop_raid,5,0.75,Thanamalwila,Hambantota,Southern,Farmer_68,Crop Raid reported in Thanamalwila
+2022-09-10 00:00:00,8.2808,80.6992,property_damage,3,0.0,Nochchiyagama,Anuradhapura,North Central,Farmer_35,Property Damage reported in Nochchiyagama
+2022-09-10 21:00:00,6.0987,81.2627,crop_raid,2,4.87,Deberawewa,Hambantota,Southern,Farmer_92,Crop Raid reported in Deberawewa
+2022-09-11 01:00:00,8.5049,80.4489,crop_raid,4,0.35,Mihintale,Anuradhapura,North Central,Farmer_11,Crop Raid reported in Mihintale
+2022-09-12 18:00:00,6.2593,81.4954,crop_raid,3,0.93,Tissamaharama,Hambantota,Southern,Farmer_93,Crop Raid reported in Tissamaharama
+2022-09-13 11:00:00,8.4151,80.3389,property_damage,1,0.0,Kebithigollewa,Anuradhapura,North Central,Farmer_12,Property Damage reported in Kebithigollewa
+2022-09-14 12:00:00,7.0986,81.3917,elephant_death,2,0.0,Damana,Ampara,Eastern,Farmer_49,Elephant Death reported in Damana
+2022-09-17 01:00:00,6.5797,81.0314,property_damage,2,0.0,Katharagama,Monaragala,Uva,Farmer_7,Property Damage reported in Katharagama
+2022-09-17 01:00:00,6.3969,81.1744,crop_raid,7,0.3,Deberawewa,Hambantota,Southern,Farmer_17,Crop Raid reported in Deberawewa
+2022-09-18 23:00:00,8.1544,80.3733,crop_raid,3,3.83,Horowpothana,Anuradhapura,North Central,Farmer_70,Crop Raid reported in Horowpothana
+2022-09-18 22:00:00,8.2666,80.7319,property_damage,2,0.0,Horowpothana,Anuradhapura,North Central,Farmer_2,Property Damage reported in Horowpothana
+2022-09-18 21:00:00,6.0834,81.43,human_injury,2,0.0,Thanamalwila,Hambantota,Southern,Farmer_6,Human Injury reported in Thanamalwila
+2022-09-18 01:00:00,6.9125,81.0233,crop_raid,7,3.57,Wellawaya,Monaragala,Uva,Farmer_92,Crop Raid reported in Wellawaya
+2022-09-19 10:00:00,6.9213,81.0992,human_injury,3,0.0,Wellawaya,Monaragala,Uva,Farmer_40,Human Injury reported in Wellawaya
+2022-09-19 07:00:00,7.8696,80.9079,crop_raid,1,4.95,Dimbulagala,Polonnaruwa,North Central,Farmer_92,Crop Raid reported in Dimbulagala
+2022-09-19 15:00:00,7.0339,81.3103,crop_raid,6,3.82,Uhana,Ampara,Eastern,Farmer_28,Crop Raid reported in Uhana
+2022-09-20 03:00:00,6.6396,81.0606,property_damage,2,0.0,Buttala,Monaragala,Uva,Farmer_22,Property Damage reported in Buttala
+2022-09-21 08:00:00,7.8816,80.9414,crop_raid,3,0.75,Welikanda,Polonnaruwa,North Central,Farmer_5,Crop Raid reported in Welikanda
+2022-09-22 01:00:00,6.3716,81.2554,crop_raid,6,1.64,Weerawila,Hambantota,Southern,Farmer_84,Crop Raid reported in Weerawila
+2022-09-22 17:00:00,6.389,81.4348,human_injury,2,0.0,Thanamalwila,Hambantota,Southern,Farmer_5,Human Injury reported in Thanamalwila
+2022-09-23 23:00:00,7.8713,81.0973,crop_raid,2,1.58,Hingurakgoda,Polonnaruwa,North Central,Farmer_91,Crop Raid reported in Hingurakgoda
+2022-09-23 14:00:00,7.3225,81.6274,human_injury,2,0.0,Uhana,Ampara,Eastern,Farmer_47,Human Injury reported in Uhana
+2022-09-25 02:00:00,6.5037,81.0039,property_damage,1,0.0,Wellawaya,Monaragala,Uva,Farmer_97,Property Damage reported in Wellawaya
+2022-09-25 21:00:00,6.049,81.457,crop_raid,7,2.21,Thanamalwila,Hambantota,Southern,Farmer_78,Crop Raid reported in Thanamalwila
+2022-09-27 08:00:00,7.3,81.7373,crop_raid,2,1.96,Uhana,Ampara,Eastern,Farmer_76,Crop Raid reported in Uhana
+2022-09-30 16:00:00,6.6986,81.123,crop_raid,3,4.98,Katharagama,Monaragala,Uva,Farmer_58,Crop Raid reported in Katharagama
+2022-10-05 01:00:00,7.9333,81.0522,crop_raid,1,2.93,Welikanda,Polonnaruwa,North Central,Farmer_63,Crop Raid reported in Welikanda
+2022-10-05 21:00:00,6.0642,81.1051,crop_raid,5,4.23,Weerawila,Hambantota,Southern,Farmer_64,Crop Raid reported in Weerawila
+2022-10-07 19:00:00,8.4737,80.3948,elephant_death,1,0.0,Kebithigollewa,Anuradhapura,North Central,Farmer_34,Elephant Death reported in Kebithigollewa
+2022-10-07 21:00:00,7.1487,81.5798,human_injury,3,0.0,Padiyatalawa,Ampara,Eastern,Farmer_73,Human Injury reported in Padiyatalawa
+2022-10-08 20:00:00,6.0602,81.0328,crop_raid,4,1.74,Deberawewa,Hambantota,Southern,Farmer_77,Crop Raid reported in Deberawewa
+2022-10-10 09:00:00,8.3096,80.5374,crop_raid,2,1.36,Mihintale,Anuradhapura,North Central,Farmer_16,Crop Raid reported in Mihintale
+2022-10-11 12:00:00,8.2911,80.5299,crop_raid,2,2.2,Kebithigollewa,Anuradhapura,North Central,Farmer_11,Crop Raid reported in Kebithigollewa
+2022-10-14 19:00:00,6.5959,81.2975,human_injury,1,0.0,Medagana,Monaragala,Uva,Farmer_54,Human Injury reported in Medagana
+2022-10-14 15:00:00,7.0377,81.7725,crop_raid,6,3.61,Padiyatalawa,Ampara,Eastern,Farmer_96,Crop Raid reported in Padiyatalawa
+2022-10-15 12:00:00,8.1402,80.4523,crop_raid,6,0.45,Horowpothana,Anuradhapura,North Central,Farmer_63,Crop Raid reported in Horowpothana
+2022-10-16 01:00:00,8.2662,80.4024,crop_raid,1,1.63,Kebithigollewa,Anuradhapura,North Central,Farmer_36,Crop Raid reported in Kebithigollewa
+2022-10-17 20:00:00,8.1328,80.5681,crop_raid,3,4.06,Nochchiyagama,Anuradhapura,North Central,Farmer_17,Crop Raid reported in Nochchiyagama
+2022-10-17 12:00:00,7.8479,80.9945,crop_raid,1,0.49,Welikanda,Polonnaruwa,North Central,Farmer_74,Crop Raid reported in Welikanda
+2022-10-18 05:00:00,7.3776,81.3171,crop_raid,3,4.13,Mahaoya,Ampara,Eastern,Farmer_39,Crop Raid reported in Mahaoya
+2022-10-18 05:00:00,6.3074,81.3907,crop_raid,1,1.97,Weerawila,Hambantota,Southern,Farmer_25,Crop Raid reported in Weerawila
+2022-10-22 15:00:00,6.2862,81.4757,human_injury,1,0.0,Thanamalwila,Hambantota,Southern,Farmer_35,Human Injury reported in Thanamalwila
+2022-10-24 20:00:00,7.8518,80.9438,property_damage,3,0.0,Medirigiriya,Polonnaruwa,North Central,Farmer_22,Property Damage reported in Medirigiriya
+2022-10-27 17:00:00,8.3743,80.4684,crop_raid,6,4.82,Horowpothana,Anuradhapura,North Central,Farmer_20,Crop Raid reported in Horowpothana
+2022-10-30 18:00:00,7.0628,81.655,human_injury,3,0.0,Mahaoya,Ampara,Eastern,Farmer_64,Human Injury reported in Mahaoya
+2022-10-31 12:00:00,6.5309,81.1883,crop_raid,1,1.05,Wellawaya,Monaragala,Uva,Farmer_97,Crop Raid reported in Wellawaya
+2022-11-01 07:00:00,6.2602,81.1606,crop_raid,7,0.25,Thanamalwila,Hambantota,Southern,Farmer_56,Crop Raid reported in Thanamalwila
+2022-11-03 20:00:00,8.2094,80.5839,crop_raid,5,3.26,Kebithigollewa,Anuradhapura,North Central,Farmer_71,Crop Raid reported in Kebithigollewa
+2022-11-04 22:00:00,8.5365,80.7419,human_injury,2,0.0,Mihintale,Anuradhapura,North Central,Farmer_57,Human Injury reported in Mihintale
+2022-11-06 04:00:00,7.0199,81.6831,property_damage,2,0.0,Uhana,Ampara,Eastern,Farmer_71,Property Damage reported in Uhana
+2022-11-07 04:00:00,6.5945,81.138,property_damage,3,0.0,Wellawaya,Monaragala,Uva,Farmer_89,Property Damage reported in Wellawaya
+2022-11-07 10:00:00,6.5903,81.2785,property_damage,1,0.0,Wellawaya,Monaragala,Uva,Farmer_71,Property Damage reported in Wellawaya
+2022-11-09 09:00:00,8.4578,80.7674,crop_raid,7,4.36,Horowpothana,Anuradhapura,North Central,Farmer_53,Crop Raid reported in Horowpothana
+2022-11-12 16:00:00,8.3609,80.5549,property_damage,3,0.0,Mihintale,Anuradhapura,North Central,Farmer_54,Property Damage reported in Mihintale
+2022-11-12 20:00:00,6.2225,81.3474,crop_raid,3,4.88,Weerawila,Hambantota,Southern,Farmer_47,Crop Raid reported in Weerawila
+2022-11-13 16:00:00,7.45,81.6555,property_damage,1,0.0,Padiyatalawa,Ampara,Eastern,Farmer_41,Property Damage reported in Padiyatalawa
+2022-11-14 19:00:00,6.7219,81.1291,crop_raid,2,2.68,Buttala,Monaragala,Uva,Farmer_39,Crop Raid reported in Buttala
+2022-11-14 21:00:00,7.9263,81.0051,property_damage,2,0.0,Dimbulagala,Polonnaruwa,North Central,Farmer_2,Property Damage reported in Dimbulagala
+2022-11-14 06:00:00,7.0646,81.5991,crop_raid,5,1.46,Uhana,Ampara,Eastern,Farmer_15,Crop Raid reported in Uhana
+2022-11-17 05:00:00,7.124,81.6384,property_damage,2,0.0,Uhana,Ampara,Eastern,Farmer_92,Property Damage reported in Uhana
+2022-11-17 15:00:00,6.6467,81.0562,human_injury,2,0.0,Wellawaya,Monaragala,Uva,Farmer_54,Human Injury reported in Wellawaya
+2022-11-19 22:00:00,6.7884,81.2951,crop_raid,2,0.57,Katharagama,Monaragala,Uva,Farmer_34,Crop Raid reported in Katharagama
+2022-11-22 08:00:00,8.1015,81.011,property_damage,3,0.0,Dimbulagala,Polonnaruwa,North Central,Farmer_30,Property Damage reported in Dimbulagala
+2022-11-23 14:00:00,7.0563,81.3836,crop_raid,5,1.65,Damana,Ampara,Eastern,Farmer_41,Crop Raid reported in Damana
+2022-11-29 07:00:00,6.3474,81.3046,crop_raid,2,3.69,Deberawewa,Hambantota,Southern,Farmer_90,Crop Raid reported in Deberawewa
+2022-12-01 02:00:00,6.8127,81.0557,crop_raid,2,2.53,Wellawaya,Monaragala,Uva,Farmer_84,Crop Raid reported in Wellawaya
+2022-12-01 09:00:00,8.4851,80.4707,human_injury,1,0.0,Nochchiyagama,Anuradhapura,North Central,Farmer_47,Human Injury reported in Nochchiyagama
+2022-12-02 20:00:00,8.1129,80.6189,property_damage,2,0.0,Nochchiyagama,Anuradhapura,North Central,Farmer_12,Property Damage reported in Nochchiyagama
+2022-12-05 08:00:00,8.2377,80.6584,crop_raid,3,2.01,Kebithigollewa,Anuradhapura,North Central,Farmer_32,Crop Raid reported in Kebithigollewa
+2022-12-09 09:00:00,7.8221,80.9148,property_damage,3,0.0,Hingurakgoda,Polonnaruwa,North Central,Farmer_20,Property Damage reported in Hingurakgoda
+2022-12-10 10:00:00,6.3886,81.0625,crop_raid,3,0.77,Weerawila,Hambantota,Southern,Farmer_91,Crop Raid reported in Weerawila
+2022-12-12 15:00:00,6.2749,81.0821,crop_raid,3,2.56,Tissamaharama,Hambantota,Southern,Farmer_34,Crop Raid reported in Tissamaharama
+2022-12-12 13:00:00,7.8737,81.057,crop_raid,4,0.41,Welikanda,Polonnaruwa,North Central,Farmer_52,Crop Raid reported in Welikanda
+2022-12-17 14:00:00,7.8085,81.1736,crop_raid,1,3.96,Welikanda,Polonnaruwa,North Central,Farmer_18,Crop Raid reported in Welikanda
+2022-12-20 01:00:00,8.2171,80.6296,property_damage,1,0.0,Nochchiyagama,Anuradhapura,North Central,Farmer_98,Property Damage reported in Nochchiyagama
+2022-12-20 13:00:00,6.2244,81.3302,crop_raid,1,0.77,Deberawewa,Hambantota,Southern,Farmer_57,Crop Raid reported in Deberawewa
+2022-12-25 10:00:00,7.3483,81.3305,property_damage,1,0.0,Padiyatalawa,Ampara,Eastern,Farmer_71,Property Damage reported in Padiyatalawa
+2022-12-26 15:00:00,7.0391,81.7595,crop_raid,4,0.41,Uhana,Ampara,Eastern,Farmer_12,Crop Raid reported in Uhana
+2022-12-26 11:00:00,6.541,81.0426,property_damage,3,0.0,Katharagama,Monaragala,Uva,Farmer_94,Property Damage reported in Katharagama
+2022-12-31 08:00:00,8.2863,80.5867,crop_raid,4,2.25,Horowpothana,Anuradhapura,North Central,Farmer_53,Crop Raid reported in Horowpothana
+2023-01-01 09:00:00,6.8573,81.145,crop_raid,1,1.52,Medagana,Monaragala,Uva,Farmer_80,Crop Raid reported in Medagana
+2023-01-01 17:00:00,8.1222,80.6166,crop_raid,6,4.6,Mihintale,Anuradhapura,North Central,Farmer_80,Crop Raid reported in Mihintale
+2023-01-01 15:00:00,8.5654,80.6449,property_damage,2,0.0,Nochchiyagama,Anuradhapura,North Central,Farmer_82,Property Damage reported in Nochchiyagama
+2023-01-02 23:00:00,7.2529,81.4632,human_injury,1,0.0,Padiyatalawa,Ampara,Eastern,Farmer_96,Human Injury reported in Padiyatalawa
+2023-01-03 10:00:00,8.258,80.4715,crop_raid,2,3.55,Mihintale,Anuradhapura,North Central,Farmer_14,Crop Raid reported in Mihintale
+2023-01-04 11:00:00,8.1668,81.0035,crop_raid,4,4.38,Welikanda,Polonnaruwa,North Central,Farmer_79,Crop Raid reported in Welikanda
+2023-01-05 03:00:00,7.0879,81.4183,elephant_death,3,0.0,Mahaoya,Ampara,Eastern,Farmer_81,Elephant Death reported in Mahaoya
+2023-01-06 12:00:00,8.1163,80.7976,crop_raid,1,0.59,Horowpothana,Anuradhapura,North Central,Farmer_16,Crop Raid reported in Horowpothana
+2023-01-06 18:00:00,8.1999,81.1386,crop_raid,5,1.18,Dimbulagala,Polonnaruwa,North Central,Farmer_87,Crop Raid reported in Dimbulagala
+2023-01-06 06:00:00,8.1086,81.0318,property_damage,1,0.0,Hingurakgoda,Polonnaruwa,North Central,Farmer_33,Property Damage reported in Hingurakgoda
+2023-01-06 04:00:00,6.8176,81.0446,crop_raid,3,3.94,Medagana,Monaragala,Uva,Farmer_81,Crop Raid reported in Medagana
+2023-01-09 06:00:00,6.2112,81.457,crop_raid,5,0.19,Deberawewa,Hambantota,Southern,Farmer_39,Crop Raid reported in Deberawewa
+2023-01-11 05:00:00,6.2935,81.118,property_damage,2,0.0,Tissamaharama,Hambantota,Southern,Farmer_23,Property Damage reported in Tissamaharama
+2023-01-12 19:00:00,6.1636,81.32,crop_raid,7,4.3,Deberawewa,Hambantota,Southern,Farmer_67,Crop Raid reported in Deberawewa
+2023-01-12 00:00:00,7.9806,80.8804,crop_raid,2,3.48,Medirigiriya,Polonnaruwa,North Central,Farmer_31,Crop Raid reported in Medirigiriya
+2023-01-13 19:00:00,7.2507,81.7721,crop_raid,2,4.72,Padiyatalawa,Ampara,Eastern,Farmer_59,Crop Raid reported in Padiyatalawa
+2023-01-14 15:00:00,6.6789,81.1397,property_damage,1,0.0,Wellawaya,Monaragala,Uva,Farmer_3,Property Damage reported in Wellawaya
+2023-01-15 03:00:00,6.0568,81.1652,crop_raid,4,0.3,Weerawila,Hambantota,Southern,Farmer_25,Crop Raid reported in Weerawila
+2023-01-16 21:00:00,6.5515,81.126,crop_raid,4,2.82,Katharagama,Monaragala,Uva,Farmer_7,Crop Raid reported in Katharagama
+2023-01-16 05:00:00,7.0745,81.5272,crop_raid,4,0.72,Uhana,Ampara,Eastern,Farmer_47,Crop Raid reported in Uhana
+2023-01-16 03:00:00,8.1673,80.3629,crop_raid,2,1.35,Kebithigollewa,Anuradhapura,North Central,Farmer_24,Crop Raid reported in Kebithigollewa
+2023-01-19 10:00:00,7.0109,81.4497,crop_raid,2,1.74,Mahaoya,Ampara,Eastern,Farmer_67,Crop Raid reported in Mahaoya
+2023-01-19 16:00:00,7.4958,81.3229,property_damage,1,0.0,Padiyatalawa,Ampara,Eastern,Farmer_84,Property Damage reported in Padiyatalawa
+2023-01-20 03:00:00,8.288,80.5941,crop_raid,4,0.44,Mihintale,Anuradhapura,North Central,Farmer_77,Crop Raid reported in Mihintale
+2023-01-20 18:00:00,7.83,81.0325,crop_raid,5,0.86,Welikanda,Polonnaruwa,North Central,Farmer_51,Crop Raid reported in Welikanda
+2023-01-20 12:00:00,8.0541,80.9219,crop_raid,5,1.04,Dimbulagala,Polonnaruwa,North Central,Farmer_34,Crop Raid reported in Dimbulagala
+2023-01-21 00:00:00,6.5229,81.0615,crop_raid,3,0.85,Wellawaya,Monaragala,Uva,Farmer_99,Crop Raid reported in Wellawaya
+2023-01-21 18:00:00,7.9399,80.8443,crop_raid,7,1.08,Hingurakgoda,Polonnaruwa,North Central,Farmer_98,Crop Raid reported in Hingurakgoda
+2023-01-21 05:00:00,6.697,81.2621,human_injury,3,0.0,Katharagama,Monaragala,Uva,Farmer_78,Human Injury reported in Katharagama
+2023-01-22 10:00:00,6.1236,81.1721,property_damage,3,0.0,Weerawila,Hambantota,Southern,Farmer_66,Property Damage reported in Weerawila
+2023-01-23 13:00:00,8.15,81.1673,property_damage,3,0.0,Medirigiriya,Polonnaruwa,North Central,Farmer_83,Property Damage reported in Medirigiriya
+2023-01-24 22:00:00,6.1073,81.4946,human_injury,1,0.0,Weerawila,Hambantota,Southern,Farmer_62,Human Injury reported in Weerawila
+2023-01-25 05:00:00,7.405,81.5652,crop_raid,7,3.87,Mahaoya,Ampara,Eastern,Farmer_93,Crop Raid reported in Mahaoya
+2023-01-27 19:00:00,7.4834,81.3265,property_damage,1,0.0,Padiyatalawa,Ampara,Eastern,Farmer_72,Property Damage reported in Padiyatalawa
+2023-01-28 13:00:00,8.561,80.4601,crop_raid,6,1.92,Nochchiyagama,Anuradhapura,North Central,Farmer_57,Crop Raid reported in Nochchiyagama
+2023-01-28 16:00:00,6.8695,81.145,property_damage,2,0.0,Wellawaya,Monaragala,Uva,Farmer_23,Property Damage reported in Wellawaya
+2023-01-28 20:00:00,7.2591,81.4411,property_damage,3,0.0,Uhana,Ampara,Eastern,Farmer_8,Property Damage reported in Uhana
+2023-01-29 01:00:00,6.7254,81.2027,property_damage,2,0.0,Buttala,Monaragala,Uva,Farmer_99,Property Damage reported in Buttala
+2023-01-31 21:00:00,6.2837,81.3979,crop_raid,4,2.71,Tissamaharama,Hambantota,Southern,Farmer_95,Crop Raid reported in Tissamaharama
+2023-01-31 22:00:00,7.8707,80.9779,crop_raid,5,1.99,Hingurakgoda,Polonnaruwa,North Central,Farmer_81,Crop Raid reported in Hingurakgoda
+2023-02-01 14:00:00,6.7408,81.1985,crop_raid,4,3.94,Katharagama,Monaragala,Uva,Farmer_23,Crop Raid reported in Katharagama
+2023-02-01 18:00:00,8.369,80.5999,crop_raid,5,0.37,Nochchiyagama,Anuradhapura,North Central,Farmer_51,Crop Raid reported in Nochchiyagama
+2023-02-03 23:00:00,8.2297,80.7835,property_damage,2,0.0,Kebithigollewa,Anuradhapura,North Central,Farmer_76,Property Damage reported in Kebithigollewa
+2023-02-03 13:00:00,8.3083,80.4226,human_injury,3,0.0,Mihintale,Anuradhapura,North Central,Farmer_65,Human Injury reported in Mihintale
+2023-02-03 19:00:00,8.1401,81.1786,crop_raid,6,2.66,Welikanda,Polonnaruwa,North Central,Farmer_39,Crop Raid reported in Welikanda
+2023-02-03 13:00:00,7.3114,81.7222,human_injury,3,0.0,Uhana,Ampara,Eastern,Farmer_16,Human Injury reported in Uhana
+2023-02-05 17:00:00,7.3923,81.4499,crop_raid,1,1.48,Mahaoya,Ampara,Eastern,Farmer_93,Crop Raid reported in Mahaoya
+2023-02-05 00:00:00,8.3783,80.4609,elephant_death,1,0.0,Kebithigollewa,Anuradhapura,North Central,Farmer_5,Elephant Death reported in Kebithigollewa
+2023-02-06 08:00:00,6.9987,81.0443,crop_raid,2,0.29,Wellawaya,Monaragala,Uva,Farmer_32,Crop Raid reported in Wellawaya
+2023-02-06 03:00:00,8.3311,80.6081,crop_raid,3,0.8,Mihintale,Anuradhapura,North Central,Farmer_54,Crop Raid reported in Mihintale
+2023-02-08 10:00:00,6.9444,81.2462,crop_raid,7,2.61,Katharagama,Monaragala,Uva,Farmer_99,Crop Raid reported in Katharagama
+2023-02-08 06:00:00,8.1875,80.4002,crop_raid,2,2.41,Nochchiyagama,Anuradhapura,North Central,Farmer_50,Crop Raid reported in Nochchiyagama
+2023-02-09 09:00:00,6.9285,81.013,elephant_death,2,0.0,Medagana,Monaragala,Uva,Farmer_89,Elephant Death reported in Medagana
+2023-02-09 09:00:00,8.05,81.026,human_injury,1,0.0,Dimbulagala,Polonnaruwa,North Central,Farmer_86,Human Injury reported in Dimbulagala
+2023-02-13 06:00:00,6.5603,81.0902,crop_raid,6,0.45,Medagana,Monaragala,Uva,Farmer_93,Crop Raid reported in Medagana
+2023-02-14 01:00:00,7.2186,81.3064,human_injury,3,0.0,Padiyatalawa,Ampara,Eastern,Farmer_15,Human Injury reported in Padiyatalawa
+2023-02-14 09:00:00,6.1492,81.2176,crop_raid,1,2.44,Weerawila,Hambantota,Southern,Farmer_43,Crop Raid reported in Weerawila
+2023-02-16 12:00:00,6.8254,81.1536,crop_raid,1,1.83,Wellawaya,Monaragala,Uva,Farmer_13,Crop Raid reported in Wellawaya
+2023-02-16 12:00:00,8.2457,80.414,crop_raid,2,3.8,Mihintale,Anuradhapura,North Central,Farmer_24,Crop Raid reported in Mihintale
+2023-02-19 23:00:00,6.9123,81.1061,human_injury,1,0.0,Buttala,Monaragala,Uva,Farmer_69,Human Injury reported in Buttala
+2023-02-20 23:00:00,7.8106,80.9472,crop_raid,3,0.16,Medirigiriya,Polonnaruwa,North Central,Farmer_44,Crop Raid reported in Medirigiriya
+2023-02-20 08:00:00,6.0212,81.3266,crop_raid,1,4.91,Thanamalwila,Hambantota,Southern,Farmer_16,Crop Raid reported in Thanamalwila
+2023-02-20 07:00:00,7.8057,81.1794,crop_raid,5,1.68,Welikanda,Polonnaruwa,North Central,Farmer_76,Crop Raid reported in Welikanda
+2023-02-20 05:00:00,6.0925,81.4985,elephant_death,2,0.0,Tissamaharama,Hambantota,Southern,Farmer_32,Elephant Death reported in Tissamaharama
+2023-02-22 21:00:00,7.2266,81.5571,crop_raid,1,0.54,Mahaoya,Ampara,Eastern,Farmer_63,Crop Raid reported in Mahaoya
+2023-02-22 19:00:00,7.1956,81.5564,property_damage,3,0.0,Mahaoya,Ampara,Eastern,Farmer_26,Property Damage reported in Mahaoya
+2023-02-22 05:00:00,7.4618,81.3791,crop_raid,1,0.59,Uhana,Ampara,Eastern,Farmer_32,Crop Raid reported in Uhana
+2023-02-22 15:00:00,8.1435,80.372,human_injury,3,0.0,Nochchiyagama,Anuradhapura,North Central,Farmer_18,Human Injury reported in Nochchiyagama
+2023-02-23 20:00:00,7.9475,81.092,property_damage,1,0.0,Dimbulagala,Polonnaruwa,North Central,Farmer_62,Property Damage reported in Dimbulagala
+2023-02-23 21:00:00,6.1945,81.3507,crop_raid,2,0.5,Tissamaharama,Hambantota,Southern,Farmer_96,Crop Raid reported in Tissamaharama
+2023-02-23 20:00:00,6.6369,81.2736,property_damage,3,0.0,Wellawaya,Monaragala,Uva,Farmer_43,Property Damage reported in Wellawaya
+2023-02-24 00:00:00,8.4525,80.4322,property_damage,2,0.0,Nochchiyagama,Anuradhapura,North Central,Farmer_21,Property Damage reported in Nochchiyagama
+2023-02-24 22:00:00,8.3013,80.3758,crop_raid,2,0.78,Horowpothana,Anuradhapura,North Central,Farmer_67,Crop Raid reported in Horowpothana
+2023-02-25 20:00:00,6.5415,81.1316,crop_raid,5,4.98,Medagana,Monaragala,Uva,Farmer_32,Crop Raid reported in Medagana
+2023-02-26 02:00:00,8.0888,81.0713,property_damage,1,0.0,Welikanda,Polonnaruwa,North Central,Farmer_29,Property Damage reported in Welikanda
+2023-02-26 09:00:00,6.8738,81.0613,crop_raid,1,3.18,Katharagama,Monaragala,Uva,Farmer_78,Crop Raid reported in Katharagama
+2023-02-26 07:00:00,6.6047,81.2154,crop_raid,3,4.64,Buttala,Monaragala,Uva,Farmer_75,Crop Raid reported in Buttala
+2023-02-26 15:00:00,8.0871,81.0697,property_damage,3,0.0,Dimbulagala,Polonnaruwa,North Central,Farmer_67,Property Damage reported in Dimbulagala
+2023-02-26 18:00:00,6.2232,81.2167,property_damage,3,0.0,Deberawewa,Hambantota,Southern,Farmer_38,Property Damage reported in Deberawewa
+2023-02-26 11:00:00,7.1636,81.7596,crop_raid,2,0.15,Uhana,Ampara,Eastern,Farmer_3,Crop Raid reported in Uhana
+2023-02-26 22:00:00,6.2592,81.0906,human_injury,2,0.0,Tissamaharama,Hambantota,Southern,Farmer_12,Human Injury reported in Tissamaharama
+2023-02-27 23:00:00,8.0684,81.1041,crop_raid,5,3.06,Hingurakgoda,Polonnaruwa,North Central,Farmer_22,Crop Raid reported in Hingurakgoda
+2023-02-28 14:00:00,8.2817,80.4412,crop_raid,3,2.72,Nochchiyagama,Anuradhapura,North Central,Farmer_52,Crop Raid reported in Nochchiyagama
+2023-02-28 21:00:00,6.5772,81.1128,crop_raid,6,3.41,Wellawaya,Monaragala,Uva,Farmer_72,Crop Raid reported in Wellawaya
+2023-03-01 10:00:00,7.0131,81.5517,crop_raid,7,2.16,Damana,Ampara,Eastern,Farmer_39,Crop Raid reported in Damana
+2023-03-02 06:00:00,8.2909,80.3142,crop_raid,2,2.22,Mihintale,Anuradhapura,North Central,Farmer_73,Crop Raid reported in Mihintale
+2023-03-03 23:00:00,6.1754,81.2496,human_injury,2,0.0,Tissamaharama,Hambantota,Southern,Farmer_10,Human Injury reported in Tissamaharama
+2023-03-04 23:00:00,6.9185,81.0907,crop_raid,3,0.54,Wellawaya,Monaragala,Uva,Farmer_29,Crop Raid reported in Wellawaya
+2023-03-04 17:00:00,7.3287,81.6643,crop_raid,4,3.91,Damana,Ampara,Eastern,Farmer_39,Crop Raid reported in Damana
+2023-03-04 07:00:00,6.2971,81.0237,crop_raid,7,4.14,Weerawila,Hambantota,Southern,Farmer_33,Crop Raid reported in Weerawila
+2023-03-05 05:00:00,8.1082,80.9067,crop_raid,1,0.47,Dimbulagala,Polonnaruwa,North Central,Farmer_93,Crop Raid reported in Dimbulagala
+2023-03-07 01:00:00,6.0211,81.4504,property_damage,1,0.0,Weerawila,Hambantota,Southern,Farmer_68,Property Damage reported in Weerawila
+2023-03-08 22:00:00,6.6705,81.2734,elephant_death,1,0.0,Katharagama,Monaragala,Uva,Farmer_27,Elephant Death reported in Katharagama
+2023-03-10 14:00:00,7.2952,81.7648,crop_raid,5,3.7,Uhana,Ampara,Eastern,Farmer_36,Crop Raid reported in Uhana
+2023-03-11 22:00:00,8.386,80.3478,crop_raid,3,3.86,Nochchiyagama,Anuradhapura,North Central,Farmer_26,Crop Raid reported in Nochchiyagama
+2023-03-11 22:00:00,7.895,80.8513,crop_raid,4,3.43,Dimbulagala,Polonnaruwa,North Central,Farmer_27,Crop Raid reported in Dimbulagala
+2023-03-12 05:00:00,6.3256,81.2113,crop_raid,4,3.33,Tissamaharama,Hambantota,Southern,Farmer_12,Crop Raid reported in Tissamaharama
+2023-03-13 10:00:00,6.6747,81.2323,property_damage,3,0.0,Wellawaya,Monaragala,Uva,Farmer_85,Property Damage reported in Wellawaya
+2023-03-14 19:00:00,8.485,80.4051,crop_raid,5,3.97,Nochchiyagama,Anuradhapura,North Central,Farmer_30,Crop Raid reported in Nochchiyagama
+2023-03-14 14:00:00,7.3447,81.7423,crop_raid,3,3.58,Uhana,Ampara,Eastern,Farmer_73,Crop Raid reported in Uhana
+2023-03-15 13:00:00,7.0766,81.4927,crop_raid,2,3.06,Uhana,Ampara,Eastern,Farmer_26,Crop Raid reported in Uhana
+2023-03-16 22:00:00,7.9136,81.0983,crop_raid,3,0.56,Hingurakgoda,Polonnaruwa,North Central,Farmer_3,Crop Raid reported in Hingurakgoda
+2023-03-16 11:00:00,7.0129,81.7712,property_damage,2,0.0,Uhana,Ampara,Eastern,Farmer_84,Property Damage reported in Uhana
+2023-03-17 04:00:00,6.0482,81.3874,elephant_death,1,0.0,Thanamalwila,Hambantota,Southern,Farmer_54,Elephant Death reported in Thanamalwila
+2023-03-17 11:00:00,7.2966,81.5004,crop_raid,5,1.59,Padiyatalawa,Ampara,Eastern,Farmer_84,Crop Raid reported in Padiyatalawa
+2023-03-18 22:00:00,6.8868,81.165,property_damage,1,0.0,Wellawaya,Monaragala,Uva,Farmer_49,Property Damage reported in Wellawaya
+2023-03-20 09:00:00,7.2015,81.6313,human_injury,2,0.0,Uhana,Ampara,Eastern,Farmer_82,Human Injury reported in Uhana
+2023-03-20 19:00:00,6.7605,81.2329,crop_raid,4,2.31,Wellawaya,Monaragala,Uva,Farmer_63,Crop Raid reported in Wellawaya
+2023-03-20 23:00:00,6.1889,81.1767,crop_raid,6,0.15,Weerawila,Hambantota,Southern,Farmer_38,Crop Raid reported in Weerawila
+2023-03-20 16:00:00,7.9354,80.9595,crop_raid,5,3.27,Welikanda,Polonnaruwa,North Central,Farmer_85,Crop Raid reported in Welikanda
+2023-03-21 23:00:00,8.2693,80.387,property_damage,3,0.0,Kebithigollewa,Anuradhapura,North Central,Farmer_48,Property Damage reported in Kebithigollewa
+2023-03-21 20:00:00,6.1305,81.2176,crop_raid,7,3.69,Deberawewa,Hambantota,Southern,Farmer_95,Crop Raid reported in Deberawewa
+2023-03-21 17:00:00,8.1843,80.5259,crop_raid,7,4.68,Kebithigollewa,Anuradhapura,North Central,Farmer_84,Crop Raid reported in Kebithigollewa
+2023-03-21 10:00:00,8.1057,80.3363,property_damage,2,0.0,Horowpothana,Anuradhapura,North Central,Farmer_13,Property Damage reported in Horowpothana
+2023-03-22 17:00:00,8.0117,80.9443,crop_raid,3,2.01,Medirigiriya,Polonnaruwa,North Central,Farmer_9,Crop Raid reported in Medirigiriya
+2023-03-22 05:00:00,6.3129,81.434,crop_raid,1,1.61,Thanamalwila,Hambantota,Southern,Farmer_78,Crop Raid reported in Thanamalwila
+2023-03-22 20:00:00,7.0051,81.7211,crop_raid,6,4.7,Damana,Ampara,Eastern,Farmer_62,Crop Raid reported in Damana
+2023-03-22 19:00:00,8.569,80.5774,property_damage,1,0.0,Horowpothana,Anuradhapura,North Central,Farmer_54,Property Damage reported in Horowpothana
+2023-03-22 13:00:00,8.489,80.6797,crop_raid,2,1.9,Mihintale,Anuradhapura,North Central,Farmer_7,Crop Raid reported in Mihintale
+2023-03-22 17:00:00,8.4432,80.7348,property_damage,1,0.0,Kebithigollewa,Anuradhapura,North Central,Farmer_38,Property Damage reported in Kebithigollewa
+2023-03-23 00:00:00,7.956,80.864,human_injury,3,0.0,Hingurakgoda,Polonnaruwa,North Central,Farmer_64,Human Injury reported in Hingurakgoda
+2023-03-24 23:00:00,8.1614,80.7587,crop_raid,6,0.42,Mihintale,Anuradhapura,North Central,Farmer_25,Crop Raid reported in Mihintale
+2023-03-24 04:00:00,6.5838,81.2767,crop_raid,1,1.3,Buttala,Monaragala,Uva,Farmer_43,Crop Raid reported in Buttala
+2023-03-24 14:00:00,8.2241,80.6663,crop_raid,1,2.58,Kebithigollewa,Anuradhapura,North Central,Farmer_42,Crop Raid reported in Kebithigollewa
+2023-03-25 20:00:00,7.4616,81.429,human_injury,1,0.0,Padiyatalawa,Ampara,Eastern,Farmer_91,Human Injury reported in Padiyatalawa
+2023-03-25 13:00:00,6.0398,81.1674,property_damage,3,0.0,Thanamalwila,Hambantota,Southern,Farmer_8,Property Damage reported in Thanamalwila
+2023-03-25 19:00:00,8.4977,80.4409,crop_raid,5,2.61,Horowpothana,Anuradhapura,North Central,Farmer_28,Crop Raid reported in Horowpothana
+2023-03-25 03:00:00,6.3786,81.1518,property_damage,1,0.0,Deberawewa,Hambantota,Southern,Farmer_61,Property Damage reported in Deberawewa
+2023-03-26 10:00:00,6.39,81.492,crop_raid,2,4.68,Weerawila,Hambantota,Southern,Farmer_57,Crop Raid reported in Weerawila
+2023-03-26 02:00:00,6.777,81.1105,crop_raid,6,2.43,Medagana,Monaragala,Uva,Farmer_91,Crop Raid reported in Medagana
+2023-03-26 09:00:00,8.1234,80.9219,crop_raid,7,1.18,Dimbulagala,Polonnaruwa,North Central,Farmer_62,Crop Raid reported in Dimbulagala
+2023-03-27 19:00:00,8.1679,81.0927,crop_raid,4,1.88,Dimbulagala,Polonnaruwa,North Central,Farmer_51,Crop Raid reported in Dimbulagala
+2023-03-28 21:00:00,8.1525,80.3597,human_injury,2,0.0,Mihintale,Anuradhapura,North Central,Farmer_51,Human Injury reported in Mihintale
+2023-03-28 07:00:00,8.0853,80.9103,crop_raid,3,1.31,Medirigiriya,Polonnaruwa,North Central,Farmer_44,Crop Raid reported in Medirigiriya
+2023-03-29 00:00:00,6.2007,81.339,crop_raid,4,4.26,Thanamalwila,Hambantota,Southern,Farmer_85,Crop Raid reported in Thanamalwila
+2023-03-29 20:00:00,6.3471,81.4865,crop_raid,4,4.53,Tissamaharama,Hambantota,Southern,Farmer_38,Crop Raid reported in Tissamaharama
+2023-03-30 09:00:00,8.0426,80.9271,crop_raid,1,4.49,Hingurakgoda,Polonnaruwa,North Central,Farmer_71,Crop Raid reported in Hingurakgoda
+2023-04-01 10:00:00,7.0243,81.3823,property_damage,1,0.0,Damana,Ampara,Eastern,Farmer_23,Property Damage reported in Damana
+2023-04-02 20:00:00,8.1615,80.7003,property_damage,2,0.0,Horowpothana,Anuradhapura,North Central,Farmer_73,Property Damage reported in Horowpothana
+2023-04-06 17:00:00,8.4433,80.7149,crop_raid,7,0.79,Nochchiyagama,Anuradhapura,North Central,Farmer_57,Crop Raid reported in Nochchiyagama
+2023-04-07 09:00:00,7.8766,81.116,crop_raid,3,1.65,Hingurakgoda,Polonnaruwa,North Central,Farmer_85,Crop Raid reported in Hingurakgoda
+2023-04-08 15:00:00,8.1745,81.1358,property_damage,2,0.0,Hingurakgoda,Polonnaruwa,North Central,Farmer_1,Property Damage reported in Hingurakgoda
+2023-04-08 14:00:00,7.9952,80.81,property_damage,2,0.0,Hingurakgoda,Polonnaruwa,North Central,Farmer_19,Property Damage reported in Hingurakgoda
+2023-04-08 08:00:00,6.5373,81.2743,crop_raid,2,0.95,Wellawaya,Monaragala,Uva,Farmer_8,Crop Raid reported in Wellawaya
+2023-04-11 02:00:00,8.5608,80.6231,property_damage,2,0.0,Mihintale,Anuradhapura,North Central,Farmer_35,Property Damage reported in Mihintale
+2023-04-11 19:00:00,8.1262,80.5938,crop_raid,7,2.14,Horowpothana,Anuradhapura,North Central,Farmer_20,Crop Raid reported in Horowpothana
+2023-04-11 07:00:00,7.2801,81.696,crop_raid,2,0.82,Uhana,Ampara,Eastern,Farmer_21,Crop Raid reported in Uhana
+2023-04-12 19:00:00,7.243,81.792,crop_raid,2,2.5,Damana,Ampara,Eastern,Farmer_8,Crop Raid reported in Damana
+2023-04-16 08:00:00,8.1321,80.3418,property_damage,1,0.0,Mihintale,Anuradhapura,North Central,Farmer_19,Property Damage reported in Mihintale
+2023-04-16 00:00:00,7.9027,81.0901,crop_raid,7,2.41,Medirigiriya,Polonnaruwa,North Central,Farmer_47,Crop Raid reported in Medirigiriya
+2023-04-17 09:00:00,6.0429,81.2944,human_injury,3,0.0,Thanamalwila,Hambantota,Southern,Farmer_89,Human Injury reported in Thanamalwila
+2023-04-17 16:00:00,6.6109,81.1826,property_damage,3,0.0,Buttala,Monaragala,Uva,Farmer_84,Property Damage reported in Buttala
+2023-04-18 20:00:00,8.5491,80.3244,property_damage,3,0.0,Nochchiyagama,Anuradhapura,North Central,Farmer_15,Property Damage reported in Nochchiyagama
+2023-04-18 09:00:00,8.2361,80.3738,crop_raid,3,0.63,Mihintale,Anuradhapura,North Central,Farmer_56,Crop Raid reported in Mihintale
+2023-04-19 23:00:00,7.4888,81.4907,human_injury,1,0.0,Mahaoya,Ampara,Eastern,Farmer_51,Human Injury reported in Mahaoya
+2023-04-20 16:00:00,8.3573,80.336,crop_raid,1,1.22,Mihintale,Anuradhapura,North Central,Farmer_14,Crop Raid reported in Mihintale
+2023-04-20 02:00:00,7.2487,81.7167,crop_raid,3,2.41,Padiyatalawa,Ampara,Eastern,Farmer_4,Crop Raid reported in Padiyatalawa
+2023-04-21 04:00:00,8.2118,80.4824,crop_raid,2,4.99,Horowpothana,Anuradhapura,North Central,Farmer_82,Crop Raid reported in Horowpothana
+2023-04-22 05:00:00,6.0906,81.4751,human_injury,1,0.0,Tissamaharama,Hambantota,Southern,Farmer_42,Human Injury reported in Tissamaharama
+2023-04-23 22:00:00,7.0083,81.521,property_damage,1,0.0,Mahaoya,Ampara,Eastern,Farmer_17,Property Damage reported in Mahaoya
+2023-04-23 14:00:00,7.3506,81.3817,crop_raid,6,3.59,Uhana,Ampara,Eastern,Farmer_40,Crop Raid reported in Uhana
+2023-04-24 11:00:00,6.0126,81.0122,human_injury,1,0.0,Deberawewa,Hambantota,Southern,Farmer_95,Human Injury reported in Deberawewa
+2023-04-24 11:00:00,6.0727,81.0581,crop_raid,3,1.43,Weerawila,Hambantota,Southern,Farmer_16,Crop Raid reported in Weerawila
+2023-04-24 03:00:00,7.3183,81.4928,crop_raid,7,4.83,Damana,Ampara,Eastern,Farmer_50,Crop Raid reported in Damana
+2023-04-24 09:00:00,8.0023,81.1853,property_damage,2,0.0,Medirigiriya,Polonnaruwa,North Central,Farmer_35,Property Damage reported in Medirigiriya
+2023-04-25 02:00:00,6.9462,81.2708,human_injury,3,0.0,Katharagama,Monaragala,Uva,Farmer_9,Human Injury reported in Katharagama
+2023-04-26 11:00:00,6.3548,81.3789,crop_raid,7,2.41,Weerawila,Hambantota,Southern,Farmer_13,Crop Raid reported in Weerawila
+2023-04-26 06:00:00,8.1972,80.4032,crop_raid,5,2.9,Mihintale,Anuradhapura,North Central,Farmer_34,Crop Raid reported in Mihintale
+2023-04-27 15:00:00,6.9349,81.2279,property_damage,1,0.0,Medagana,Monaragala,Uva,Farmer_7,Property Damage reported in Medagana
+2023-04-30 00:00:00,6.555,81.0703,crop_raid,3,3.31,Wellawaya,Monaragala,Uva,Farmer_48,Crop Raid reported in Wellawaya
+2023-04-30 00:00:00,8.1468,81.1955,crop_raid,3,4.29,Dimbulagala,Polonnaruwa,North Central,Farmer_8,Crop Raid reported in Dimbulagala
+2023-05-01 23:00:00,6.6312,81.0561,crop_raid,5,3.46,Buttala,Monaragala,Uva,Farmer_46,Crop Raid reported in Buttala
+2023-05-01 08:00:00,6.0677,81.4619,crop_raid,2,4.17,Thanamalwila,Hambantota,Southern,Farmer_35,Crop Raid reported in Thanamalwila
+2023-05-02 11:00:00,7.4644,81.4988,property_damage,1,0.0,Padiyatalawa,Ampara,Eastern,Farmer_75,Property Damage reported in Padiyatalawa
+2023-05-03 07:00:00,8.0317,80.8218,human_injury,2,0.0,Welikanda,Polonnaruwa,North Central,Farmer_45,Human Injury reported in Welikanda
+2023-05-03 09:00:00,6.2685,81.0773,elephant_death,3,0.0,Deberawewa,Hambantota,Southern,Farmer_27,Elephant Death reported in Deberawewa
+2023-05-06 17:00:00,7.3152,81.3424,property_damage,1,0.0,Padiyatalawa,Ampara,Eastern,Farmer_93,Property Damage reported in Padiyatalawa
+2023-05-06 23:00:00,6.3625,81.324,crop_raid,4,3.64,Weerawila,Hambantota,Southern,Farmer_14,Crop Raid reported in Weerawila
+2023-05-07 03:00:00,6.2522,81.3181,crop_raid,4,4.27,Thanamalwila,Hambantota,Southern,Farmer_28,Crop Raid reported in Thanamalwila
+2023-05-08 11:00:00,7.3151,81.4338,crop_raid,3,4.49,Padiyatalawa,Ampara,Eastern,Farmer_42,Crop Raid reported in Padiyatalawa
+2023-05-08 18:00:00,7.8935,81.0115,property_damage,3,0.0,Dimbulagala,Polonnaruwa,North Central,Farmer_78,Property Damage reported in Dimbulagala
+2023-05-11 10:00:00,6.5052,81.0588,human_injury,2,0.0,Katharagama,Monaragala,Uva,Farmer_49,Human Injury reported in Katharagama
+2023-05-11 13:00:00,6.2182,81.122,crop_raid,7,1.89,Weerawila,Hambantota,Southern,Farmer_9,Crop Raid reported in Weerawila
+2023-05-12 18:00:00,6.6254,81.1386,crop_raid,7,1.24,Katharagama,Monaragala,Uva,Farmer_43,Crop Raid reported in Katharagama
+2023-05-13 21:00:00,7.2471,81.6168,crop_raid,6,1.75,Padiyatalawa,Ampara,Eastern,Farmer_60,Crop Raid reported in Padiyatalawa
+2023-05-14 10:00:00,6.5234,81.1736,human_injury,2,0.0,Wellawaya,Monaragala,Uva,Farmer_48,Human Injury reported in Wellawaya
+2023-05-15 09:00:00,8.2283,80.7166,crop_raid,6,3.88,Kebithigollewa,Anuradhapura,North Central,Farmer_15,Crop Raid reported in Kebithigollewa
+2023-05-17 18:00:00,8.5731,80.5243,crop_raid,2,4.54,Horowpothana,Anuradhapura,North Central,Farmer_47,Crop Raid reported in Horowpothana
+2023-05-22 20:00:00,6.3499,81.0403,property_damage,1,0.0,Tissamaharama,Hambantota,Southern,Farmer_78,Property Damage reported in Tissamaharama
+2023-05-22 08:00:00,8.1516,80.8178,property_damage,3,0.0,Hingurakgoda,Polonnaruwa,North Central,Farmer_29,Property Damage reported in Hingurakgoda
+2023-05-25 22:00:00,8.53,80.7019,crop_raid,6,0.24,Horowpothana,Anuradhapura,North Central,Farmer_87,Crop Raid reported in Horowpothana
+2023-05-27 03:00:00,6.3357,81.0448,property_damage,1,0.0,Deberawewa,Hambantota,Southern,Farmer_96,Property Damage reported in Deberawewa
+2023-05-28 19:00:00,6.5846,81.1426,crop_raid,7,3.57,Buttala,Monaragala,Uva,Farmer_14,Crop Raid reported in Buttala
+2023-05-28 14:00:00,8.0391,81.0659,crop_raid,3,1.87,Dimbulagala,Polonnaruwa,North Central,Farmer_64,Crop Raid reported in Dimbulagala
+2023-05-29 08:00:00,6.6329,81.0812,crop_raid,4,2.28,Medagana,Monaragala,Uva,Farmer_72,Crop Raid reported in Medagana
+2023-05-30 02:00:00,7.1477,81.3385,property_damage,2,0.0,Mahaoya,Ampara,Eastern,Farmer_41,Property Damage reported in Mahaoya
+2023-05-31 23:00:00,8.2879,80.318,human_injury,2,0.0,Mihintale,Anuradhapura,North Central,Farmer_49,Human Injury reported in Mihintale
+2023-05-31 17:00:00,8.5115,80.7586,property_damage,3,0.0,Mihintale,Anuradhapura,North Central,Farmer_56,Property Damage reported in Mihintale
+2023-06-02 04:00:00,6.0815,81.4793,human_injury,1,0.0,Tissamaharama,Hambantota,Southern,Farmer_68,Human Injury reported in Tissamaharama
+2023-06-03 16:00:00,8.1042,80.7496,property_damage,2,0.0,Mihintale,Anuradhapura,North Central,Farmer_6,Property Damage reported in Mihintale
+2023-06-04 05:00:00,6.2578,81.4828,crop_raid,6,3.42,Deberawewa,Hambantota,Southern,Farmer_88,Crop Raid reported in Deberawewa
+2023-06-05 04:00:00,7.0433,81.7993,crop_raid,5,3.77,Damana,Ampara,Eastern,Farmer_31,Crop Raid reported in Damana
+2023-06-06 22:00:00,7.112,81.5783,property_damage,3,0.0,Mahaoya,Ampara,Eastern,Farmer_64,Property Damage reported in Mahaoya
+2023-06-07 05:00:00,6.1733,81.1793,human_injury,1,0.0,Deberawewa,Hambantota,Southern,Farmer_58,Human Injury reported in Deberawewa
+2023-06-07 01:00:00,8.3687,80.675,property_damage,1,0.0,Horowpothana,Anuradhapura,North Central,Farmer_24,Property Damage reported in Horowpothana
+2023-06-11 05:00:00,7.8043,80.8844,crop_raid,1,3.43,Welikanda,Polonnaruwa,North Central,Farmer_68,Crop Raid reported in Welikanda
+2023-06-11 03:00:00,6.3876,81.053,property_damage,2,0.0,Thanamalwila,Hambantota,Southern,Farmer_50,Property Damage reported in Thanamalwila
+2023-06-11 04:00:00,8.0743,81.0927,crop_raid,5,0.22,Hingurakgoda,Polonnaruwa,North Central,Farmer_5,Crop Raid reported in Hingurakgoda
+2023-06-12 18:00:00,6.7319,81.1522,property_damage,1,0.0,Medagana,Monaragala,Uva,Farmer_52,Property Damage reported in Medagana
+2023-06-12 05:00:00,8.0311,81.0657,crop_raid,6,2.2,Dimbulagala,Polonnaruwa,North Central,Farmer_86,Crop Raid reported in Dimbulagala
+2023-06-17 19:00:00,8.1279,80.3263,property_damage,2,0.0,Horowpothana,Anuradhapura,North Central,Farmer_21,Property Damage reported in Horowpothana
+2023-06-22 16:00:00,7.9951,80.9572,crop_raid,5,4.94,Medirigiriya,Polonnaruwa,North Central,Farmer_58,Crop Raid reported in Medirigiriya
+2023-06-23 21:00:00,7.1133,81.5193,crop_raid,7,3.99,Mahaoya,Ampara,Eastern,Farmer_64,Crop Raid reported in Mahaoya
+2023-06-24 08:00:00,6.1732,81.2558,property_damage,3,0.0,Weerawila,Hambantota,Southern,Farmer_21,Property Damage reported in Weerawila
+2023-06-24 01:00:00,6.6325,81.2753,property_damage,3,0.0,Katharagama,Monaragala,Uva,Farmer_59,Property Damage reported in Katharagama
+2023-06-25 14:00:00,6.022,81.2381,property_damage,3,0.0,Deberawewa,Hambantota,Southern,Farmer_94,Property Damage reported in Deberawewa
+2023-06-26 22:00:00,8.4912,80.465,crop_raid,3,4.86,Kebithigollewa,Anuradhapura,North Central,Farmer_43,Crop Raid reported in Kebithigollewa
+2023-06-27 18:00:00,7.2884,81.5252,crop_raid,2,2.87,Padiyatalawa,Ampara,Eastern,Farmer_38,Crop Raid reported in Padiyatalawa
+2023-06-30 03:00:00,8.116,81.1552,property_damage,1,0.0,Medirigiriya,Polonnaruwa,North Central,Farmer_65,Property Damage reported in Medirigiriya
+2023-07-01 09:00:00,6.9368,81.283,crop_raid,2,4.52,Wellawaya,Monaragala,Uva,Farmer_56,Crop Raid reported in Wellawaya
+2023-07-02 09:00:00,6.6105,81.0849,property_damage,3,0.0,Buttala,Monaragala,Uva,Farmer_17,Property Damage reported in Buttala
+2023-07-02 04:00:00,6.1302,81.401,crop_raid,3,0.26,Thanamalwila,Hambantota,Southern,Farmer_55,Crop Raid reported in Thanamalwila
+2023-07-02 17:00:00,6.2589,81.172,crop_raid,2,4.43,Weerawila,Hambantota,Southern,Farmer_10,Crop Raid reported in Weerawila
+2023-07-04 11:00:00,6.3493,81.1236,property_damage,1,0.0,Weerawila,Hambantota,Southern,Farmer_10,Property Damage reported in Weerawila
+2023-07-05 19:00:00,8.101,81.0125,property_damage,1,0.0,Medirigiriya,Polonnaruwa,North Central,Farmer_27,Property Damage reported in Medirigiriya
+2023-07-05 12:00:00,6.2695,81.4293,human_injury,2,0.0,Tissamaharama,Hambantota,Southern,Farmer_9,Human Injury reported in Tissamaharama
+2023-07-05 12:00:00,8.2178,80.5644,property_damage,1,0.0,Horowpothana,Anuradhapura,North Central,Farmer_13,Property Damage reported in Horowpothana
+2023-07-07 20:00:00,6.2211,81.2649,crop_raid,6,1.01,Deberawewa,Hambantota,Southern,Farmer_48,Crop Raid reported in Deberawewa
+2023-07-09 04:00:00,6.7186,81.2907,human_injury,3,0.0,Wellawaya,Monaragala,Uva,Farmer_65,Human Injury reported in Wellawaya
+2023-07-09 20:00:00,6.5102,81.2985,crop_raid,6,1.84,Katharagama,Monaragala,Uva,Farmer_32,Crop Raid reported in Katharagama
+2023-07-09 17:00:00,8.1037,81.1969,crop_raid,7,0.45,Medirigiriya,Polonnaruwa,North Central,Farmer_4,Crop Raid reported in Medirigiriya
+2023-07-10 08:00:00,6.3954,81.4237,human_injury,2,0.0,Deberawewa,Hambantota,Southern,Farmer_32,Human Injury reported in Deberawewa
+2023-07-11 08:00:00,6.2744,81.166,property_damage,3,0.0,Weerawila,Hambantota,Southern,Farmer_47,Property Damage reported in Weerawila
+2023-07-12 13:00:00,8.1378,81.1722,crop_raid,2,3.06,Hingurakgoda,Polonnaruwa,North Central,Farmer_19,Crop Raid reported in Hingurakgoda
+2023-07-13 11:00:00,8.1767,80.634,human_injury,1,0.0,Mihintale,Anuradhapura,North Central,Farmer_45,Human Injury reported in Mihintale
+2023-07-14 23:00:00,7.349,81.505,crop_raid,5,2.54,Uhana,Ampara,Eastern,Farmer_89,Crop Raid reported in Uhana
+2023-07-15 04:00:00,8.104,81.0155,crop_raid,6,3.27,Welikanda,Polonnaruwa,North Central,Farmer_5,Crop Raid reported in Welikanda
+2023-07-15 09:00:00,6.7489,81.1265,crop_raid,6,2.44,Medagana,Monaragala,Uva,Farmer_6,Crop Raid reported in Medagana
+2023-07-16 00:00:00,6.2594,81.3003,human_injury,1,0.0,Tissamaharama,Hambantota,Southern,Farmer_65,Human Injury reported in Tissamaharama
+2023-07-16 00:00:00,7.1973,81.4818,crop_raid,7,3.84,Mahaoya,Ampara,Eastern,Farmer_9,Crop Raid reported in Mahaoya
+2023-07-16 23:00:00,8.1309,81.1999,property_damage,1,0.0,Dimbulagala,Polonnaruwa,North Central,Farmer_4,Property Damage reported in Dimbulagala
+2023-07-16 11:00:00,7.3972,81.781,crop_raid,5,3.78,Damana,Ampara,Eastern,Farmer_84,Crop Raid reported in Damana
+2023-07-16 13:00:00,7.8088,80.9727,crop_raid,3,2.59,Dimbulagala,Polonnaruwa,North Central,Farmer_90,Crop Raid reported in Dimbulagala
+2023-07-17 19:00:00,6.1641,81.2465,human_injury,1,0.0,Deberawewa,Hambantota,Southern,Farmer_13,Human Injury reported in Deberawewa
+2023-07-17 12:00:00,7.2037,81.6686,crop_raid,4,2.43,Damana,Ampara,Eastern,Farmer_32,Crop Raid reported in Damana
+2023-07-17 03:00:00,8.3526,80.6348,property_damage,3,0.0,Nochchiyagama,Anuradhapura,North Central,Farmer_98,Property Damage reported in Nochchiyagama
+2023-07-18 22:00:00,7.1568,81.4146,crop_raid,1,1.64,Damana,Ampara,Eastern,Farmer_82,Crop Raid reported in Damana
+2023-07-18 00:00:00,8.1733,81.0631,human_injury,3,0.0,Medirigiriya,Polonnaruwa,North Central,Farmer_74,Human Injury reported in Medirigiriya
+2023-07-18 03:00:00,6.7253,81.1616,elephant_death,2,0.0,Katharagama,Monaragala,Uva,Farmer_70,Elephant Death reported in Katharagama
+2023-07-18 07:00:00,7.0807,81.6015,human_injury,1,0.0,Mahaoya,Ampara,Eastern,Farmer_65,Human Injury reported in Mahaoya
+2023-07-19 04:00:00,8.425,80.5012,crop_raid,6,0.73,Horowpothana,Anuradhapura,North Central,Farmer_48,Crop Raid reported in Horowpothana
+2023-07-19 13:00:00,8.0021,81.0689,crop_raid,3,1.56,Dimbulagala,Polonnaruwa,North Central,Farmer_73,Crop Raid reported in Dimbulagala
+2023-07-19 19:00:00,6.2125,81.2775,crop_raid,1,0.29,Weerawila,Hambantota,Southern,Farmer_6,Crop Raid reported in Weerawila
+2023-07-19 01:00:00,6.506,81.0022,elephant_death,1,0.0,Katharagama,Monaragala,Uva,Farmer_91,Elephant Death reported in Katharagama
+2023-07-19 11:00:00,6.1849,81.3106,property_damage,3,0.0,Thanamalwila,Hambantota,Southern,Farmer_97,Property Damage reported in Thanamalwila
+2023-07-20 11:00:00,8.0308,81.157,crop_raid,2,4.68,Hingurakgoda,Polonnaruwa,North Central,Farmer_40,Crop Raid reported in Hingurakgoda
+2023-07-22 02:00:00,6.1587,81.4064,crop_raid,2,3.15,Weerawila,Hambantota,Southern,Farmer_90,Crop Raid reported in Weerawila
+2023-07-23 06:00:00,6.6385,81.1655,human_injury,3,0.0,Wellawaya,Monaragala,Uva,Farmer_36,Human Injury reported in Wellawaya
+2023-07-23 10:00:00,8.2243,80.7655,property_damage,1,0.0,Kebithigollewa,Anuradhapura,North Central,Farmer_71,Property Damage reported in Kebithigollewa
+2023-07-24 11:00:00,8.3378,80.4064,crop_raid,2,0.88,Mihintale,Anuradhapura,North Central,Farmer_46,Crop Raid reported in Mihintale
+2023-07-24 20:00:00,6.5027,81.2522,crop_raid,6,0.62,Buttala,Monaragala,Uva,Farmer_94,Crop Raid reported in Buttala
+2023-07-24 12:00:00,6.1895,81.4599,crop_raid,2,3.13,Thanamalwila,Hambantota,Southern,Farmer_40,Crop Raid reported in Thanamalwila
+2023-07-24 22:00:00,7.4774,81.3387,crop_raid,6,1.95,Padiyatalawa,Ampara,Eastern,Farmer_28,Crop Raid reported in Padiyatalawa
+2023-07-25 19:00:00,8.3908,80.3757,property_damage,2,0.0,Horowpothana,Anuradhapura,North Central,Farmer_75,Property Damage reported in Horowpothana
+2023-07-26 09:00:00,7.8176,80.9418,crop_raid,7,3.22,Welikanda,Polonnaruwa,North Central,Farmer_41,Crop Raid reported in Welikanda
+2023-07-27 09:00:00,6.8127,81.2372,property_damage,1,0.0,Wellawaya,Monaragala,Uva,Farmer_72,Property Damage reported in Wellawaya
+2023-07-27 13:00:00,6.3319,81.1033,property_damage,1,0.0,Thanamalwila,Hambantota,Southern,Farmer_67,Property Damage reported in Thanamalwila
+2023-07-27 02:00:00,6.9253,81.2772,property_damage,1,0.0,Medagana,Monaragala,Uva,Farmer_24,Property Damage reported in Medagana
+2023-07-28 11:00:00,8.5575,80.4357,property_damage,1,0.0,Nochchiyagama,Anuradhapura,North Central,Farmer_7,Property Damage reported in Nochchiyagama
+2023-07-29 17:00:00,8.0541,81.0575,elephant_death,2,0.0,Medirigiriya,Polonnaruwa,North Central,Farmer_41,Elephant Death reported in Medirigiriya
+2023-07-29 08:00:00,8.1509,80.3746,crop_raid,5,1.78,Mihintale,Anuradhapura,North Central,Farmer_42,Crop Raid reported in Mihintale
+2023-07-30 20:00:00,6.5475,81.1731,crop_raid,5,4.21,Buttala,Monaragala,Uva,Farmer_54,Crop Raid reported in Buttala
+2023-07-30 04:00:00,7.8799,81.1892,crop_raid,1,4.16,Hingurakgoda,Polonnaruwa,North Central,Farmer_33,Crop Raid reported in Hingurakgoda
+2023-08-01 20:00:00,7.0142,81.5307,crop_raid,4,1.3,Damana,Ampara,Eastern,Farmer_46,Crop Raid reported in Damana
+2023-08-01 17:00:00,7.476,81.5797,crop_raid,5,4.82,Uhana,Ampara,Eastern,Farmer_66,Crop Raid reported in Uhana
+2023-08-02 15:00:00,8.315,80.3135,crop_raid,4,0.15,Horowpothana,Anuradhapura,North Central,Farmer_15,Crop Raid reported in Horowpothana
+2023-08-03 11:00:00,6.2985,81.1213,elephant_death,1,0.0,Thanamalwila,Hambantota,Southern,Farmer_94,Elephant Death reported in Thanamalwila
+2023-08-05 09:00:00,8.3052,80.5701,crop_raid,4,1.99,Nochchiyagama,Anuradhapura,North Central,Farmer_92,Crop Raid reported in Nochchiyagama
+2023-08-06 11:00:00,6.3824,81.3331,crop_raid,6,4.15,Thanamalwila,Hambantota,Southern,Farmer_33,Crop Raid reported in Thanamalwila
+2023-08-06 15:00:00,8.3994,80.6106,crop_raid,2,3.16,Mihintale,Anuradhapura,North Central,Farmer_56,Crop Raid reported in Mihintale
+2023-08-07 12:00:00,6.3171,81.1799,crop_raid,5,4.9,Thanamalwila,Hambantota,Southern,Farmer_13,Crop Raid reported in Thanamalwila
+2023-08-10 14:00:00,8.5996,80.3616,crop_raid,7,1.65,Nochchiyagama,Anuradhapura,North Central,Farmer_61,Crop Raid reported in Nochchiyagama
+2023-08-10 08:00:00,6.1311,81.3954,property_damage,2,0.0,Tissamaharama,Hambantota,Southern,Farmer_44,Property Damage reported in Tissamaharama
+2023-08-10 20:00:00,6.9585,81.1089,property_damage,1,0.0,Buttala,Monaragala,Uva,Farmer_38,Property Damage reported in Buttala
+2023-08-11 01:00:00,8.0778,81.1468,crop_raid,3,2.41,Hingurakgoda,Polonnaruwa,North Central,Farmer_43,Crop Raid reported in Hingurakgoda
+2023-08-11 15:00:00,6.0817,81.0992,crop_raid,5,0.37,Deberawewa,Hambantota,Southern,Farmer_29,Crop Raid reported in Deberawewa
+2023-08-11 08:00:00,8.1838,81.0489,crop_raid,3,4.84,Dimbulagala,Polonnaruwa,North Central,Farmer_62,Crop Raid reported in Dimbulagala
+2023-08-14 04:00:00,6.2112,81.1247,crop_raid,2,2.81,Tissamaharama,Hambantota,Southern,Farmer_50,Crop Raid reported in Tissamaharama
+2023-08-14 06:00:00,6.844,81.2454,crop_raid,4,4.08,Buttala,Monaragala,Uva,Farmer_31,Crop Raid reported in Buttala
+2023-08-15 00:00:00,6.3882,81.4183,crop_raid,7,3.71,Weerawila,Hambantota,Southern,Farmer_24,Crop Raid reported in Weerawila
+2023-08-16 23:00:00,8.5331,80.5673,human_injury,3,0.0,Horowpothana,Anuradhapura,North Central,Farmer_31,Human Injury reported in Horowpothana
+2023-08-16 17:00:00,6.6958,81.166,crop_raid,4,2.56,Buttala,Monaragala,Uva,Farmer_85,Crop Raid reported in Buttala
+2023-08-16 16:00:00,7.0006,81.667,crop_raid,1,2.05,Padiyatalawa,Ampara,Eastern,Farmer_57,Crop Raid reported in Padiyatalawa
+2023-08-17 04:00:00,8.0043,80.9348,crop_raid,4,4.79,Welikanda,Polonnaruwa,North Central,Farmer_89,Crop Raid reported in Welikanda
+2023-08-17 13:00:00,8.188,81.0368,crop_raid,2,1.61,Hingurakgoda,Polonnaruwa,North Central,Farmer_10,Crop Raid reported in Hingurakgoda
+2023-08-18 04:00:00,7.4564,81.6434,crop_raid,7,2.67,Uhana,Ampara,Eastern,Farmer_93,Crop Raid reported in Uhana
+2023-08-18 18:00:00,6.6432,81.0705,property_damage,3,0.0,Wellawaya,Monaragala,Uva,Farmer_98,Property Damage reported in Wellawaya
+2023-08-18 21:00:00,7.111,81.6403,crop_raid,5,2.56,Padiyatalawa,Ampara,Eastern,Farmer_94,Crop Raid reported in Padiyatalawa
+2023-08-20 06:00:00,8.581,80.4712,crop_raid,4,2.18,Nochchiyagama,Anuradhapura,North Central,Farmer_70,Crop Raid reported in Nochchiyagama
+2023-08-21 07:00:00,6.1391,81.0499,elephant_death,1,0.0,Thanamalwila,Hambantota,Southern,Farmer_13,Elephant Death reported in Thanamalwila
+2023-08-23 13:00:00,6.7684,81.288,property_damage,2,0.0,Buttala,Monaragala,Uva,Farmer_50,Property Damage reported in Buttala
+2023-08-24 07:00:00,7.2513,81.4757,crop_raid,6,1.7,Padiyatalawa,Ampara,Eastern,Farmer_14,Crop Raid reported in Padiyatalawa
+2023-08-24 22:00:00,6.1684,81.3038,property_damage,2,0.0,Thanamalwila,Hambantota,Southern,Farmer_47,Property Damage reported in Thanamalwila
+2023-08-25 20:00:00,7.1301,81.7666,crop_raid,2,4.37,Damana,Ampara,Eastern,Farmer_85,Crop Raid reported in Damana
+2023-08-25 04:00:00,7.9007,80.933,crop_raid,7,4.66,Medirigiriya,Polonnaruwa,North Central,Farmer_58,Crop Raid reported in Medirigiriya
+2023-08-25 19:00:00,6.0999,81.1793,crop_raid,1,1.35,Weerawila,Hambantota,Southern,Farmer_65,Crop Raid reported in Weerawila
+2023-08-26 08:00:00,8.2442,80.75,crop_raid,1,4.35,Horowpothana,Anuradhapura,North Central,Farmer_10,Crop Raid reported in Horowpothana
+2023-08-27 01:00:00,6.9421,81.1307,crop_raid,5,0.19,Buttala,Monaragala,Uva,Farmer_29,Crop Raid reported in Buttala
+2023-08-27 20:00:00,8.264,80.7167,property_damage,3,0.0,Kebithigollewa,Anuradhapura,North Central,Farmer_27,Property Damage reported in Kebithigollewa
+2023-08-28 22:00:00,7.9722,81.1175,property_damage,1,0.0,Welikanda,Polonnaruwa,North Central,Farmer_92,Property Damage reported in Welikanda
+2023-08-29 00:00:00,8.2328,80.3921,crop_raid,6,3.18,Horowpothana,Anuradhapura,North Central,Farmer_68,Crop Raid reported in Horowpothana
+2023-08-29 12:00:00,6.8711,81.0339,crop_raid,6,0.8,Wellawaya,Monaragala,Uva,Farmer_15,Crop Raid reported in Wellawaya
+2023-08-29 23:00:00,6.2638,81.446,crop_raid,2,2.8,Weerawila,Hambantota,Southern,Farmer_75,Crop Raid reported in Weerawila
+2023-08-30 19:00:00,6.5965,81.181,crop_raid,5,4.64,Medagana,Monaragala,Uva,Farmer_52,Crop Raid reported in Medagana
+2023-08-30 09:00:00,6.1709,81.0615,crop_raid,1,2.28,Thanamalwila,Hambantota,Southern,Farmer_28,Crop Raid reported in Thanamalwila
+2023-08-30 20:00:00,6.3734,81.3225,property_damage,1,0.0,Thanamalwila,Hambantota,Southern,Farmer_34,Property Damage reported in Thanamalwila
+2023-08-30 10:00:00,7.9054,81.199,crop_raid,2,4.92,Medirigiriya,Polonnaruwa,North Central,Farmer_35,Crop Raid reported in Medirigiriya
+2023-08-31 07:00:00,7.9867,81.1027,elephant_death,2,0.0,Hingurakgoda,Polonnaruwa,North Central,Farmer_35,Elephant Death reported in Hingurakgoda
+2023-09-02 02:00:00,6.7072,81.107,crop_raid,3,1.1,Medagana,Monaragala,Uva,Farmer_96,Crop Raid reported in Medagana
+2023-09-02 04:00:00,7.0987,81.5213,crop_raid,7,1.58,Damana,Ampara,Eastern,Farmer_39,Crop Raid reported in Damana
+2023-09-04 20:00:00,7.0539,81.5152,crop_raid,5,0.25,Padiyatalawa,Ampara,Eastern,Farmer_89,Crop Raid reported in Padiyatalawa
+2023-09-04 05:00:00,6.995,81.1941,property_damage,1,0.0,Katharagama,Monaragala,Uva,Farmer_71,Property Damage reported in Katharagama
+2023-09-04 01:00:00,7.9367,80.8572,crop_raid,2,0.84,Medirigiriya,Polonnaruwa,North Central,Farmer_90,Crop Raid reported in Medirigiriya
+2023-09-05 17:00:00,7.2777,81.5427,elephant_death,1,0.0,Damana,Ampara,Eastern,Farmer_75,Elephant Death reported in Damana
+2023-09-05 13:00:00,7.9415,80.861,crop_raid,1,1.96,Medirigiriya,Polonnaruwa,North Central,Farmer_67,Crop Raid reported in Medirigiriya
+2023-09-06 14:00:00,7.8184,80.8165,property_damage,2,0.0,Hingurakgoda,Polonnaruwa,North Central,Farmer_2,Property Damage reported in Hingurakgoda
+2023-09-08 17:00:00,8.1407,81.061,crop_raid,4,1.35,Hingurakgoda,Polonnaruwa,North Central,Farmer_18,Crop Raid reported in Hingurakgoda
+2023-09-09 00:00:00,6.2243,81.2932,crop_raid,3,3.85,Tissamaharama,Hambantota,Southern,Farmer_94,Crop Raid reported in Tissamaharama
+2023-09-09 13:00:00,7.1818,81.6846,elephant_death,2,0.0,Damana,Ampara,Eastern,Farmer_24,Elephant Death reported in Damana
+2023-09-10 18:00:00,7.3796,81.3512,property_damage,3,0.0,Damana,Ampara,Eastern,Farmer_42,Property Damage reported in Damana
+2023-09-11 16:00:00,8.0462,80.8897,property_damage,1,0.0,Medirigiriya,Polonnaruwa,North Central,Farmer_35,Property Damage reported in Medirigiriya
+2023-09-11 13:00:00,6.2417,81.0506,crop_raid,2,2.15,Weerawila,Hambantota,Southern,Farmer_69,Crop Raid reported in Weerawila
+2023-09-11 20:00:00,7.247,81.3815,property_damage,1,0.0,Uhana,Ampara,Eastern,Farmer_37,Property Damage reported in Uhana
+2023-09-11 15:00:00,7.1288,81.6927,crop_raid,1,1.95,Padiyatalawa,Ampara,Eastern,Farmer_62,Crop Raid reported in Padiyatalawa
+2023-09-11 01:00:00,7.915,80.8086,crop_raid,2,1.68,Hingurakgoda,Polonnaruwa,North Central,Farmer_52,Crop Raid reported in Hingurakgoda
+2023-09-12 04:00:00,6.0224,81.3432,crop_raid,6,1.2,Deberawewa,Hambantota,Southern,Farmer_54,Crop Raid reported in Deberawewa
+2023-09-12 12:00:00,7.1292,81.6665,crop_raid,1,0.64,Mahaoya,Ampara,Eastern,Farmer_64,Crop Raid reported in Mahaoya
+2023-09-13 03:00:00,6.3935,81.4383,crop_raid,3,2.18,Deberawewa,Hambantota,Southern,Farmer_83,Crop Raid reported in Deberawewa
+2023-09-14 13:00:00,8.3533,80.3384,crop_raid,4,2.08,Horowpothana,Anuradhapura,North Central,Farmer_92,Crop Raid reported in Horowpothana
+2023-09-14 07:00:00,7.4613,81.6672,crop_raid,7,4.11,Padiyatalawa,Ampara,Eastern,Farmer_81,Crop Raid reported in Padiyatalawa
+2023-09-15 07:00:00,8.159,81.0844,property_damage,1,0.0,Hingurakgoda,Polonnaruwa,North Central,Farmer_16,Property Damage reported in Hingurakgoda
+2023-09-16 11:00:00,8.5037,80.6,crop_raid,7,4.82,Nochchiyagama,Anuradhapura,North Central,Farmer_24,Crop Raid reported in Nochchiyagama
+2023-09-18 00:00:00,7.1908,81.7251,crop_raid,7,3.04,Mahaoya,Ampara,Eastern,Farmer_73,Crop Raid reported in Mahaoya
+2023-09-19 06:00:00,6.8583,81.0603,property_damage,3,0.0,Katharagama,Monaragala,Uva,Farmer_77,Property Damage reported in Katharagama
+2023-09-20 07:00:00,6.7673,81.1205,elephant_death,3,0.0,Katharagama,Monaragala,Uva,Farmer_83,Elephant Death reported in Katharagama
+2023-09-21 20:00:00,6.9529,81.1066,elephant_death,2,0.0,Wellawaya,Monaragala,Uva,Farmer_2,Elephant Death reported in Wellawaya
+2023-09-21 00:00:00,7.8649,80.8351,crop_raid,5,3.53,Hingurakgoda,Polonnaruwa,North Central,Farmer_34,Crop Raid reported in Hingurakgoda
+2023-09-21 12:00:00,7.4939,81.5855,property_damage,2,0.0,Damana,Ampara,Eastern,Farmer_43,Property Damage reported in Damana
+2023-09-26 10:00:00,6.7883,81.06,crop_raid,2,2.27,Wellawaya,Monaragala,Uva,Farmer_58,Crop Raid reported in Wellawaya
+2023-09-26 22:00:00,6.8397,81.2942,crop_raid,2,0.55,Wellawaya,Monaragala,Uva,Farmer_21,Crop Raid reported in Wellawaya
+2023-09-26 15:00:00,7.0333,81.3792,crop_raid,7,4.14,Padiyatalawa,Ampara,Eastern,Farmer_98,Crop Raid reported in Padiyatalawa
+2023-09-26 10:00:00,7.4683,81.6055,property_damage,1,0.0,Mahaoya,Ampara,Eastern,Farmer_56,Property Damage reported in Mahaoya
+2023-09-27 04:00:00,6.0593,81.2469,crop_raid,3,4.86,Tissamaharama,Hambantota,Southern,Farmer_21,Crop Raid reported in Tissamaharama
+2023-09-27 13:00:00,7.1546,81.6289,crop_raid,7,2.67,Padiyatalawa,Ampara,Eastern,Farmer_73,Crop Raid reported in Padiyatalawa
+2023-09-28 18:00:00,7.1472,81.4343,elephant_death,1,0.0,Mahaoya,Ampara,Eastern,Farmer_55,Elephant Death reported in Mahaoya
+2023-09-28 03:00:00,8.1183,80.6388,crop_raid,5,2.92,Kebithigollewa,Anuradhapura,North Central,Farmer_39,Crop Raid reported in Kebithigollewa
+2023-09-29 10:00:00,6.0876,81.4806,crop_raid,5,4.5,Weerawila,Hambantota,Southern,Farmer_95,Crop Raid reported in Weerawila
+2023-09-29 17:00:00,7.1657,81.5753,property_damage,2,0.0,Uhana,Ampara,Eastern,Farmer_91,Property Damage reported in Uhana
+2023-09-29 07:00:00,7.8609,80.8054,crop_raid,6,2.02,Hingurakgoda,Polonnaruwa,North Central,Farmer_64,Crop Raid reported in Hingurakgoda
+2023-09-29 09:00:00,6.3161,81.4632,crop_raid,1,4.02,Thanamalwila,Hambantota,Southern,Farmer_90,Crop Raid reported in Thanamalwila
+2023-09-29 12:00:00,6.8131,81.148,property_damage,2,0.0,Wellawaya,Monaragala,Uva,Farmer_51,Property Damage reported in Wellawaya
+2023-09-30 01:00:00,7.9822,80.9699,crop_raid,2,0.11,Hingurakgoda,Polonnaruwa,North Central,Farmer_4,Crop Raid reported in Hingurakgoda
+2023-10-01 10:00:00,8.1265,80.953,crop_raid,1,4.77,Hingurakgoda,Polonnaruwa,North Central,Farmer_72,Crop Raid reported in Hingurakgoda
+2023-10-02 20:00:00,6.2838,81.2625,crop_raid,1,1.8,Tissamaharama,Hambantota,Southern,Farmer_49,Crop Raid reported in Tissamaharama
+2023-10-03 09:00:00,8.523,80.4368,property_damage,3,0.0,Horowpothana,Anuradhapura,North Central,Farmer_72,Property Damage reported in Horowpothana
+2023-10-03 20:00:00,8.0843,81.1632,human_injury,3,0.0,Welikanda,Polonnaruwa,North Central,Farmer_10,Human Injury reported in Welikanda
+2023-10-05 11:00:00,6.7818,81.2666,crop_raid,7,3.55,Wellawaya,Monaragala,Uva,Farmer_34,Crop Raid reported in Wellawaya
+2023-10-05 09:00:00,8.2746,80.5943,property_damage,1,0.0,Horowpothana,Anuradhapura,North Central,Farmer_71,Property Damage reported in Horowpothana
+2023-10-07 18:00:00,8.1563,81.1867,crop_raid,3,4.92,Medirigiriya,Polonnaruwa,North Central,Farmer_99,Crop Raid reported in Medirigiriya
+2023-10-07 03:00:00,7.3878,81.7474,crop_raid,6,4.75,Uhana,Ampara,Eastern,Farmer_51,Crop Raid reported in Uhana
+2023-10-08 17:00:00,8.0777,80.9256,human_injury,3,0.0,Welikanda,Polonnaruwa,North Central,Farmer_1,Human Injury reported in Welikanda
+2023-10-10 20:00:00,6.8118,81.2713,crop_raid,5,3.94,Buttala,Monaragala,Uva,Farmer_60,Crop Raid reported in Buttala
+2023-10-13 03:00:00,7.9199,80.9176,property_damage,2,0.0,Medirigiriya,Polonnaruwa,North Central,Farmer_54,Property Damage reported in Medirigiriya
+2023-10-15 12:00:00,7.1334,81.3352,crop_raid,3,1.62,Padiyatalawa,Ampara,Eastern,Farmer_51,Crop Raid reported in Padiyatalawa
+2023-10-15 16:00:00,6.3772,81.4756,crop_raid,6,1.15,Deberawewa,Hambantota,Southern,Farmer_9,Crop Raid reported in Deberawewa
+2023-10-16 13:00:00,7.9288,81.1042,crop_raid,7,3.54,Welikanda,Polonnaruwa,North Central,Farmer_51,Crop Raid reported in Welikanda
+2023-10-24 03:00:00,6.8468,81.0602,crop_raid,3,1.49,Medagana,Monaragala,Uva,Farmer_81,Crop Raid reported in Medagana
+2023-10-24 05:00:00,6.182,81.1206,human_injury,1,0.0,Thanamalwila,Hambantota,Southern,Farmer_7,Human Injury reported in Thanamalwila
+2023-10-25 04:00:00,8.4941,80.7881,crop_raid,3,0.71,Nochchiyagama,Anuradhapura,North Central,Farmer_78,Crop Raid reported in Nochchiyagama
+2023-10-30 18:00:00,6.8866,81.2769,property_damage,1,0.0,Buttala,Monaragala,Uva,Farmer_61,Property Damage reported in Buttala
+2023-10-31 21:00:00,7.8957,81.0359,crop_raid,7,1.54,Medirigiriya,Polonnaruwa,North Central,Farmer_63,Crop Raid reported in Medirigiriya
+2023-11-02 20:00:00,6.294,81.0343,human_injury,1,0.0,Thanamalwila,Hambantota,Southern,Farmer_47,Human Injury reported in Thanamalwila
+2023-11-02 00:00:00,6.1061,81.1467,human_injury,2,0.0,Tissamaharama,Hambantota,Southern,Farmer_64,Human Injury reported in Tissamaharama
+2023-11-04 07:00:00,6.2001,81.4369,crop_raid,3,4.53,Tissamaharama,Hambantota,Southern,Farmer_64,Crop Raid reported in Tissamaharama
+2023-11-04 19:00:00,7.0966,81.4606,property_damage,3,0.0,Uhana,Ampara,Eastern,Farmer_96,Property Damage reported in Uhana
+2023-11-05 14:00:00,7.0207,81.3235,property_damage,3,0.0,Mahaoya,Ampara,Eastern,Farmer_15,Property Damage reported in Mahaoya
+2023-11-07 08:00:00,7.2169,81.4678,crop_raid,1,3.14,Mahaoya,Ampara,Eastern,Farmer_89,Crop Raid reported in Mahaoya
+2023-11-07 19:00:00,8.1793,80.5319,property_damage,2,0.0,Horowpothana,Anuradhapura,North Central,Farmer_96,Property Damage reported in Horowpothana
+2023-11-07 07:00:00,6.7298,81.0922,property_damage,3,0.0,Medagana,Monaragala,Uva,Farmer_35,Property Damage reported in Medagana
+2023-11-08 14:00:00,6.3437,81.0277,crop_raid,7,3.08,Deberawewa,Hambantota,Southern,Farmer_32,Crop Raid reported in Deberawewa
+2023-11-09 16:00:00,6.2152,81.2464,crop_raid,4,3.29,Thanamalwila,Hambantota,Southern,Farmer_87,Crop Raid reported in Thanamalwila
+2023-11-11 20:00:00,7.0708,81.4935,property_damage,1,0.0,Uhana,Ampara,Eastern,Farmer_72,Property Damage reported in Uhana
+2023-11-12 13:00:00,6.3011,81.37,crop_raid,1,2.1,Deberawewa,Hambantota,Southern,Farmer_15,Crop Raid reported in Deberawewa
+2023-11-13 08:00:00,6.9886,81.0037,crop_raid,7,1.32,Katharagama,Monaragala,Uva,Farmer_77,Crop Raid reported in Katharagama
+2023-11-15 21:00:00,7.1582,81.3911,property_damage,1,0.0,Padiyatalawa,Ampara,Eastern,Farmer_13,Property Damage reported in Padiyatalawa
+2023-11-16 02:00:00,6.3127,81.2944,human_injury,2,0.0,Weerawila,Hambantota,Southern,Farmer_21,Human Injury reported in Weerawila
+2023-11-16 16:00:00,8.0108,80.879,property_damage,1,0.0,Hingurakgoda,Polonnaruwa,North Central,Farmer_49,Property Damage reported in Hingurakgoda
+2023-11-17 14:00:00,6.3408,81.3988,crop_raid,2,3.88,Thanamalwila,Hambantota,Southern,Farmer_54,Crop Raid reported in Thanamalwila
+2023-11-19 19:00:00,8.1007,80.4134,crop_raid,3,1.49,Nochchiyagama,Anuradhapura,North Central,Farmer_51,Crop Raid reported in Nochchiyagama
+2023-11-20 13:00:00,6.1453,81.2842,property_damage,3,0.0,Deberawewa,Hambantota,Southern,Farmer_97,Property Damage reported in Deberawewa
+2023-11-21 15:00:00,6.7795,81.04,elephant_death,2,0.0,Medagana,Monaragala,Uva,Farmer_2,Elephant Death reported in Medagana
+2023-11-22 11:00:00,6.2784,81.3928,crop_raid,2,2.09,Weerawila,Hambantota,Southern,Farmer_82,Crop Raid reported in Weerawila
+2023-11-22 10:00:00,6.8459,81.2128,crop_raid,6,2.34,Wellawaya,Monaragala,Uva,Farmer_26,Crop Raid reported in Wellawaya
+2023-11-24 13:00:00,7.9128,80.8868,crop_raid,3,4.77,Medirigiriya,Polonnaruwa,North Central,Farmer_94,Crop Raid reported in Medirigiriya
+2023-11-25 00:00:00,8.3833,80.6285,property_damage,3,0.0,Nochchiyagama,Anuradhapura,North Central,Farmer_92,Property Damage reported in Nochchiyagama
+2023-11-26 20:00:00,6.3236,81.3139,property_damage,3,0.0,Weerawila,Hambantota,Southern,Farmer_20,Property Damage reported in Weerawila
+2023-11-26 05:00:00,7.0471,81.4412,property_damage,1,0.0,Damana,Ampara,Eastern,Farmer_6,Property Damage reported in Damana
+2023-11-27 23:00:00,7.1796,81.637,crop_raid,5,1.69,Uhana,Ampara,Eastern,Farmer_53,Crop Raid reported in Uhana
+2023-11-30 12:00:00,8.0504,80.9896,human_injury,3,0.0,Welikanda,Polonnaruwa,North Central,Farmer_17,Human Injury reported in Welikanda
+2023-11-30 11:00:00,6.0726,81.0254,crop_raid,5,1.89,Deberawewa,Hambantota,Southern,Farmer_68,Crop Raid reported in Deberawewa
+2023-12-02 01:00:00,6.8622,81.2289,human_injury,2,0.0,Buttala,Monaragala,Uva,Farmer_87,Human Injury reported in Buttala
+2023-12-06 12:00:00,8.1187,80.8428,crop_raid,1,0.32,Dimbulagala,Polonnaruwa,North Central,Farmer_88,Crop Raid reported in Dimbulagala
+2023-12-06 16:00:00,6.3621,81.3512,property_damage,2,0.0,Deberawewa,Hambantota,Southern,Farmer_9,Property Damage reported in Deberawewa
+2023-12-08 10:00:00,7.0866,81.6802,crop_raid,3,1.63,Mahaoya,Ampara,Eastern,Farmer_4,Crop Raid reported in Mahaoya
+2023-12-09 17:00:00,6.5447,81.1356,crop_raid,1,4.44,Buttala,Monaragala,Uva,Farmer_46,Crop Raid reported in Buttala
+2023-12-10 23:00:00,8.134,81.1675,crop_raid,6,4.93,Dimbulagala,Polonnaruwa,North Central,Farmer_51,Crop Raid reported in Dimbulagala
+2023-12-11 13:00:00,7.2201,81.3116,human_injury,1,0.0,Padiyatalawa,Ampara,Eastern,Farmer_24,Human Injury reported in Padiyatalawa
+2023-12-11 15:00:00,7.1963,81.3874,crop_raid,6,0.36,Uhana,Ampara,Eastern,Farmer_36,Crop Raid reported in Uhana
+2023-12-12 04:00:00,6.1305,81.0909,crop_raid,3,3.53,Weerawila,Hambantota,Southern,Farmer_61,Crop Raid reported in Weerawila
+2023-12-12 09:00:00,7.3065,81.6011,elephant_death,1,0.0,Uhana,Ampara,Eastern,Farmer_2,Elephant Death reported in Uhana
+2023-12-13 16:00:00,6.1998,81.0584,crop_raid,7,2.65,Thanamalwila,Hambantota,Southern,Farmer_95,Crop Raid reported in Thanamalwila
+2023-12-16 16:00:00,6.9369,81.1052,crop_raid,7,0.88,Wellawaya,Monaragala,Uva,Farmer_54,Crop Raid reported in Wellawaya
+2023-12-17 05:00:00,6.2482,81.2589,human_injury,3,0.0,Thanamalwila,Hambantota,Southern,Farmer_94,Human Injury reported in Thanamalwila
+2023-12-23 19:00:00,7.9755,81.1682,crop_raid,7,4.69,Welikanda,Polonnaruwa,North Central,Farmer_24,Crop Raid reported in Welikanda
+2023-12-24 21:00:00,8.3193,80.6979,crop_raid,5,1.12,Horowpothana,Anuradhapura,North Central,Farmer_65,Crop Raid reported in Horowpothana
+2023-12-24 11:00:00,8.1138,80.3807,human_injury,3,0.0,Mihintale,Anuradhapura,North Central,Farmer_25,Human Injury reported in Mihintale
+2023-12-29 19:00:00,7.412,81.4228,property_damage,3,0.0,Uhana,Ampara,Eastern,Farmer_9,Property Damage reported in Uhana
+2023-12-31 04:00:00,7.3262,81.708,crop_raid,2,2.74,Uhana,Ampara,Eastern,Farmer_90,Crop Raid reported in Uhana

@@ -1,97 +1,86 @@
+# app/schemas.py
+
 from pydantic import BaseModel
-from datetime import datetime
-from typing import Optional, List
+from typing import Optional
+from datetime import datetime, date
+
+# --- Base Schemas ---
 
 class ConflictIncidentBase(BaseModel):
-    timestamp: datetime
-    latitude: float
-    longitude: float
+    location: str
     incident_type: str
-    elephant_count: Optional[int] = None
-    crop_damage_hectares: Optional[float] = None
-    village_name: Optional[str] = None
-    district: Optional[str] = None
-    province: Optional[str] = None
-    reported_by: Optional[str] = None
     description: Optional[str] = None
+
+class EnvironmentalDataBase(BaseModel):
+    location: str
+    date: date
+    rainfall_mm: float
+    vegetation_index: float
+
+class RiskForecastBase(BaseModel):
+    location: str
+    forecasted_at: datetime
+    risk_level: str
+
+class AlertBase(BaseModel):
+    location: str
+    risk_level: str
+    message: str
+
+class FarmerReportBase(BaseModel):
+    location: str
+    elephant_count: int = 1
+    description: Optional[str] = None
+
+# --- Create Schemas (for API input) ---
 
 class ConflictIncidentCreate(ConflictIncidentBase):
     pass
 
+class EnvironmentalDataCreate(EnvironmentalDataBase):  # <-- THIS IS THE CLASS THAT WAS MISSING
+    pass
+
+class RiskForecastCreate(RiskForecastBase):
+    pass
+
+class AlertCreate(AlertBase):
+    pass
+
+class FarmerReportCreate(FarmerReportBase):
+    pass
+
+# --- Read Schemas (for API output) ---
+
 class ConflictIncident(ConflictIncidentBase):
     id: int
-    created_at: datetime
+    timestamp: datetime
     
     class Config:
-        from_attributes = True
-
-class EnvironmentalDataBase(BaseModel):
-    date: datetime
-    latitude: float
-    longitude: float
-    rainfall_mm: Optional[float] = None
-    temperature_c: Optional[float] = None
-    ndvi_vegetation_index: Optional[float] = None
-    soil_moisture: Optional[float] = None
-    drought_index: Optional[float] = None
+        orm_mode = True
 
 class EnvironmentalData(EnvironmentalDataBase):
     id: int
-    created_at: datetime
     
     class Config:
-        from_attributes = True
-
-class RiskForecastBase(BaseModel):
-    forecast_date: datetime
-    latitude: float
-    longitude: float
-    risk_score: float
-    risk_level: str
-    confidence: Optional[float] = None
-    factors: Optional[str] = None
-    district: Optional[str] = None
+        orm_mode = True
 
 class RiskForecast(RiskForecastBase):
     id: int
-    created_at: datetime
     
     class Config:
-        from_attributes = True
-
-class AlertBase(BaseModel):
-    alert_date: datetime
-    latitude: float
-    longitude: float
-    alert_type: str
-    message: str
-    district: Optional[str] = None
-    village_name: Optional[str] = None
+        orm_mode = True
 
 class Alert(AlertBase):
     id: int
-    is_sent: bool
-    sent_via: Optional[str] = None
-    created_at: datetime
+    sent_at: datetime
     
     class Config:
-        from_attributes = True
+        orm_mode = True
 
-# Response models for API
-class RiskHeatmapResponse(BaseModel):
-    latitude: float
-    longitude: float
-    risk_score: float
-    risk_level: str
-    district: str
-
-class StatsResponse(BaseModel):
-    total_incidents: int
-    high_risk_zones: int
-    alerts_sent: int
-    prediction_accuracy: Optional[float] = None
-
-class DistrictSummary(BaseModel):
-    name: str
-    incident_count: int
-    last_incident: Optional[datetime] = None
+class FarmerReport(FarmerReportBase):
+    id: int
+    reported_at: datetime
+    is_verified: bool
+    
+    class Config:
+        orm_mode = True

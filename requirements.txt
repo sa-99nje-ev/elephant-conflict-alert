@@ -1,11 +1,24 @@
-fastapi==0.104.1
-uvicorn==0.24.0
-sqlalchemy==2.0.23
-pandas==2.1.3
-streamlit==1.28.1
-geopandas==0.14.1
-folium==0.14.0
-plotly==5.17.0
-python-multipart==0.0.6
-pydantic==2.5.0
-python-dotenv==1.0.0
+# --- Core & Day 1 ---
+fastapi>=0.104
+uvicorn>=0.24
+sqlalchemy>=2.0
+pandas>=2.1
+pydantic>=2.5
+python-dotenv>=1.0
+python-multipart
+
+# --- Day 2: ML & Dashboard ---
+scikit-learn
+numpy
+streamlit>=1.28
+plotly>=5.17
+folium>=0.14
+streamlit-folium
+requests
+
+# --- Day 3: Alerts ---
+twilio
+sendgrid
+
+# --- Day 4: Weather Fetcher ---
+httpx
