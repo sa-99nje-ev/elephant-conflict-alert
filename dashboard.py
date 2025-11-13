@@ -264,3 +264,5 @@ with tab5:
             st.success("Report submitted. Thank you!")
         except requests.exceptions.RequestException as e:
             st.error(f"Error submitting report: {e}")
+
+
