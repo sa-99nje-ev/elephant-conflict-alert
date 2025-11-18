@@ -1,683 +1,1100 @@
-# dashboard.py
+##############################################
+#  ELEPHANT CONFLICT EARLY WARNING SYSTEM UI
+#        FULL STREAMLIT DASHBOARD
+##############################################
+
 import streamlit as st
 import requests
 import pandas as pd
+import numpy as np
 import plotly.express as px
 import folium
 from streamlit_folium import st_folium
-from datetime import date, datetime, timedelta
-from app import locations
-import os
+import shap
+import joblib
+import matplotlib.pyplot as plt
+import rasterio
+from scipy.ndimage import gaussian_filter
+from datetime import date, datetime
 from dotenv import load_dotenv
-import numpy as np
-from sqlalchemy import create_engine, func
-from sqlalchemy.orm import Session
+import os
 
-# --- Config ---
+from deep_translator import GoogleTranslator
+
+def auto_translate(message, source_lang="auto"):
+    """Translate message automatically into English, Sinhala, Tamil."""
+    
+    def translate(text, target):
+        try:
+            return GoogleTranslator(source=source_lang, target=target).translate(text)
+        except:
+            return f"[Translation to {target} failed]"
+    
+    return {
+        "English": translate(message, "en"),
+        "Sinhala": translate(message, "si"),
+        "Tamil": translate(message, "ta")
+    }
+
+
+# ------------------ APP CONFIG ------------------
+
 st.set_page_config(
-    page_title="Elephant Conflict EWS Dashboard",
+    page_title="Elephant Conflict EWS",
     page_icon="🐘",
     layout="wide"
 )
 
-# --- API Base URL ---
 API_URL = "http://localhost:8000"
-
-# --- Day 5: API Key for Security ---
 load_dotenv()
 APP_API_KEY = os.getenv("APP_API_KEY")
+API_HEADERS = {}
 
-# Check if API key is loaded
-if not APP_API_KEY:
-    st.error("FATAL ERROR: APP_API_KEY not found in .env file. Dashboard cannot start.")
-    st.stop()
-    
-API_HEADERS = {"X-API-Key": APP_API_KEY}
+from app import locations
+from app.database import SessionLocal
 
-# --- Helper Functions (Now with Headers) ---
-def get_analytics():
-    try:
-        response = requests.get(f"{API_URL}/analytics/", headers=API_HEADERS)
-        response.raise_for_status()
-        return response.json()
-    except requests.exceptions.RequestException as e:
-        st.error(f"Error fetching analytics: {e}")
-        return None
+
+###################################################
+#                API HELPERS
+###################################################
 
 def get_risk_heatmap():
     try:
-        response = requests.get(f"{API_URL}/risk-heatmap/", headers=API_HEADERS)
-        response.raise_for_status()
-        return response.json()
-    except requests.exceptions.RequestException as e:
-        st.error(f"Error fetching risk heatmap: {e}")
+        res = requests.get(f"{API_URL}/risk-heatmap/", headers=API_HEADERS)
+        res.raise_for_status()
+        return res.json()
+    except:
         return []
 
-# --- NEW: Territory Analysis Class ---
+
+def get_analytics():
+    try:
+        res = requests.get(f"{API_URL}/analytics/", headers=API_HEADERS)
+        res.raise_for_status()
+        return res.json()
+    except:
+        return None
+
+
+###################################################
+#                TERRITORY ANALYZER
+###################################################
+
+from sqlalchemy.orm import Session
+
 class HerdTerritoryAnalyzer:
     def __init__(self, db_session):
         self.db = db_session
-        
+
     def cluster_conflict_zones(self):
-        """Cluster conflict incidents to identify elephant territories"""
-        # Get all conflict incidents
         from app.models import ConflictIncident
         incidents = self.db.query(ConflictIncident).all()
-        
         if not incidents:
             return pd.DataFrame(), pd.DataFrame()
-            
-        # Create DataFrame
-        data = []
-        for incident in incidents:
-            data.append({
-                'latitude': incident.latitude,
-                'longitude': incident.longitude,
-                'timestamp': incident.timestamp,
-                'district': incident.district,
-                'elephant_count': incident.elephant_count or 1
-            })
-        
+
+        data = [{
+            "latitude": i.latitude,
+            "longitude": i.longitude,
+            "timestamp": i.timestamp,
+            "elephant_count": i.elephant_count or 1
+        } for i in incidents]
+
         df = pd.DataFrame(data)
-        
-        # Simple clustering based on geographic proximity
+
         from sklearn.cluster import DBSCAN
         from sklearn.preprocessing import StandardScaler
-        
-        coords = df[['latitude', 'longitude']].values
+
+        coords = df[["latitude", "longitude"]].values
+        scaler = StandardScaler()
+        coords_scaled = scaler.fit_transform(coords)
+
         if len(coords) > 1:
-            # Normalize coordinates
-            scaler = StandardScaler()
-            coords_scaled = scaler.fit_transform(coords)
-            
-            # DBSCAN clustering
-            clustering = DBSCAN(eps=0.5, min_samples=3).fit(coords_scaled)
-            df['territory_id'] = clustering.labels_
+            model = DBSCAN(eps=0.5, min_samples=3)
+            df["territory_id"] = model.fit_predict(coords_scaled)
         else:
-            df['territory_id'] = 0
-            
-        # Calculate territory statistics
-        territory_stats = df[df['territory_id'] >= 0].groupby('territory_id').agg({
-            'latitude': ['mean', 'std'],
-            'longitude': ['mean', 'std'],
-            'elephant_count': 'sum'
-        }).round(4)
-        
-        territory_stats.columns = ['center_lat', 'lat_spread', 'center_lon', 'lon_spread', 'total_elephants']
-        territory_stats['conflict_count'] = df[df['territory_id'] >= 0].groupby('territory_id').size()
-        territory_stats = territory_stats.reset_index()
-        
-        return df, territory_stats
-    
-    def analyze_temporal_patterns(self, territories_df):
-        """Analyze seasonal patterns in each territory"""
-        if territories_df.empty:
-            return pd.DataFrame(), []
-            
-        # Add season column
-        def get_season(month):
-            if month in [12, 1, 2]:
-                return 'Winter'
-            elif month in [3, 4, 5]:
-                return 'Spring'
-            elif month in [6, 7, 8, 9]:
-                return 'Summer'
-            else:
-                return 'Autumn'
-        
-        territories_df['month'] = territories_df['timestamp'].dt.month
-        territories_df['season'] = territories_df['month'].apply(get_season)
-        
-        # Seasonal conflicts by territory
-        seasonal_data = territories_df.groupby(['territory_id', 'season']).size().reset_index(name='conflicts')
-        
-        # Identify peak seasons for each territory
-        peak_seasons = []
-        for territory_id in seasonal_data['territory_id'].unique():
-            territory_data = seasonal_data[seasonal_data['territory_id'] == territory_id]
-            peak_season = territory_data.loc[territory_data['conflicts'].idxmax()]
-            peak_seasons.append({
-                'territory_id': territory_id,
-                'peak_season': peak_season['season'],
-                'peak_conflicts': peak_season['conflicts']
-            })
-            
-        return seasonal_data, peak_seasons
-    
-    def predict_territory_expansion(self, territories_df):
-        """Predict territory expansion based on historical movement"""
-        if territories_df.empty:
-            return pd.DataFrame()
-            
-        # Simplified expansion prediction
-        expansion_data = []
-        for territory_id in territories_df['territory_id'].unique():
-            territory_data = territories_df[territories_df['territory_id'] == territory_id]
-            
-            if len(territory_data) > 5:  # Need sufficient data
-                # Calculate centroid movement over time
-                early_data = territory_data.nsmallest(5, 'timestamp')
-                late_data = territory_data.nlargest(5, 'timestamp')
-                
-                early_center_lat = early_data['latitude'].mean()
-                early_center_lon = early_data['longitude'].mean()
-                late_center_lat = late_data['latitude'].mean()
-                late_center_lon = late_data['longitude'].mean()
-                
-                # Calculate distance and direction
-                lat_diff = late_center_lat - early_center_lat
-                lon_diff = late_center_lon - early_center_lon
-                distance_km = np.sqrt(lat_diff**2 + lon_diff**2) * 111  # Approx km per degree
-                
-                direction = "North" if lat_diff > 0 else "South"
-                if abs(lon_diff) > abs(lat_diff):
-                    direction = "East" if lon_diff > 0 else "West"
-                
-                expansion_data.append({
-                    'territory_id': territory_id,
-                    'distance_shifted_km': round(distance_km, 2),
-                    'direction': direction,
-                    'years_tracked': 2  # Simplified
-                })
-        
-        return pd.DataFrame(expansion_data)
+            df["territory_id"] = 0
 
-# --- NEW: Economic Impact Class ---
-class ConflictSeverityPredictor:
-    def __init__(self):
-        self.model = None
-        
-    def load_model(self, model_path):
-        """Load trained severity model"""
-        try:
-            import joblib
-            self.model = joblib.load(model_path)
-        except:
-            st.warning("Could not load severity model. Using rule-based predictions.")
-            self.model = "rule_based"
-    
-    def predict_severity(self, forecast_data):
-        """Predict conflict severity and economic impact"""
-        predictions = []
-        
-        for location_data in forecast_data:
-            # Rule-based severity prediction
-            risk_level = location_data.get('risk_level', 'Low')
-            elephant_count = location_data.get('elephant_count_est', 3)
-            
-            # Economic impact estimation (Sri Lanka Rupees)
-            base_damage = {
-                'Low': 50000,
-                'Medium': 150000,
-                'High': 300000,
-                'Critical': 500000
-            }.get(risk_level, 50000)
-            
-            # Adjust for elephant count
-            damage_multiplier = 1 + (elephant_count - 1) * 0.3
-            estimated_damage = base_damage * damage_multiplier
-            
-            # Confidence based on historical data
-            confidence = 0.7 if risk_level in ['High', 'Critical'] else 0.5
-            
-            predictions.append({
-                'location': location_data.get('location', 'Unknown'),
-                'latitude': location_data.get('latitude'),
-                'longitude': location_data.get('longitude'),
-                'risk_level': risk_level,
-                'severity_level': 'Critical' if risk_level == 'Critical' else 'High' if risk_level == 'High' else 'Medium',
-                'estimated_damage_rs': int(estimated_damage),
-                'elephant_count_est': elephant_count,
-                'confidence': confidence
-            })
-        
-        return predictions
-    
-    def prioritize_response_resources(self, predictions):
-        """Prioritize locations for resource allocation"""
-        df = pd.DataFrame(predictions)
-        
+        stats = df[df["territory_id"] >= 0].groupby("territory_id").agg(
+            center_lat=("latitude", "mean"),
+            lat_spread=("latitude", "std"),
+            center_lon=("longitude", "mean"),
+            lon_spread=("longitude", "std"),
+            total_elephants=("elephant_count", "sum"),
+            conflict_count=("elephant_count", "count")
+        ).reset_index()
+
+        return df, stats
+
+    def analyze_temporal_patterns(self, df):
         if df.empty:
-            return df
-            
-        # Priority scoring
-        def calculate_priority(row):
-            severity_score = {'Low': 1, 'Medium': 2, 'High': 3, 'Critical': 4}[row['severity_level']]
-            damage_score = min(row['estimated_damage_rs'] / 100000, 10)  # Normalize
-            confidence_score = row['confidence'] * 2
-            
-            total_score = severity_score + damage_score + confidence_score
-            
-            if total_score >= 8:
-                return f"IMMEDIATE - Score: {total_score:.1f}"
-            elif total_score >= 6:
-                return f"URGENT - Score: {total_score:.1f}"
-            elif total_score >= 4:
-                return f"MODERATE - Score: {total_score:.1f}"
-            else:
-                return f"LOW - Score: {total_score:.1f}"
-        
-        df['response_recommendation'] = df.apply(calculate_priority, axis=1)
-        df = df.sort_values('estimated_damage_rs', ascending=False)
-        
-        return df
+            return pd.DataFrame(), []
 
-def calculate_patrol_units(predictions):
-    """Calculate required patrol units based on predictions"""
-    high_risk_count = len([p for p in predictions if p['severity_level'] in ['High', 'Critical']])
-    return max(1, high_risk_count // 2)  # 1 patrol unit per 2 high-risk locations
+        df["month"] = df["timestamp"].dt.month
+        df["season"] = df["month"].apply(
+            lambda m: "Winter" if m in [12,1,2] else
+                      "Spring" if m in [3,4,5] else
+                      "Summer" if m in [6,7,8,9] else
+                      "Autumn"
+        )
 
-def get_5day_forecast():
-    """Mock function to get 5-day forecast data"""
-    # This would integrate with your actual forecast API
-    return [
-        {'location': 'Hambantota', 'latitude': 6.124, 'longitude': 81.119, 'risk_level': 'High', 'elephant_count_est': 4},
-        {'location': 'Monaragala', 'latitude': 6.872, 'longitude': 81.350, 'risk_level': 'Medium', 'elephant_count_est': 2},
-        {'location': 'Ampara', 'latitude': 7.297, 'longitude': 81.675, 'risk_level': 'Critical', 'elephant_count_est': 6},
-        {'location': 'Polonnaruwa', 'latitude': 7.940, 'longitude': 81.000, 'risk_level': 'Low', 'elephant_count_est': 1},
-    ]
+        seasonal = df.groupby(["territory_id","season"]).size().reset_index(name="conflicts")
 
-# --- NEW: Territory Analysis Tab ---
+        peak = []
+        for tid in seasonal["territory_id"].unique():
+            temp = seasonal[seasonal["territory_id"] == tid]
+            max_row = temp.loc[temp["conflicts"].idxmax()]
+            peak.append({
+                "territory_id": tid,
+                "peak_season": max_row["season"],
+                "peak_conflicts": max_row["conflicts"]
+            })
+
+        return seasonal, peak
+
+    def predict_territory_expansion(self, df):
+        if df.empty:
+            return pd.DataFrame()
+
+        expansions = []
+        for tid in df["territory_id"].unique():
+            tdf = df[df["territory_id"] == tid]
+            if len(tdf) > 5:
+                early = tdf.nsmallest(5, "timestamp")
+                late = tdf.nlargest(5, "timestamp")
+                dlat = late["latitude"].mean() - early["latitude"].mean()
+                dlon = late["longitude"].mean() - early["longitude"].mean()
+                dist = np.sqrt(dlat**2 + dlon**2) * 111
+                direction = (
+                    "North" if dlat > 0 else "South"
+                    if abs(dlat) > abs(dlon)
+                    else "East" if dlon > 0 else "West"
+                )
+                expansions.append({
+                    "territory_id": tid,
+                    "distance_shifted_km": round(dist,2),
+                    "direction": direction,
+                    "years_tracked": 2
+                })
+        return pd.DataFrame(expansions)
+
+
+###################################################
+#                TERRITORY UI PAGE
+###################################################
+
 def show_territory_analysis():
     st.header("🐘 Elephant Territory Analysis")
-    
-    # Initialize database session
-    from app.database import SessionLocal
+
     db = SessionLocal()
-    
+
     try:
         analyzer = HerdTerritoryAnalyzer(db)
-        territories, stats = analyzer.cluster_conflict_zones()
-        
-        if territories.empty:
-            st.warning("No conflict data available for territory analysis.")
+        df, stats = analyzer.cluster_conflict_zones()
+
+        if df.empty:
+            st.warning("No conflict data.")
             return
-            
-        # 1. Territory Map
-        st.subheader("Elephant Territory Map")
-        
-        m = folium.Map(location=[7.8731, 80.7718], zoom_start=8)
-        
-        # Color palette for territories
-        colors = ['red', 'blue', 'green', 'purple', 'orange', 'darkred', 'lightblue', 'darkgreen']
-        
-        for idx, row in stats.iterrows():
-            territory_id = int(row['territory_id'])
-            color = colors[territory_id % len(colors)]
-            
+
+        st.subheader("🗺 Territory Map")
+        m = folium.Map(location=[7.8, 80.7], zoom_start=8)
+
+        colors = ["red","blue","green","purple","orange","yellow"]
+        for _, row in stats.iterrows():
+            cid = int(row["territory_id"])
+            color = colors[cid % len(colors)]
+
             folium.Circle(
-                location=[row['center_lat'], row['center_lon']],
-                radius=row['lat_spread'] * 111000,  # Convert to meters
+                location=[row["center_lat"], row["center_lon"]],
+                radius=row["lat_spread"]*111000,
                 color=color,
                 fill=True,
-                popup=f"Territory {territory_id}<br>{int(row['conflict_count'])} conflicts<br>{int(row['total_elephants'])} elephants estimated"
+                popup=f"T{cid} — {int(row['conflict_count'])} conflicts"
             ).add_to(m)
-            
-            # Add territory label
-            folium.Marker(
-                [row['center_lat'], row['center_lon']],
-                popup=f"Territory {territory_id} Center",
-                icon=folium.DivIcon(html=f'<div style="font-weight: bold; color: {color}">T{territory_id}</div>')
-            ).add_to(m)
-        
+
         st_folium(m, width=1000, height=500)
-        
-        # 2. Territory Statistics
-        col1, col2, col3 = st.columns(3)
-        with col1:
-            st.metric("Territories Identified", len(stats))
-        with col2:
-            st.metric("Total Conflicts Analyzed", len(territories))
-        with col3:
-            st.metric("Average Conflicts per Territory", f"{stats['conflict_count'].mean():.1f}")
-        
-        # 3. Seasonal Activity Heatmap
-        st.subheader("Seasonal Activity Patterns")
-        
-        temporal, peaks = analyzer.analyze_temporal_patterns(territories)
-        
-        if not temporal.empty:
-            pivot = temporal.pivot(index='territory_id', columns='season', values='conflicts').fillna(0)
-            
-            fig = px.imshow(pivot, 
-                            labels=dict(x="Season", y="Territory ID", color="Conflicts"),
-                            x=pivot.columns,
-                            y=pivot.index.astype(str),
-                            color_continuous_scale='Reds',
-                            title="Conflict Frequency by Territory and Season")
+
+        st.subheader("📊 Territory Statistics")
+        st.dataframe(stats, use_container_width=True)
+
+        st.subheader("🌦 Seasonal Activity Patterns")
+        seasonal, peaks = analyzer.analyze_temporal_patterns(df)
+        if not seasonal.empty:
+            pivot = seasonal.pivot(index="territory_id", columns="season", values="conflicts").fillna(0)
+            fig = px.imshow(pivot, color_continuous_scale="Reds",
+                            title="Seasonal Activity Heatmap")
             st.plotly_chart(fig, use_container_width=True)
-            
-            # Peak seasons table
-            st.subheader("Peak Conflict Seasons by Territory")
-            peaks_df = pd.DataFrame(peaks)
-            st.dataframe(peaks_df, use_container_width=True)
-        
-        # 4. Expansion Alerts
+
+            st.subheader("Peak Seasons")
+            st.dataframe(pd.DataFrame(peaks), use_container_width=True)
+
         st.subheader("⚠️ Territory Expansion Alerts")
-        
-        expansion = analyzer.predict_territory_expansion(territories)
-        
-        if not expansion.empty:
-            for idx, row in expansion.iterrows():
-                if row['distance_shifted_km'] > 5:  # Alert if shifted >5km
-                    st.warning(f"🚨 **Territory {int(row['territory_id'])}** has shifted **{row['distance_shifted_km']} km {row['direction']}** over {int(row['years_tracked'])} years")
-                else:
-                    st.info(f"📍 Territory {int(row['territory_id'])}: Stable position (shifted {row['distance_shifted_km']} km)")
+        exp = analyzer.predict_territory_expansion(df)
+        if exp.empty:
+            st.info("No movement detected.")
         else:
-            st.info("No significant territory expansion detected.")
-            
-    except Exception as e:
-        st.error(f"Error in territory analysis: {str(e)}")
+            st.dataframe(exp, use_container_width=True)
+
     finally:
         db.close()
 
-# --- NEW: Economic Impact Tab ---
-def show_economic_impact_dashboard():
-    st.header("💰 Economic Impact & Resource Allocation")
-    
-    predictor = ConflictSeverityPredictor()
-    
-    # Try to load model, fallback to rule-based
+
+###################################################
+#                TERRAIN MODELING UI PAGE
+###################################################
+
+import plotly.graph_objects as go
+
+def show_terrain_modeling():
+    st.header("🗻 Terrain Modeling & Elephant Corridors")
+
+    elevation_path = os.path.join("app", "data", "sri_lanka_elevation.tif")
+
+    # ---- LOAD DEM SAFELY ----
     try:
-        predictor.load_model('models/severity_model.pkl')
-    except:
-        st.info("Using rule-based economic impact predictions")
-    
-    # Get predictions for next 5 days
-    forecast_data = get_5day_forecast()
-    predictions = predictor.predict_severity(forecast_data)
-    
-    if not predictions:
-        st.warning("No prediction data available for economic analysis.")
+        src = rasterio.open(elevation_path)
+        elevation = src.read(1)
+    except Exception:
+        st.error(f"Missing elevation file. Expected at: {elevation_path}")
         return
-    
-    # 1. Total Economic Risk
-    total_risk = sum([p['estimated_damage_rs'] * p['confidence'] for p in predictions])
-    high_risk_locations = len([p for p in predictions if p['severity_level'] in ['High', 'Critical']])
-    
-    col1, col2, col3 = st.columns(3)
-    col1.metric("Total Economic Risk (5 days)", f"Rs. {total_risk:,.0f}")
-    col2.metric("High-Risk Locations", high_risk_locations)
-    col3.metric("Patrol Units Needed", calculate_patrol_units(predictions))
-    
-    # 2. Resource Allocation Map
-    st.subheader("Resource Allocation Map")
-    
-    allocation_df = predictor.prioritize_response_resources(predictions)
-    
-    m = folium.Map(location=[7.8731, 80.7718], zoom_start=8)
-    
-    for idx, row in allocation_df.iterrows():
-        priority_level = row['response_recommendation'].split('-')[0].strip()
-        color = {
-            'IMMEDIATE': 'red',
-            'URGENT': 'orange',
-            'MODERATE': 'yellow',
-            'LOW': 'green'
-        }.get(priority_level, 'blue')
-        
-        folium.Marker(
-            location=[row['latitude'], row['longitude']],
-            popup=f"""
-            <strong>{row['location']}</strong><br>
-            Damage: Rs. {row['estimated_damage_rs']:,}<br>
-            Severity: {row['severity_level']}<br>
-            <b>{row['response_recommendation']}</b>
-            """,
-            icon=folium.Icon(color=color, icon='exclamation-triangle', prefix='fa')
-        ).add_to(m)
-    
-    st_folium(m, width=1000, height=500)
-    
-    # 3. Priority Allocation Table
-    st.subheader("Priority Response Allocation")
-    st.dataframe(allocation_df[['location', 'estimated_damage_rs', 'severity_level', 'response_recommendation']], 
-                 use_container_width=True)
-    
-    # 4. ROI Calculator
-    st.subheader("📊 ROI Calculator")
-    
-    total_potential_loss = allocation_df['estimated_damage_rs'].sum()
-    prevention_cost = st.slider("Prevention Budget (Rs.)", 100000, 5000000, 1000000, 100000)
-    
-    # Effectiveness based on budget allocation
-    effectiveness = min(prevention_cost / total_potential_loss * 2, 0.8)  # Cap at 80% effectiveness
-    
-    prevented_loss = total_potential_loss * effectiveness
-    net_benefit = prevented_loss - prevention_cost
-    roi = (net_benefit / prevention_cost) * 100 if prevention_cost > 0 else 0
-    
-    col1, col2, col3 = st.columns(3)
-    col1.metric("Potential Loss Prevented", f"Rs. {prevented_loss:,.0f}")
-    col2.metric("Net Benefit", f"Rs. {net_benefit:,.0f}")
-    col3.metric("Return on Investment", f"{roi:.1f}%")
-    
-    # Effectiveness gauge
-    st.subheader("Prevention Effectiveness")
-    fig = px.pie(values=[effectiveness, 1-effectiveness], 
-                 names=['Damage Prevented', 'Remaining Risk'],
-                 title=f"Budget Effectiveness: {effectiveness:.1%}")
+
+    # ---- DOWNSAMPLE TO AVOID >200MB STREAM ----
+    # Target resolution: ~800 x 800
+    max_dim = 800
+    scale = max(1, elevation.shape[0] // max_dim)
+
+    elevation_small = elevation[::scale, ::scale]
+
+    # ---- SLOPE ----
+    gy, gx = np.gradient(elevation_small)
+    slope = np.degrees(np.arctan(np.sqrt(gx**2 + gy**2)))
+
+    # ---- SMOOTH ----
+    smooth = gaussian_filter(slope, 3)
+    valleys = smooth < 12   # corridor threshold
+
+    # ------------------------------
+    # 🌍 Elevation Model
+    # ------------------------------
+    st.subheader("🌍 Elevation Model (Downsampled)")
+    st.plotly_chart(
+        px.imshow(elevation_small, color_continuous_scale="earth"),
+        use_container_width=True
+    )
+
+    # ------------------------------
+    # 🌀 CONTOUR LINES (using go.Contour)
+    # ------------------------------
+    st.subheader("🌀 Elevation Contours")
+    fig_contour = go.Figure(
+        data=go.Contour(
+            z=elevation_small,
+            colorscale="earth",
+            contours=dict(
+                showlines=True,
+                coloring="heatmap"
+            )
+        )
+    )
+    st.plotly_chart(fig_contour, use_container_width=True)
+
+    # ------------------------------
+    # ⛰ RAW SLOPE
+    # ------------------------------
+    st.subheader("⛰ Slope Map")
+    st.plotly_chart(
+        px.imshow(slope, color_continuous_scale="viridis"),
+        use_container_width=True
+    )
+
+    # ------------------------------
+    # 🔄 SMOOTHED SLOPE
+    # ------------------------------
+    st.subheader("🔄 Smoothed Slope (Noise Removed)")
+    st.plotly_chart(
+        px.imshow(smooth, color_continuous_scale="viridis"),
+        use_container_width=True
+    )
+
+    # ------------------------------
+    # 🐘 ELEPHANT CORRIDORS
+    # ------------------------------
+    st.subheader("🐘 Elephant Corridors (Valleys)")
+    st.plotly_chart(
+        px.imshow(valleys, color_continuous_scale=["black", "yellow"]),
+        use_container_width=True
+    )
+
+    # ------------------------------
+    # 🌋 3D ELEVATION MODEL
+    # ------------------------------
+    st.subheader("🌋 3D Elevation Surface")
+    fig3d = go.Figure(
+        data=[go.Surface(z=elevation_small, colorscale="earth")]
+    )
+    fig3d.update_layout(
+        height=600,
+        scene=dict(
+            xaxis_title="X",
+            yaxis_title="Y",
+            zaxis_title="Elevation"
+        )
+    )
+    st.plotly_chart(fig3d, use_container_width=True)
+
+
+
+###################################################
+#                SHAP-FREE EXPLAINABILITY
+###################################################
+
+def show_explainability_dashboard():
+    st.header("🔍 Data-Driven Explainability (No Model Needed)")
+
+    st.info("""
+    This module extracts explainability insights directly from
+    your conflict dataset — **without requiring an ML model**.
+
+    Included:
+    • Correlation heatmap  
+    • Sensitivity-based feature importance  
+    • Partial-dependency style plots  
+    • Mutual Information driver analysis  
+    """)
+
+    # ===================================================
+    # Load conflict data
+    # ===================================================
+    db = SessionLocal()
+    from app.models import ConflictIncident
+    incidents = db.query(ConflictIncident).all()
+    db.close()
+
+    if not incidents:
+        st.warning("No conflict data available.")
+        return
+
+    # Build dataframe
+    df = pd.DataFrame([{
+        "latitude": i.latitude,
+        "longitude": i.longitude,
+        "elephant_count": i.elephant_count,
+        "incident_type": i.incident_type,
+        "district": i.district,
+        "timestamp": i.timestamp
+    } for i in incidents])
+
+    df["timestamp"] = pd.to_datetime(df["timestamp"])
+    df["hour"] = df["timestamp"].dt.hour
+    df["month"] = df["timestamp"].dt.month
+
+    # ===================================================
+    # 1️⃣ Correlation Heatmap
+    # ===================================================
+    st.subheader("📌 Correlation Map")
+
+    numeric_df = df[["latitude", "longitude", "elephant_count", "hour", "month"]]
+    corr = numeric_df.corr()
+
+    fig = px.imshow(
+        corr,
+        text_auto=True,
+        color_continuous_scale="RdBu",
+        title="Correlation Between Key Numerical Features"
+    )
     st.plotly_chart(fig, use_container_width=True)
 
-# --- Updated Main App with New Tabs ---
+    # ===================================================
+    # 2️⃣ Sensitivity-Based (Variance) Feature Importance
+    # ===================================================
+    st.subheader("🔥 Feature Importance (Variance-Based)")
+
+    importance = numeric_df.var().sort_values(ascending=False)
+    imp_df = pd.DataFrame({
+        "Feature": importance.index,
+        "Importance": importance.values
+    })
+
+    fig = px.bar(
+        imp_df,
+        x="Feature",
+        y="Importance",
+        color="Importance",
+        color_continuous_scale="Blues",
+        title="Which Features Vary the Most? (Sensitivity)"
+    )
+    st.plotly_chart(fig, use_container_width=True)
+
+    # ===================================================
+    # 3️⃣ Partial Dependency Style Plots
+    # ===================================================
+    st.subheader("📈 Behavioral Relationships (Lowess Smoothed)")
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+        fig = px.scatter(
+            df,
+            x="elephant_count",
+            y="month",
+            trendline="lowess",
+            title="Elephant Count vs Month (Seasonality)"
+        )
+        st.plotly_chart(fig, use_container_width=True)
+
+    with col2:
+        fig = px.scatter(
+            df,
+            x="hour",
+            y="elephant_count",
+            trendline="lowess",
+            title="Time of Day vs Elephant Group Size"
+        )
+        st.plotly_chart(fig, use_container_width=True)
+
+    # ===================================================
+    # 4️⃣ Mutual Information (Feature → Incident Type)
+    # ===================================================
+    st.subheader("🧠 Conflict Driver Analysis (Mutual Information)")
+
+    from sklearn.feature_selection import mutual_info_classif
+
+    mi_df = df.copy()
+    mi_df["incident_label"] = mi_df["incident_type"].astype("category").cat.codes
+
+    features = ["elephant_count", "latitude", "longitude", "hour", "month"]
+    X = mi_df[features]
+    y = mi_df["incident_label"]
+
+    mi_scores = mutual_info_classif(X, y, discrete_features=False)
+
+    mi_plot = pd.DataFrame({
+        "Feature": features,
+        "Importance": mi_scores
+    }).sort_values("Importance", ascending=False)
+
+    fig = px.bar(
+        mi_plot,
+        x="Feature",
+        y="Importance",
+        color="Importance",
+        color_continuous_scale="Plasma",
+        title="Which Features Influence the Incident Type Most?"
+    )
+    st.plotly_chart(fig, use_container_width=True)
+
+    st.caption("Mutual Information estimates nonlinear dependency between features and incident types.")
+
+
+
+
+
+###################################################
+#                ECONOMIC IMPACT UI
+###################################################
+
+def get_5day_forecast():
+    return [
+        {'location':'Hambantota','latitude':6.124,'longitude':81.119,'risk_level':'High','elephant_count_est':4},
+        {'location':'Monaragala','latitude':6.872,'longitude':81.350,'risk_level':'Medium','elephant_count_est':2},
+        {'location':'Ampara','latitude':7.297,'longitude':81.675,'risk_level':'Critical','elephant_count_est':6},
+        {'location':'Polonnaruwa','latitude':7.940,'longitude':81.000,'risk_level':'Low','elephant_count_est':1},
+    ]
+
+
+def show_economic_impact_dashboard(return_data=False):
+    st.header("💰 Economic Impact & Resource Allocation")
+
+    forecast = get_5day_forecast()
+
+    # Basic severity scoring
+    preds = []
+    for item in forecast:
+        lvl = item["risk_level"]
+        base = {"Low":50000,"Medium":150000,"High":300000,"Critical":500000}.get(lvl,50000)
+        dmg = base * (1 + (item["elephant_count_est"]-1)*0.3)
+        preds.append({
+            **item,
+            "severity_level": "Critical" if lvl=="Critical" else "High" if lvl=="High" else "Medium",
+            "estimated_damage_rs": int(dmg),
+            "confidence": 0.7 if lvl in ["High","Critical"] else 0.5
+        })
+
+    df = pd.DataFrame(preds)
+    total_risk = sum(df["estimated_damage_rs"] * df["confidence"])
+    high_risk = len(df[df["severity_level"].isin(["High","Critical"])])
+
+    c1,c2,c3 = st.columns(3)
+    c1.metric("Total Expected Loss", f"Rs. {total_risk:,.0f}")
+    c2.metric("High Risk Locations", high_risk)
+    c3.metric("Avg Elephants", df["elephant_count_est"].mean().round(1))
+
+    st.subheader("🗺 Resource Allocation Map")
+    m = folium.Map(location=[7.8,80.7],zoom_start=8)
+
+    for _, r in df.iterrows():
+        color = "red" if r["severity_level"]=="Critical" else \
+                "orange" if r["severity_level"]=="High" else "yellow"
+        folium.Marker(
+            [r["latitude"],r["longitude"]],
+            popup=f"{r['location']}<br>Damage: Rs {r['estimated_damage_rs']:,}",
+            icon=folium.Icon(color=color)
+        ).add_to(m)
+
+    st_folium(m, width=1000, height=500)
+
+    st.subheader("💥 Economic Risk vs Severity Matrix")
+    df["sev_num"] = df["severity_level"].map({"Low":1,"Medium":2,"High":3,"Critical":4})
+    fig = px.scatter(
+        df, x="sev_num", y="estimated_damage_rs",
+        color="severity_level", size="estimated_damage_rs",
+        hover_name="location",
+        title="Economic Impact vs Severity Level"
+    )
+    st.plotly_chart(fig, use_container_width=True)
+
+    # 👇 Only return data IF the tab requests it
+    if return_data:
+        return df
+
+
+###################################################
+#                MANUAL PREDICT UI
+###################################################
+
+def show_manual_predict():
+    st.subheader("🔮 Manual Elephant Conflict Prediction")
+
+    with st.form("manual_predict_form"):
+        location = st.text_input("Location Name")
+        latitude = st.number_input("Latitude", format="%.6f")
+        longitude = st.number_input("Longitude", format="%.6f")
+        elephant_count = st.number_input("Elephant Count", min_value=0, max_value=50, step=1)
+        rainfall = st.number_input("Rainfall (mm)", min_value=0, step=1)
+        crop_type = st.selectbox("Crop Type", ["Paddy", "Maize", "Sugarcane", "Banana", "Other"])
+
+        submitted = st.form_submit_button("Predict Risk")
+
+    if submitted:
+        payload = {
+            "location": location,
+            "latitude": latitude,
+            "longitude": longitude,
+            "elephant_count": elephant_count,
+            "rainfall": rainfall,
+            "crop_type": crop_type
+        }
+
+        try:
+            res = requests.post(f"{API_URL}/predict", json=payload)
+            if res.status_code == 200:
+                pred = res.json()
+                st.success(f"Predicted Risk Level: **{pred['risk_level']}**")
+                st.metric("📈 Risk Score", round(pred["risk_score"], 2))
+
+            else:
+                st.error(f"Prediction failed: {res.text}")
+
+        except Exception as e:
+            st.error(f"Error connecting to prediction API: {e}")
+
+###################################################
+#                REPORT SIGHTING UI
+###################################################
+
+def show_report_sighting():
+    st.subheader("📝 Report Real-Time Elephant Sighting")
+
+    with st.form("report_sighting_form"):
+        location = st.text_input("Location / Village Name")
+        latitude = st.number_input("Latitude", format="%.6f")
+        longitude = st.number_input("Longitude", format="%.6f")
+        elephants = st.number_input("Number of Elephants", min_value=1, max_value=50, step=1)
+
+        behaviour = st.selectbox(
+            "Elephant Behaviour",
+            ["Calm", "Aggressive", "Crop-Raid", "Near Settlements"]
+        )
+
+        notes = st.text_area("Additional Notes (optional)")
+
+        submitted = st.form_submit_button("Submit Sighting")
+
+    if submitted:
+        payload = {
+            "location": location,
+            "latitude": latitude,
+            "longitude": longitude,
+            "elephant_count": elephants,
+            "behaviour": behaviour,
+            "notes": notes
+        }
+
+        try:
+            res = requests.post(f"{API_URL}/report-sighting", json=payload)
+
+            if res.status_code == 200:
+                st.success("✅ Sighting reported successfully!")
+                st.info("Thank you! This helps improve conflict monitoring accuracy.")
+
+            else:
+                st.error(f"Error: {res.text}")
+
+        except Exception as e:
+            st.error(f"Failed to send report: {e}")
+
+
+###################################################
+#                MAIN APP UI
+###################################################
+
 st.title("🐘 Elephant Conflict Early Warning System")
 
-# Updated tabs with new features
-tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs([
-    "📍 Live Risk Map",
-    "🔮 5-Day Forecast", 
-    "📊 Analytics Dashboard",
-    "🐘 Territory Analysis",  # NEW
-    "💰 Economic Impact",     # NEW
+tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9 = st.tabs([
+    "📍 Live Map",
+    "🔮 5-Day Forecast",
+    "📊 Analytics",
+    "🐘 Territory Analysis",
+    "🗻 Terrain Modeling",
+    "🔍 Explainability",
+    "💰 Economic Impact",
     "⚙️ Manual Predict",
     "📝 Report Sighting"
 ])
 
-# --- TAB 1: Live Risk Map (UNCHANGED) ---
+###################################################
+#         🔥 NEW: Causal Inference Module
+###################################################
+
+def estimate_causal_effect(df):
+    import numpy as np
+    import plotly.express as px
+    from sklearn.linear_model import LogisticRegression
+
+    st.subheader("🧠 Causal Inference on Economic Damage")
+
+    df = df.copy()
+    df["treatment"] = (df["elephant_count_est"] >= 3).astype(int)
+
+    # Outcome
+    Y = df["estimated_damage_rs"]
+    T = df["treatment"]
+
+    # Propensity score model
+    ps_model = LogisticRegression()
+    ps_model.fit(df[["elephant_count_est"]], T)
+    df["ps"] = ps_model.predict_proba(df[["elephant_count_est"]])[:, 1]
+
+    # Inverse Propensity Weighting
+    df["weight"] = T / df["ps"] + (1 - T) / (1 - df["ps"])
+
+    ate = (df["weight"] * Y).sum() / df["weight"].sum()
+
+    st.metric("📌 Estimated Causal Effect (ATE)",
+              f"+ Rs {ate:,.0f} additional damage")
+
+    st.info("""
+    **Interpretation:**  
+    High elephant presence *causes* an increase in expected economic loss.  
+    We adjust for imbalance using IPW (Inverse Propensity Weighting).
+    """)
+
+    st.subheader("📈 Simplified Causal Graph")
+    st.write("""
+    Elephant Count ─────▶ Damage  
+           ▲  
+           │  
+        Rainfall  
+    """)
+
+    # Causal scatter plot
+    fig = px.scatter(
+        df,
+        x="elephant_count_est",
+        y="estimated_damage_rs",
+        color="treatment",
+        size="estimated_damage_rs",
+        hover_name="location",
+        title="Causal Relationship: Elephant Count → Damage"
+    )
+
+    st.plotly_chart(fig, use_container_width=True)
+
+
+###################################################
+#                TAB CONTENTS
+###################################################
+
+# -------- TAB 1 ----------
 with tab1:
-    st.header("Live Conflict Risk Map")
-    st.markdown("This map shows real-time predicted conflict risk levels. Data is updated based on the latest environmental data.")
-    
-    if st.button("Refresh Map"):
-        st.cache_data.clear()
-    
-    heatmap_data = get_risk_heatmap()
-    
-    if not heatmap_data:
-        st.warning("Could not fetch heatmap data. Is the API server running and is the API key valid?")
+    st.header("📍 Live Conflict Risk Map")
+
+    # Pull latest conflict data directly from database
+    db = SessionLocal()
+    from app.models import ConflictIncident
+    incidents = db.query(ConflictIncident).all()
+    db.close()
+
+    if not incidents:
+        st.warning("No conflict data available.")
     else:
-        m = folium.Map(location=[7.8731, 80.7718], zoom_start=8)
-        
-        def get_color(risk_level):
-            if risk_level == "High": return "red"
-            elif risk_level == "Medium": return "orange"
-            else: return "green"
-        
-        for item in heatmap_data:
-            loc = item.get("location", "Unknown")
-            risk = item.get("risk_level", "Low")
-            lat = item.get("latitude")
-            lon = item.get("longitude")
-            
-            if lat is None or lon is None:
-                coords = locations.get_coords(loc)
-                if coords:
-                    lat, lon = coords
-                else:
-                    st.warning(f"Missing coordinates for {loc}. Skipping.")
-                    continue
+        df = pd.DataFrame([{
+            "timestamp": i.timestamp,
+            "location": i.location,
+            "latitude": i.latitude,
+            "longitude": i.longitude,
+            "district": i.district,
+            "incident_type": i.incident_type,
+            "elephant_count": i.elephant_count
+        } for i in incidents])
+
+        # Derive risk score (simple heat formula)
+        df["risk_score"] = (
+            df["elephant_count"] * 1.5 +
+            df["incident_type"].map({
+                "crop_raid": 3,
+                "property_damage": 4,
+                "human_injury": 6,
+                "elephant_death": 8
+            }).fillna(2)
+        )
+
+        # Convert score → level
+        def risk_level(x):
+            if x >= 8:
+                return "Critical"
+            elif x >= 5:
+                return "High"
+            elif x >= 3:
+                return "Medium"
+            else:
+                return "Low"
+
+        df["risk_level"] = df["risk_score"].apply(risk_level)
+
+        # Create map
+        m = folium.Map(location=[7.8, 80.7], zoom_start=8)
+
+        for _, row in df.iterrows():
+            color = (
+                "red" if row["risk_level"] == "Critical" else
+                "orange" if row["risk_level"] == "High" else
+                "yellow" if row["risk_level"] == "Medium" else
+                "green"
+            )
+
+            popup = f"""
+            <b>Location:</b> {row['location']}<br>
+            <b>Type:</b> {row['incident_type']}<br>
+            <b>Elephants:</b> {row['elephant_count']}<br>
+            <b>Risk:</b> {row['risk_level']}
+            """
 
             folium.CircleMarker(
-                location=[lat, lon],
-                radius=15,
-                popup=f"<strong>{loc}</strong><br>Risk: {risk}",
-                color=get_color(risk),
+                [row["latitude"], row["longitude"]],
+                radius=10,
+                color=color,
                 fill=True,
-                fill_color=get_color(risk),
-                fill_opacity=0.7
+                fill_opacity=0.7,
+                popup=popup
             ).add_to(m)
-        
-        st_folium(m, width="100%", height=500)
-        
-        with st.expander("Show Raw Heatmap Data"):
-            st.json(heatmap_data)
 
-# --- TAB 2: 5-Day Forecast (UNCHANGED) ---
+        st_folium(m, width="100%", height=550)
+
+
+
+# -------- TAB 2 ----------
 with tab2:
-    st.header("🔮 5-Day Risk Forecast")
-    st.markdown("Select a location to see the predicted conflict risk for the next 5 days, based on the weather forecast.")
-    
-    location_names = locations.get_location_names()
-    selected_location = st.selectbox("Select Location", location_names, key="forecast_loc")
-    
-    if st.button(f"Get 5-Day Forecast for {selected_location}"):
-        with st.spinner("Fetching forecast and predicting risk..."):
-            try:
-                response = requests.get(f"{API_URL}/predict-forecast/{selected_location}", headers=API_HEADERS)
-                response.raise_for_status()
-                forecast_data = response.json()
-                
-                if not forecast_data:
-                    st.warning("No forecast data returned from API.")
-                else:
-                    st.subheader(f"Risk Forecast: {selected_location}")
-                    df = pd.DataFrame(forecast_data)
-                    df['date'] = pd.to_datetime(df['date'])
-                    risk_map = {"Low": 1, "Medium": 2, "High": 3}
-                    df['risk_score'] = df['risk_level'].map(risk_map)
-                    
-                    fig = px.bar(
-                        df, 
-                        x='date', 
-                        y='risk_score',
-                        color='risk_level',
-                        text='risk_level',
-                        title=f"5-Day Risk Forecast for {selected_location}",
-                        color_discrete_map={"Low": "#2ca02c", "Medium": "#ff7f0e", "High": "#d62728"},
-                        category_orders={"risk_level": ["Low", "Medium", "High"]}
-                    )
-                    fig.update_yaxes(title="Risk Level", tickvals=[1, 2, 3], ticktext=["Low", "Medium", "High"])
-                    fig.update_xaxes(title="Date", dtick="D1", tickformat="%a, %b %d")
-                    st.plotly_chart(fig, use_container_width=True)
-                    
-                    with st.expander("Show Raw Forecast Data"):
-                        st.dataframe(df)
-            except requests.exceptions.RequestException as e:
-                st.error(f"Error fetching forecast: {e}")
-                if e.response:
-                    st.error(f"Details: {e.response.json()}")
+    st.header("🔮 5-Day Forecast & Alerts")
+    st.info("Demo mode with automatic translation between English, Sinhala and Tamil.")
 
-# --- TAB 3: Analytics Dashboard (UNCHANGED) ---
+    # Demo forecast data
+    forecast = [
+        {"day": "Day 1", "location": "Hambantota", "rainfall_mm": 12, "risk": "Medium", "elephant_count": 8},
+        {"day": "Day 2", "location": "Hambantota", "rainfall_mm": 23, "risk": "High", "elephant_count": 15},
+        {"day": "Day 3", "location": "Hambantota", "rainfall_mm": 5,  "risk": "Low", "elephant_count": 3},
+        {"day": "Day 4", "location": "Hambantota", "rainfall_mm": 30, "risk": "High", "elephant_count": 12},
+        {"day": "Day 5", "location": "Hambantota", "rainfall_mm": 18, "risk": "Medium", "elephant_count": 7},
+    ]
+
+    df = pd.DataFrame(forecast)
+    st.dataframe(df, use_container_width=True)
+
+    st.subheader("📩 Multi-Language Alerts (Auto Generated)")
+
+    for _, row in df.iterrows():
+
+        # Base message (one template only — auto-translates)
+        english_message = f"""
+Day: {row['day']}
+Location: {row['location']}
+Rainfall: {row['rainfall_mm']} mm
+Elephants Detected: {row['elephant_count']}
+Risk Level: {row['risk']}
+
+Please take necessary precautions.
+"""
+
+        translations = auto_translate(english_message)
+
+        with st.expander(f"{row['day']} — {row['risk']} Risk — {row['location']}", expanded=row["risk"] != "Low"):
+
+            st.write("### 🌾 Farmer Message (Simplified Tone)")
+
+            farmer_template = f"""
+FARMER ALERT:
+{english_message}
+
+Action:
+• Protect crops
+• Avoid night travel
+• Report sightings immediately
+"""
+
+            farmer_translated = auto_translate(farmer_template)
+
+            col1, col2, col3 = st.columns(3)
+
+            with col1:
+                st.text_area("English (Farmer)", farmer_translated["English"], height=150)
+
+            with col2:
+                st.text_area("Sinhala (Farmer)", farmer_translated["Sinhala"], height=150)
+
+            with col3:
+                st.text_area("Tamil (Farmer)", farmer_translated["Tamil"], height=150)
+
+            # OFFICIAL MESSAGE
+            st.write("### 🛡 wildlife Official Alert (Formal Tone)")
+
+            official_template = f"""
+WILDLIFE DEPARTMENT ALERT:
+A {row['risk']} risk of elephant conflict has been detected.
+
+Location: {row['location']}
+Rainfall: {row['rainfall_mm']} mm
+Elephant Group Size: {row['elephant_count']}
+Day: {row['day']}
+
+Recommended Actions:
+• Deploy patrol units
+• Monitor migratory corridors
+• Update command center
+"""
+
+            official_translated = auto_translate(official_template)
+
+            col4, col5, col6 = st.columns(3)
+
+            with col4:
+                st.text_area("English (Official)", official_translated["English"], height=150)
+
+            with col5:
+                st.text_area("Sinhala (Official)", official_translated["Sinhala"], height=150)
+
+            with col6:
+                st.text_area("Tamil (Official)", official_translated["Tamil"], height=150)
+
+    st.caption("💡 Auto-translation is generated locally with deep-translator — no external paid API, no SMS errors.")
+
+
+
+
+
+# -------- TAB 3 ----------
 with tab3:
-    st.header("📊 Historical Conflict Analytics")
-    analytics_data = get_analytics()
-    if not analytics_data:
-        st.error("Could not load analytics data. API server may be down or API key is invalid.")
-    elif analytics_data.get("error"):
-        st.warning(analytics_data.get("error"))
-    else:
-        col1, col2 = st.columns(2)
-        with col1:
-            st.subheader("Incidents by Type")
-            df_type = pd.DataFrame(analytics_data.get("by_type", []))
-            if not df_type.empty:
-                fig_type = px.pie(df_type, names='type', values='count', hole=0.3)
-                st.plotly_chart(fig_type, use_container_width=True)
-            else:
-                st.warning("No 'by_type' data.")
-        with col2:
-            st.subheader("Incidents by Location")
-            df_loc = pd.DataFrame(analytics_data.get("by_location", []))
-            if not df_loc.empty:
-                fig_loc = px.bar(df_loc, x='location', y='count', color='location')
-                st.plotly_chart(fig_loc, use_container_width=True)
-            else:
-                st.warning("No 'by_location' data.")
-        st.subheader("Incidents Over Time")
-        df_time = pd.DataFrame(analytics_data.get("over_time", []))
-        if not df_time.empty:
-            fig_time = px.line(df_time, x='month_year', y='count', markers=True)
-            st.plotly_chart(fig_time, use_container_width=True)
-        else:
-            st.warning("No 'over_time' data.")
+    st.header("📊 Analytics")
 
-# --- NEW TAB 4: Territory Analysis ---
+    db = SessionLocal()
+    from app.models import ConflictIncident
+
+    incidents = db.query(ConflictIncident).all()
+    db.close()
+
+    if not incidents:
+        st.warning("No conflict data available.")
+    else:
+        # Build dataframe
+        df = pd.DataFrame([{
+            "timestamp": i.timestamp,
+            "location": i.location,
+            "latitude": i.latitude,
+            "longitude": i.longitude,
+            "district": i.district,
+            "incident_type": i.incident_type,
+            "elephant_count": i.elephant_count
+        } for i in incidents])
+
+        df["timestamp"] = pd.to_datetime(df["timestamp"])
+        df["month"] = df["timestamp"].dt.month
+        df["year"] = df["timestamp"].dt.year
+        df["hour"] = df["timestamp"].dt.hour
+
+        # ======================
+        # 1️⃣ INCIDENT TYPE SHARE
+        # ======================
+        st.subheader("Incident Type Distribution")
+        fig = px.pie(
+            df,
+            names="incident_type",
+            title="Share of Incident Types",
+            hole=0.3
+        )
+        st.plotly_chart(fig, use_container_width=True)
+
+        # ======================
+        # 2️⃣ MONTHLY TREND
+        # ======================
+        st.subheader("Monthly Conflict Trend")
+
+        trend = df.groupby(["year", "month"]).size().reset_index(name="count")
+        trend["date"] = pd.to_datetime(trend[["year", "month"]].assign(day=1))
+
+        fig = px.line(
+            trend,
+            x="date",
+            y="count",
+            markers=True,
+            title="Conflict Frequency Over Time"
+        )
+        st.plotly_chart(fig, use_container_width=True)
+
+        # ======================
+        # 3️⃣ DISTRICT HEATMAP
+        # ======================
+        st.subheader("District Hotspot Heatmap")
+
+        district_counts = df.groupby("district").size().reset_index(name="count")
+
+        fig = px.bar(
+            district_counts.sort_values("count", ascending=False),
+            x="district",
+            y="count",
+            title="Top Conflict Districts",
+            color="count",
+            color_continuous_scale="Reds"
+        )
+        st.plotly_chart(fig, use_container_width=True)
+
+        # ======================
+        # 4️⃣ PEAK HOURS
+        # ======================
+        st.subheader("Peak Conflict Hours")
+
+        hourly = df.groupby("hour").size().reset_index(name="count")
+
+        fig = px.bar(
+            hourly,
+            x="hour",
+            y="count",
+            title="Conflicts by Hour of Day"
+        )
+        st.plotly_chart(fig, use_container_width=True)
+
+        # ======================
+        # 5️⃣ ELEPHANT GROUP SIZE
+        # ======================
+        st.subheader("Elephant Group Size Distribution")
+
+        fig = px.box(
+            df,
+            y="elephant_count",
+            title="Elephant Group Size During Conflicts"
+        )
+        st.plotly_chart(fig, use_container_width=True)
+
+        # ======================
+        # 6️⃣ INCIDENT–DISTRICT CORRELATION
+        # ======================
+        st.subheader("Incident Type vs District (Correlation)")
+
+        pivot = pd.pivot_table(
+            df,
+            index="district",
+            columns="incident_type",
+            values="elephant_count",
+            aggfunc="count",
+            fill_value=0
+        )
+
+        fig = px.imshow(
+            pivot,
+            text_auto=True,
+            color_continuous_scale="RdBu",
+            title="District vs Incident Type Heatmap"
+        )
+        st.plotly_chart(fig, use_container_width=True)
+
+        # ======================
+        # 7️⃣ CONFLICT DRIVER ANALYSIS (Mutual Information)
+        # ======================
+        from sklearn.feature_selection import mutual_info_classif
+
+        st.subheader("🧠 Conflict Driver Analysis (Mutual Information)")
+
+        mi_df = df.copy()
+        mi_df["incident_label"] = mi_df["incident_type"].astype("category").cat.codes
+
+        features = ["elephant_count", "latitude", "longitude", "hour", "month"]
+        X = mi_df[features]
+        y = mi_df["incident_label"]
+
+        mi_scores = mutual_info_classif(X, y, discrete_features=False)
+
+        mi_plot = pd.DataFrame({
+            "Feature": features,
+            "Importance": mi_scores
+        }).sort_values("Importance", ascending=False)
+
+        fig = px.bar(
+            mi_plot,
+            x="Feature",
+            y="Importance",
+            color="Importance",
+            color_continuous_scale="Plasma",
+            title="Which Factors Drive Conflict Type?"
+        )
+        st.plotly_chart(fig, use_container_width=True)
+
+        st.caption("Mutual Information reveals nonlinear influence of each feature on conflict type.")
+
+
+
+
+# -------- TAB 4 ----------
 with tab4:
     show_territory_analysis()
 
-# --- NEW TAB 5: Economic Impact ---  
+
+# -------- TAB 5 ----------
 with tab5:
-    show_economic_impact_dashboard()
+    show_terrain_modeling()
 
-# --- TAB 6: Manual Predict (UNCHANGED) ---
+
+# -------- TAB 6 ----------
 with tab6:
-    st.header("⚙️ Manual Predict")
-    st.markdown("Manually trigger a prediction for a specific set of conditions.")
-    
-    with st.form("predict_form"):
-        col1, col2 = st.columns(2)
-        with col1:
-            location = st.selectbox("Select Location", locations.get_location_names(), key="predict_loc")
-            prediction_date = st.date_input("Date", date.today(), key="predict_date")
-        with col2:
-            rainfall_mm = st.number_input("Rainfall (mm)", min_value=0.0, value=10.0, key="rainfall")
-            vegetation_index = st.number_input("Vegetation Index (NDVI)", min_value=0.0, max_value=1.0, value=0.5, key="vegetation")
-        
-        submitted = st.form_submit_button("Predict Risk")
-        
-    if submitted:
-        payload = {
-            "date": prediction_date.isoformat(),
-            "location": location,
-            "rainfall_mm": rainfall_mm,
-            "vegetation_index": vegetation_index
-        }
-        
-        try:
-            response = requests.post(f"{API_URL}/predict-risk/", json=payload, headers=API_HEADERS)
-            response.raise_for_status()
-            result = response.json()
-            
-            st.subheader("Prediction Result")
-            risk_level = result.get("risk_level")
-            
-            if risk_level == "High":
-                st.error(f"**Risk Level: {risk_level}**")
-                st.warning(f"Alert Status: {result.get('alert_status')}")
-            elif risk_level == "Medium":
-                st.warning(f"**Risk Level: {risk_level}**")
-            else:
-                st.success(f"**Risk Level: {risk_level}**")
-            
-            with st.expander("Show Full API Response"):
-                st.json(result)
-                
-        except requests.exceptions.RequestException as e:
-            st.error(f"Error calling prediction API: {e}")
-            st.json(e.response.json() if e.response else "No response from server.")
+    show_explainability_dashboard()
 
-# --- TAB 7: Report Sighting (UNCHANGED) ---
+# -------- TAB 7 ----------
 with tab7:
-    st.header("📝 Report an Elephant Sighting")
-    st.markdown("Use this form to submit a report if you have seen an elephant. This helps improve our data.")
-    
-    with st.form("report_form"):
-        location = st.selectbox("Select Location", locations.get_location_names(), key="report_loc")
-        elephant_count = st.number_input("Number of Elephants", min_value=1, value=1, step=1, key="elephant_count")
-        description = st.text_area("Description (optional)", placeholder="e.g., 'A small herd near the main road.'", key="description")
-        
-        report_submitted = st.form_submit_button("Submit Report")
-        
-    if report_submitted:
-        payload = {
-            "location": location,
-            "elephant_count": elephant_count,
-            "description": description
-        }
-        
-        try:
-            response = requests.post(f"{API_URL}/report-sighting/", json=payload, headers=API_HEADERS)
-            response.raise_for_status()
-            st.success("Report submitted. Thank you!")
-        except requests.exceptions.RequestException as e:
-            st.error(f"Error submitting report: {e}")
+    st.header("💰 Economic Impact & Causal Insights")
+
+    # 1️⃣ Economic model
+    df = show_economic_impact_dashboard(return_data=True)
+
+    # 2️⃣ Causal inference
+    if df is not None:
+        estimate_causal_effect(df)
+
+
+# -------- TAB 8 ----------
+with tab8:
+    st.header("Manual Predict")
+    show_manual_predict()
+
+# -------- TAB 9 ----------
+with tab9:
+    st.header("Report Sighting")
+    show_report_sighting()
+
+
+

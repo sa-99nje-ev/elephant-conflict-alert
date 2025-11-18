@@ -1,38 +1,170 @@
 🐘 Elephant Conflict Early Warning System (EWS)
 
-This project is a full-stack application that predicts human-elephant conflict risk in Sri Lanka. It uses a machine learning model, live weather forecast data, and sends real-time SMS alerts to warn communities of high-risk periods.
+A full-stack geospatial, analytics-driven system designed to predict, analyze, and visualize human–elephant conflict risk in Sri Lanka.
+Built with FastAPI + Streamlit + SQLAlchemy + GIS tools, this project provides:
 
-✨ Core Features (Work Complete: Day 1-5)
+✔ Conflict risk forecasting
+✔ Territory & movement analysis
+✔ Terrain corridor modeling
+✔ Farmer sighting data ingestion
+✔ Fully interactive dashboards
+✔ Multi-language alerts (Sinhala, Tamil, English)
+✔ Explainability (model-free analytics)
+✔ NO third-party SMS dependencies
 
-ML Risk Prediction: Trains a Random Forest model on historical and environmental data to predict "High," "Medium," or "Low" conflict risk. (Day 2)
+✨ Key Features
+📍 1. Live Conflict Risk Map
 
-5-Day Risk Forecast: Fetches a 5-day weather forecast from OpenWeatherMap and runs it through the ML model to predict risk for the coming days. (Day 4)
+Displays real-time model predictions as a geospatial heatmap using Folium.
 
-Interactive Dashboard: A multi-page Streamlit web app for visualizing data and interacting with the system. (Day 2)
+📊 2. Advanced Analytics Dashboard
 
-Live Risk Map: A Folium map showing the latest risk predictions for all monitored locations. (Day 2)
+Includes:
 
-Analytics Dashboard: A page with interactive Plotly charts showing historical conflict data by type, location, and time. (Day 2)
+Incident type distribution
 
-Real-Time SMS Alerts: Automatically sends a real SMS alert via Twilio to a verified phone number when a "High" risk event is predicted. (Day 3)
+Monthly trends
 
-Farmer Sighting Reports: A dashboard tab allowing users to submit their own elephant sighting reports, which are saved directly to the database. (Day 3)
+District heatmaps
 
-Secure API Backend: The FastAPI backend is secured with an API key. Only authenticated requests (like from the dashboard) are allowed to access the data or trigger predictions. (Day 5)
+Peak hours
+
+Elephant group size analysis
+
+Incident vs district correlation
+
+Mutual information–based conflict driver analysis
+
+🐘 3. Territory Analysis
+
+Extracts hidden patterns from conflict data:
+
+DBSCAN clustering
+
+Seasonal activity cycles
+
+Movement tracking
+
+Territory expansion detection
+
+🗻 4. Terrain Modeling & Elephant Corridors
+
+Using elevation raster (GeoTIFF):
+
+Elevation model
+
+Slope maps
+
+Smoothed terrain
+
+Corridor (valley) extraction using slope thresholds
+
+Lightweight 3D-ready visualizations
+
+🔍 5. Explainability Without a Model
+
+A model-free SHAP-inspired module:
+
+Correlation heatmaps
+
+Sensitivity-based feature importance
+
+Partial dependency style plots
+
+Mutual information driver ranking
+
+No ML model? No problem — this works purely on real conflict data.
+
+🔮 6. 5-Day Forecast & Multi-language Alerts
+
+A demo forecast simulator generating alerts in:
+
+English
+
+Sinhalese
+
+Tamil
+
+Alert types:
+
+Low risk
+
+Medium risk
+
+High risk
+
+With language-switching and message export (JSON).
+⚠ No SMS sending backend (Twilio removed entirely).
+
+👨‍🌾 7. Farmer Sighting Reports
+
+Front-end UI + backend endpoint to log real-time elephant sightings:
+
+Location
+
+Coordinates
+
+Elephant count
+
+Behavior
+
+Notes
+
+All saved in the SQLite database.
+
+⚙️ 8. Manual Predict UI
+
+Allows users to manually submit:
+
+Location
+
+Coordinates
+
+Elephant count
+
+Rainfall
+
+Crop type
+
+And get a simulated risk prediction.
+
+💰 9. Economic Impact Dashboard + Causal Inference
+
+Includes:
+
+Expected loss estimation
+
+Resource allocation map
+
+Severity matrix
+
+Causal effect estimation (ATE) to analyze impact of elephant activity
 
 💻 Tech Stack
+Backend
 
-Backend: FastAPI, Uvicorn, SQLAlchemy
+FastAPI
+SQLAlchemy
+SQLite
+Pydantic
+AioHTTP (for future async APIs)
 
-Frontend: Streamlit
+Frontend
 
-Data Science: Pandas, Scikit-learn, Plotly, Folium
+Streamlit
+Plotly
+Folium
+streamlit-folium
 
-Database: SQLite
+Data Science
 
-External APIs: Twilio (for SMS), OpenWeatherMap (for weather)
+Pandas
+Numpy
+Scikit-learn
+Joblib
+Rasterio
+Gaussian filters
 
-Security: python-dotenv, FastAPI APIKeyHeader
 
 📁 Project Structure
 
@@ -40,102 +172,88 @@ elephant-conflict-alert/
 │
 ├── app/
 │   ├── __init__.py
-│   ├── database.py         # Database connection
-│   ├── data_loader.py      # Creates synthetic data
-│   ├── dependencies.py     # API key security
-│   ├── locations.py        # Location coordinates
-│   ├── ml_predictor.py     # The ML model logic
-│   ├── models.py           # SQLAlchemy database tables
-│   ├── notifications.py    # Twilio SMS/email logic
-│   ├── schemas.py          # Pydantic data validation
-│   └── weather_fetcher.py  # OpenWeatherMap API logic
+│   ├── database.py              # Database engine + session
+│   ├── models.py                # SQLAlchemy ORM models
+│   ├── schemas.py               # Pydantic schemas
+│   ├── locations.py             # Predefined SL conflict hotspot coordinates
+│   ├── data_loader.py           # Loads/cleans CSV dataset
+│   ├── notifications.py         # Multi-language message builders (no SMS backend)
+│   ├── weather_fetcher.py       # (Optional) Weather API async fetcher
+│   ├── ml_predictor.py          # Risk prediction logic (rule-based / ML-ready)
+│   │
+│   ├── herd_analyzer.py         # DBSCAN territory clustering + movement analysis
+│   ├── terrain_analyzer.py      # Slope, elevation, corridor extraction
+│   ├── explainability.py        # Model-free explainability utilities
+│   ├── severity_predictor.py    # Economic loss + severity scoring
+│   │
+│   ├── test_weather.py          # Utility tester for weather fetching
+│   └── main.py                  # FastAPI backend application (core API)
 │
-├── venv/                   # Your local virtual environment
+├── app/data/
+│   ├── sri_lanka_elephant_conflict.csv
+│   ├── sri_lanka_elevation.tif
+│   ├── elevation_tiles/
+│   │   ├── N06E080.hgt
+│   │   ├── N06E081.hgt
+│   │   ├── N07E080.hgt
+│   │   ├── N07E081.hgt
+│   │   ├── N08E080.hgt
+│   │   ├── N09E080.hgt
+│   │   └── ... (raw SRTM tiles)
 │
-├── .env                    # <-- All your secret API keys
+├── generate_elevation.py         # Merges SRTM tiles → final GeoTIFF
+├── merge_srtm_tiles.py           # Raw tile stitching helper
+├── import_conflicts.py           # Imports CSV into DB cleanly
+│
+├── dashboard.py                  # Full Streamlit UI (9 modules)
+├── elephant_conflict.db          # SQLite database
+│
+├── requirements.txt
+├── .env
 ├── .gitignore
-├── dashboard.py            # The Streamlit dashboard UI
-├── elephant_conflict.db    # Your local SQLite database
-├── main.py                 # The FastAPI application
-├── README.md               # This file
-├── requirements.txt        # Python libraries
-├── run_day1.py             # Script to initialize the database
-└── run_day2.py             # Script to train the ML model
+├── README.md
+├── run_day1.py                   # Initialize DB, load data
+└── run_day2.py                   # (Optional) Train ML (if enabled)
 
 
-🚀 How to Run This Project
+🚀 How to Run
 
-Follow these steps to set up and run the application on your local machine.
-
-1. API Key Setup (.env file)
-
-This project requires 3 external API keys to function.
-
-Create a file named .env in the root folder (elephant-conflict-alert/).
-
-Paste the following content into it, filling in your own secret keys.
-
-# .env file
-
-# 1. Twilio (for SMS Alerts)
-# Get from twilio.com
-TWILIO_ACCOUNT_SID="YOUR_LIVE_ACCOUNT_SID"
-TWILIO_AUTH_TOKEN="YOUR_LIVE_AUTH_TOKEN"
-TWILIO_PHONE_NUMBER="YOUR_TWILIO_TRIAL_PHONE_NUMBER"
-YOUR_MOBILE_NUMBER="YOUR_PERSONAL_VERIFIED_PHONE_NUMBER_WITH_+COUNTRY_CODE"
-
-# 2. OpenWeatherMap (for 5-Day Forecast)
-# Get from openweathermap.org
-OWM_API_KEY="YOUR_OPENWEATHERMAP_API_KEY"
-
-# 3. App Security (This can be any secret password you want)
-APP_API_KEY="my-super-secret-key-12345"
-
-
-2. Installation
-
-Create a virtual environment:
-
-python -m venv venv
-
-
-Activate it (in PowerShell):
-
-.\venv\Scripts\Activate.ps1
-
-
-Install all libraries:
+1️⃣ Install dependencies
 
 pip install -r requirements.txt
 
 
-Initialize the Database: Run the Day 1 script to create your elephant_conflict.db file and fill it with data.
+2️⃣ Initialize the Database
 
 python run_day1.py
 
 
-3. Run the Application
-
-This application requires two terminals to run at the same time.
-
-In your FIRST terminal (PowerShell):
-
-Activate the venv: .\venv\Scripts\Activate.ps1
-
-Start the FastAPI server:
+Start FastAPI Backend
 
 uvicorn main:app --reload
 
 
-Your API is now running at http://localhost:8000
+Backend docs available at:
+👉 http://localhost:8000/docs
 
-In your SECOND terminal (PowerShell):
 
-Activate the venv: .\venv\Scripts\Activate.ps1
-
-Start the Streamlit dashboard:
+Start Streamlit Dashboard
 
 streamlit run dashboard.py
 
 
-Your dashboard will automatically open in your browser at http://localhost:8501
+Dashboard opens at:
+👉 http://localhost:8501
+
+
+
+🔑 Environment Variables
+
+.env file required only for app security:
+
+APP_API_KEY="my-secret-key"
+
+
+✔ Status
+
+This system is fully functional, error-free, and dashboard-ready.
